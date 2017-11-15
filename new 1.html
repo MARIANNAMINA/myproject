@@ -12,14 +12,14 @@
 			  margin: 0;
 			  text-align: center;
 			}
-
 			
 			
 			/* Style the header */
 			.header {
-				background-color: #f1f1f1;
+				background-color: #31333F;
 				padding: 120px;
-				text-align: center;
+				text-align: left;
+				color: #ffffff
 				
 			}
 			
@@ -34,12 +34,16 @@
 				
 			}
 			
+			.singlebutton{
+			 			text-align: center;
+ 			font-size: 18pt;
+ 			width: 120px;
+ 			background-color: #d9e9ed;
+ 			font-family: sans-serif, Arial;
+			}
 
-
+			
 			</style>
-	
-	
-	
 	
 	
 	
@@ -49,28 +53,29 @@
   <body>
   
   
-  
-  
-  <div class="header">
-  <img src="s.png" width="333" height="300">
-  
-</div>
-  
-  <form class="form-horizontal">
-  
-	
-<fieldset>
+
+	  <div class="header">
+	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="283" height="250">
+	  
+	  <label for="companyname"  style="font-size: 50pt;"> <b>Statare Brands LTD </b></label>
+	  
+	</div>
+	  
+	  <form class="form-horizontal">
+	  
+		
+	<fieldset>
 
 				
-<!-- Text input-->
-<div class="form-group">
-  <label  for="textinput" style="font-size: 30pt;"><b>Username </b></label> 
-  <input id="textinput" name="textinput" type="text" placeholder=""  required="">
-    
-</div>
+				<!-- Text input-->
+				<div class="form-group">
+				  <label  for="textinput" style="font-size: 26pt;"><b>Username </b></label> 
+				  <input id="textinput" name="textinput" type="text" placeholder=""  required="">
+					
+				</div>
 
-	<div class="form-group">
-				  <label for="passwordinput"  style="font-size: 30pt;"> <b>Password </b></label>
+				<div class="form-group">
+				  <label for="passwordinput"  style="font-size: 26pt;"> <b>Password </b></label>
 				
 					<input id="passwordinput" name="passwordinput" type="password" placeholder=""  required="">
 					
@@ -78,7 +83,8 @@
 				</div>
 
 				
-								
+				<button id="singlebutton"class="singlebutton">Login</button><p />
+				<!--				
 				<div class="form-group">
 				  <label  for="singlebutton" style="font-size: 30pt;"></label>
 				 
