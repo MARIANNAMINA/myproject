@@ -11,9 +11,8 @@
 		}
 	
 		/* Style the header */
-		.header {
+		.header1 {
 			background-color: #f1f1f1;
-			padding: 60px;
 			text-align: left;			
 		}	
 			
@@ -39,20 +38,87 @@
 			font-family: sans-serif, Arial;
 			font-size: 62pt;
 		}
+		
 		.date{
 			text-align: center;
 			font-family: sans-serif, Arial;
 			font-size: 30pt;
 		}
 		
+		.buttondropdown{
+			font-family: sans-serif, Arial; 
+			float: right; 
+			padding: 0px;
+		}
+		.dropbtn {
+			background-color: #f1f1f1;
+			color: black;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
+
+		.dropdown {
+			position: relative;
+			display: inline-block;
+			float: right; 
+		}
+
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		}
+
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
+
+		.dropdown-content a:hover {background-color: #f1f1f1}
+
+		.dropdown:hover .dropdown-content {
+			display: block;
+		}
+
+		.dropdown:hover .dropbtn {
+			background-color: #f1f1f1;
+		}
 	</style>
 	
 	</head>
 	<body>
-	<div class="header">
+	
+	<button id="singlebutton" name="singlebutton" style="font-size: 18pt; font-family: sans-serif, Arial; background-color: #d9e9ed; float: right; " >Log out</button>
+	
+	<div class="header1">
 	<img src="s.png" width="111" height="100">
-  
+	
+	
+	<div class="dropdown">
+		<button class="dropbtn">Language</button>
+		<div class="dropdown-content">
+			<a href="#">Ελληνικά</a>
+			<a href="#">English</a>
+			<a href="#">Norsk</a>
+			<a href="#">Polski</a>
+			<a href="#">Deutsch</a>
+			<a href="#">Svenska</a>
+			
+		</div>
 	</div>
+		  
+	
+	
+	</div>
+	
+	
 
 	<br />
 	<br />
