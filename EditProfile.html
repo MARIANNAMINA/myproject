@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Edit Employee</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+	<style>
+	 .parent {
+	  position: relative;
+	  top: 0;
+	  left: 0;
+	 }
+
+	 .right {
+	  position: absolute;
+	  top: 170px;
+	  left: 100px;
+	  margin-left:18px;
+	 }
+
+	 .right1 {
+	  position: absolute;
+	  top: 200px;
+	  left: 100px;
+	  margin-left:18px;
+	 }
+	 
+	 .header {
+	   background-color: #f1f1f1;
+	   padding: 0px;
+	   text-align: left;
+				
+			}
+	  .cancel_style {
+	    background-color: #DCDCDC; 
+        border: 2px solid #DCDCDC;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        color: black;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		
+	  } 
+
+       .save_style {
+	    background-color: #4CAF50; 
+        border: 2px solid #4CAF50;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        color: white;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+	  } 
+		
+	  input{
+	    background-color: #f1f1f1;
+        color: black;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+	  }
+	
+	</Style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    </head>
+    <body>
+	   <div style="font-weight: bold">
+	  <div class="header">
+	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" alt="this image shows employee's photo" width="111" height="100">
+	  </div>
+	 
+	  <h2 style="text-align:center"><b>Edit Profile</b></h2>
+      <Img class="parent" src = "https://www.buira.org/assets/images/shared/default-profile.png" alt = "this image shows employee's photo" height = "100" width = "100"  >  
+	  <br>
+	  <br>
+	  <label class="right"><b>EMPLOYEE'S NAME</b></label><br>
+	  <label class="right1"><b>EMPLOYEE'S ROLE</b></label>
+	  
+	  <label style="margin-left:60px">ID</label> 
+	  <input style="margin-left:117px" name="ID" id="ID" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">First Name</label> 
+	  <input style="margin-left:57px" name="First Name" id="First Name" required="" type="text" placeholder="">
+	   
+	  <label style="margin-left:60px">Last Name</label> 
+	  <input style="margin-left:57px" name="Last Name" id="Last Name" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Address</label> 
+	  <input style="margin-left:74px" name="Address" id="Address" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">City</label> 
+	  <input style="margin-left:104px" name="City" id="City" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Date of Birth</label> 
+	  <input style="margin-left:41px" name="Date of Birth" id="Date of Birth" required="" type="text" placeholder="DD/MM/YYYY">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Gender</label> 
+	  <input style="margin-left:79px" name="Gender" id="Gender" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Phone</label> 
+	  <input style="margin-left:84px" name="Phone" id="Phone" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Emergency Phone</label> 
+	  <input name="Emergency Phone" id="Emergency Phone" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label style="margin-left:60px">Email</label> 
+	  <input style="margin-left:90px" name="Email" id="Email" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <button style="margin-left:500px" class="save_style">Save</button>
+	  <button style="margin-left:150px" class="cancel_style">Cancel</button>
+     </div>
+    
+  </body>
+</html>
