@@ -21,41 +21,70 @@
 			
 			.header1 {
 				background-color: #31333F;
-				padding: 16px;
+				padding: 0px;
 				text-align: center;
 				color: #ffffff;
 				overflow: auto;
 			}
 
-			
-			
 			.form-horizontal {
 				text-align: center;
 			}
-			
-			
-
-			
-			.singlebutton1{
+			.singlebutton{
 			 	text-align: center;
-				font-size: 22pt;
-				width: 200px;
-				background-color: #31333F;
-				font-family: sans-serif, Arial;
-				color: #ffffff
-			}
-			
-			.singlebutton2{
-			 	text-align: center;
-				font-size: 22pt;
-				width: 200px;
+				font-size: 24pt;
+				width: 300px;
 				background-color: #31333F;
 				font-family: sans-serif, Arial;
 				color: #ffffff
 			}
 
-			
-			</style>
+			.buttondropdown{
+				font-family: sans-serif, Arial; 
+				float: right; 
+				padding: 0px;
+			}
+			.dropbtn {
+				background-color: #31333F;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
+
+			.dropdown {
+				position: relative;
+				display: inline-block;
+				float: right; 
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f1f1f1;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				z-index: 1;
+			}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown:hover .dropbtn {
+				background-color: #31333F;
+			}
+	</style>
 	
 	
 	
@@ -66,8 +95,21 @@
   <body>
 		
 		<div class="header1">
-			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="111" height="100">
+			<button id="singlebutton" name="singlebutton" style="font-size: 18pt; font-family: sans-serif, Arial; float: right; " >Log out</button>
+			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="111" height="100" style="padding: 5px;">
 			<label for="dashboard"  style="font-size: 36pt;"> <b>My Dashboard</b></label>
+			
+			<div class="dropdown">
+			<button class="dropbtn">Language</button>
+			<div class="dropdown-content">
+				<a href="#">Ελληνικά</a>
+				<a href="#">English</a>
+				<a href="#">Norsk</a>
+				<a href="#">Polski</a>
+				<a href="#">Deutsch</a>
+				<a href="#">Svenska</a>
+			</div>
+			</div>
 		</div>
 		
 		<br>
@@ -83,9 +125,9 @@
 				<fieldset>
 
 
-				<button id="singlebutton"class="singlebutton1">Profile</button><p />
+				<button id="singlebutton"class="singlebutton">Profile</button><p />
 				<br>
-				<button id="singlebutton"class="singlebutton2">Request for Leave</button><p />
+				<button id="singlebutton"class="singlebutton">Request for Leave</button><p />
 	
 	
 	
