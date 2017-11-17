@@ -1,0 +1,77 @@
+
+
+#singlebutton {
+    background-color: none;
+    border: none;
+    color: black;
+    padding: 30px 32px;
+	
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 6px 4px;
+    cursor: pointer;
+}
+
+.buttons {
+margin-top: 100px;
+margin-left: 200px;}
+
+.mainTitles {
+margin-left: 350px;
+font-size: 48px;}
+
+
+#texts3 {
+	margin-left: 350 px;}
+
+
+
+
+.buttonsRequest{
+margin-top: 30px;
+margin-left: 400px;}
+
+#text1{
+margin-left: 150px;
+padding: 20px 20px;
+}	
+
+#text2 {
+margin-left: 55px;
+padding: 20px 20px;}
+
+
+
+
+#lab {
+font-size: 25px;
+}
+
+.labels{
+margin-top:200;
+margin-left: 350px;
+}
+
+
+
+
+
+
+
+#textRange {
+	padding: 20px 20px;
+	margin-left: 350px;
+
+}
+
+
+
+
+
+#selectbasic {
+margin-left: 200px;}
+
+
+
