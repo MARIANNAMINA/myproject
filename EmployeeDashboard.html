@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html lang="eng">
+  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+  <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
     <title>Statare Ltd</title>
     <!-- Required meta tags -->
@@ -7,72 +9,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 			<style>
-			body {
-			  margin: 0;
-			  text-align: center;
+
+			
+			.header { 
+				  background-color: #31333F; 
+				  text-align: left; 
+				  color: white;
+					
+				 } 
+			  
+			   .right {
+				  position: absolute;
+				  top: 70px;
+				  left: 120px;
+				  margin-left:20px;
+				 }
+				 
+			  .paragraph {
+				 
+				 padding: 0px 0px 0px 40px;
+			  
+			  }
+			  .logo{
+					margin-left: 0;
+					margin-top: 1%;
+					display:inline-block;
+					}
+			  .nav{
+					display:inline-block;
+					}
+					
+			  .buttonstyle {
+			  
+				 background-color: #31333F; 
+				 border: 2px solid #31333F;
+				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				 color: #ffffff ;
+				 padding: 10px 24px;
+				 border-radius: 3px;
+				 text-align: center;
+				 text-decoration: none;
+				 display: inline-block;
+				 font-size: 20px;
+				 font-weight: bold;
+			   
+			   }
+
+			 ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #31333F;
 			}
-			
-			
-			/* Style the header */
-			.header1 img{
-				text-align: left;
+
+
+
+			li {
 				float: left;
 			}
-			
-			.header1 {
-				background-color: #31333F;
-				padding: 0px;
-				text-align: center;
-				color: #ffffff;
-				overflow: auto;
-			}
 
-			.form-horizontal {
-				text-align: center;
-			}
-			.singlebutton{
-			 	text-align: center;
-				font-size: 24pt;
-				width: 300px;
-				background-color: #31333F;
-				font-family: sans-serif, Arial;
-				color: #ffffff
-			}
-
-			.buttondropdown{
-				font-family: sans-serif, Arial; 
-				float: right; 
-				padding: 0px;
-			}
-			.dropbtn {
-				background-color: #31333F;
-				color: white;
-				padding: 16px;
-				font-size: 16px;
-				border: none;
-				cursor: pointer;
-			}
-
-			.dropdown {
-				position: relative;
+			li a, .dropbtn {
 				display: inline-block;
-				float: right; 
+				color: white;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+			}
+
+			li a:hover, .dropdown:hover .dropbtn {
+				background-color: #31333F;
+				color: orange;
+				background-color: transparent;
+				text-decoration: underline;
+			}
+
+			li.dropdown {
+				display: inline-block;
 			}
 
 			.dropdown-content {
 				display: none;
 				position: absolute;
-				background-color: #f1f1f1;
+				background-color: #31333F ;
 				min-width: 160px;
 				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 				z-index: 1;
 			}
 
 			.dropdown-content a {
-				color: black;
+				color: white;
 				padding: 12px 16px;
 				text-decoration: none;
 				display: block;
+				text-align: left;
 			}
 
 			.dropdown-content a:hover {background-color: #f1f1f1}
@@ -81,8 +111,34 @@
 				display: block;
 			}
 
-			.dropdown:hover .dropbtn {
+			a:link, a:visited {
 				background-color: #31333F;
+				color: white;
+				padding: 10px 24px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			.logout_style{
+					background-color: #31333F; 
+					border: 2px solid white;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 4%;
+					right: 1%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
 			}
 	</style>
 	
@@ -94,13 +150,26 @@
   </head>
   <body>
 		
-		<div class="header1">
-			<button id="singlebutton" name="singlebutton" style="font-size: 18pt; font-family: sans-serif, Arial; float: right; " >Log out</button>
-			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="111" height="100" style="padding: 5px;">
-			<label for="dashboard"  style="font-size: 36pt;"> <b>My Dashboard</b></label>
-			
-			<div class="dropdown">
-			<button class="dropbtn">Language</button>
+		<div class="header">
+	 	 <form action="Login.html">
+			<button class="logout_style">Log Out</button>
+		</form>
+	 
+		<div class="logo">
+		<a href="clock%20in.html">
+			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
+		</a>
+		
+<div class="nav">
+	
+	<ul >
+		<label class="right" >
+		<li><a href="clock%20in.html">Home</a></li>
+		<li><a href="EditProfile.html">Profile</a></li>
+		<li><a href="view%20hours.html">View Hours</a></li>
+		<li><a href="Leave%20Request.html">Leave Request</a></li>
+		<li class="dropdown">
+			<a href="javascript:void(0)" class="dropbtn">Languages</a>
 			<div class="dropdown-content">
 				<a href="#">Ελληνικά</a>
 				<a href="#">English</a>
@@ -109,25 +178,26 @@
 				<a href="#">Deutsch</a>
 				<a href="#">Svenska</a>
 			</div>
-			</div>
+		</li>
+		</label>
+	</ul>
+ </div>
+ 
+
+	</div> 
+
+
+	
 		</div>
 		
 		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 		
-    
-
-				<form class="form-horizontal">
-				<fieldset>
-
-
-				<button id="singlebutton"class="singlebutton">Profile</button><p />
-				<br>
-				<button id="singlebutton"class="singlebutton">Request for Leave</button><p />
+		
+    <div class="paragraph">
+  
+		<h1 align="center"> My Dashboard <h1>
+	   
+	</div>
 	
 	
 	
