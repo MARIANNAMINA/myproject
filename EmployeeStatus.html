@@ -1,5 +1,7 @@
 <!doctype html> 
-  <html lang="en"> 
+  <html lang="eng"> 
+  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+  <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
     <head> 
     <title>Statare LTD</title> 
      <!-- Required meta tags --> 
@@ -10,10 +12,9 @@
   
   .header { 
       background-color: #31333F; 
-      padding: 5px; 
       text-align: left; 
 	  color: white;
-      
+		
      } 
   
    .right {
@@ -73,6 +74,8 @@
     background-color: #31333F;
 }
 
+
+
 li {
     float: left;
 }
@@ -128,24 +131,27 @@ a:link, a:visited {
     display: inline-block;
 }
 
- input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
+.logout_style{
+		background-color: #31333F; 
+        border: 2px solid white;
+		color: white;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0.8%;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		position: fixed;
+		top: 4%;
+		right: 1%;
+		
+		font-size: 18pt;
+		font-family: sans-serif;
+		cursor:pointer;
 }
 
-input[type=text]:focus {
-    width: 20%;
-}
  </style>
   
   
@@ -157,30 +163,42 @@ input[type=text]:focus {
     
     <!--image-->
      <div class="header"> 
+	 
+	 	 <form action="Login.html">
+			<button class="logout_style">Log Out</button>
+		</form>
+	 
 		<div class="logo">
-		<a href="EmployeeDashboard.html">
+		<a href="clock%20in.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
 		
 <div class="nav">
 	
-	<ul>
+	<ul >
 		<label class="right" >
-		<li><a href="EmployeeDashboard.html">Home</a></li>
+		<li><a href="clock%20in.html">Home</a></li>
 		<li><a href="Leave%20Request.html">Leave Request</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="view%20hours.html">View Hours</a></li>
 		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">Dropdown</a>
+			<a href="javascript:void(0)" class="dropbtn">Languages</a>
 			<div class="dropdown-content">
-				<a href="Leave%20Request.html">Link 1</a>
-				<a href="#">Link 2</a>
-				<a href="#">Link 3</a>
+				<a href="#">Ελληνικά</a>
+				<a href="#">English</a>
+				<a href="#">Norsk</a>
+				<a href="#">Polski</a>
+				<a href="#">Deutsch</a>
+				<a href="#">Svenska</a>
 			</div>
 		</li>
 		</label>
 	</ul>
  </div>
+ 
+
 	</div> 
+
+
 	</div> 
 
  <br>
@@ -192,15 +210,7 @@ input[type=text]:focus {
 	<h1 align="center"> Employee Status <h1>
 	
 	<br>
-	
-	<form>
-  <input type="text" name="search" placeholder="Search..">
-	</form>
-	
-	<button class="buttonstyle"> Segment </button> 
-    <button class="buttonstyle"><a href="EmployeeStatus.html" >Refresh</a></button> 
-	
-	
+		
    <h2>Page 1</h2>
   
    
