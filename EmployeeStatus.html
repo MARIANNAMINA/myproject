@@ -1,5 +1,5 @@
 <!doctype html> 
-  <html lang="eng"> 
+  <html lang="en"> 
   <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
     <head> 
@@ -36,6 +36,9 @@
 		}
   .nav{
 		display:inline-block;
+		font-weight: bold;
+		top: 9%;
+	    left: 8%;
 		}
 		
   .buttonstyle {
@@ -103,7 +106,8 @@ li.dropdown {
     display: none;
     position: absolute;
     background-color: #31333F ;
-    min-width: 160px;
+    min-width: 120%;
+	padding: 14px 16px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -116,19 +120,10 @@ li.dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown-content a:hover {background-color: #31333F}
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-a:link, a:visited {
-    background-color: #31333F;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
 }
 
 .logout_style{
@@ -152,6 +147,19 @@ a:link, a:visited {
 		cursor:pointer;
 }
 
+	   .logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+			font-weight: bold;
+	   }
+	   
+	   label a:hover {
+          color: orange;
+       }
+
  </style>
   
   
@@ -162,13 +170,9 @@ a:link, a:visited {
     <body> 
     
     <!--image-->
-     <div class="header"> 
-	 
-	 	 <form action="Login.html">
-			<button class="logout_style">Log Out</button>
-		</form>
-	 
-		<div class="logo">
+     <div class="header"> 		
+		<label ><a href="Login.html" class="logout">Log out</a></label>
+	 	<div class="logo">
 		<a href="clock%20in.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
@@ -177,9 +181,13 @@ a:link, a:visited {
 	
 	<ul >
 		<label class="right" >
-		<li><a href="clock%20in.html">Home</a></li>
-		<li><a href="Leave%20Request.html">Leave Request</a></li>
+		<li><a href="clock%20in.html">Home</a></li>>
 		<li><a href="view%20hours.html">View Hours</a></li>
+		<li><a href="EditProfile.html">Profile</a></li>
+		<li><a href="view hours.html">View Hours</a></li>
+		<li><a href="view schedule.html">View Schedule</a></li>
+		<li><a href="view%20schedule.html">View Request</a></li>
+		<li><a href="Leave Request_css.html">Request For Leave</a></li>		
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Languages</a>
 			<div class="dropdown-content">
@@ -212,8 +220,6 @@ a:link, a:visited {
 	<br>
 		
    <h2>Page 1</h2>
-  
-   
     <button class="buttonstyle"> < </button> 
     <button class="buttonstyle"> > </button> 
    

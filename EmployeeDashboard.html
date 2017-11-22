@@ -37,6 +37,7 @@
 					}
 			  .nav{
 					display:inline-block;
+					font-weight: bold;
 					}
 					
 			  .buttonstyle {
@@ -105,22 +106,14 @@
 				text-align: left;
 			}
 
-			.dropdown-content a:hover {background-color: #f1f1f1}
+			.dropdown-content a:hover {background-color: #31333F}
 
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
 
-			a:link, a:visited {
-				background-color: #31333F;
-				color: white;
-				padding: 10px 24px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-			}
 
-			.logout_style{
+			.profile_style{
 					background-color: #31333F; 
 					border: 2px solid white;
 					color: white;
@@ -133,12 +126,67 @@
 					font-size: 20px;
 					font-weight: bold;
 					position: fixed;
-					top: 4%;
-					right: 1%;
+					top: 50%;
+					right: 45%;
 					
 					font-size: 18pt;
 					font-family: sans-serif;
 					cursor:pointer;
+			}
+			
+			.view_hours_style{
+					background-color: #31333F; 
+					border: 2px solid white;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 60%;
+					right: 45%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
+			}
+			
+			.leave_request_style{
+					background-color: #31333F; 
+					border: 2px solid white;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 70%;
+					right: 45%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
+			}
+			
+			.logout{
+					position:absolute;
+					color: orange;
+					left: 94%;
+					bottom:95%;
+					font-size: 14pt;
+					font-weight: bold;
+			}
+			
+			label a:hover {
+					color: orange;
 			}
 	</style>
 	
@@ -151,9 +199,7 @@
   <body>
 		
 		<div class="header">
-	 	 <form action="Login.html">
-			<button class="logout_style">Log Out</button>
-		</form>
+		<label ><a href="Login.html" class="logout">Log out</a></label>
 	 
 		<div class="logo">
 		<a href="clock%20in.html">
@@ -164,10 +210,7 @@
 	
 	<ul >
 		<label class="right" >
-		<li><a href="clock%20in.html">Home</a></li>
-		<li><a href="EditProfile.html">Profile</a></li>
-		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="Leave%20Request.html">Leave Request</a></li>
+		<li><a href="clock%20in.html"  style="color:orange;text-decoration: underline">Home</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Languages</a>
 			<div class="dropdown-content">
@@ -199,6 +242,17 @@
 	   
 	</div>
 	
+		<form action="EditProfile.html">
+			<button class="profile_style">Profile</button>
+		</form>
+		<br>
+		<form action="view%20hours.html">
+			<button class="view_hours_style">View Hours</button>
+		</form>
+		<br>
+		<form action="Leave%20Request.html">
+			<button class="leave_request_style">Leave Request</button>
+		</form>
 	
 	
 	
