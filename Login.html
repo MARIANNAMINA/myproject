@@ -23,7 +23,7 @@
 			/* Style the header */
 			.header {
 				background-color: #31333F;
-				padding: 85px;
+				padding: 5%;
 				text-align: left;
 				color: #ffffff;
 				font-family: sans-serif;
@@ -32,26 +32,28 @@
 			
 			.password, .username{
 				text-align: center;
-				font-size: 24pt;
+				font-size: 20pt;
 			}
-			
-
-			
-			.button{
-				background-color: #31333F; 
-				border: 2px solid #31333F;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				color: white;
-				padding: 10px 24px;
-				border-radius: 8px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 20px;
-				font-weight: bold;
-				margin-bottom:70px;
-				margin-left: 50px;
-				cursor: pointer;
+					
+			.login_style{
+					background-color: #31333F; 
+					border: 2px solid white;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 1%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 87%;
+					right: 45%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
 			}
 	<!--		
 	 		.button{
@@ -89,8 +91,11 @@
 				</div>
 				
 				<br>	
-				<a href="clock%20in.html" class="button">Login</a>
+
 		
+				<form action="clock%20in.html">
+					<button class="login_style">Login</button>
+				</form>
 	
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
