@@ -3,7 +3,7 @@
   <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
-    <title>Statare Ltd</title>
+    <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -115,7 +115,7 @@
 
 			.profile_style{
 					background-color: #31333F; 
-					border: 2px solid white;
+					border: 2px solid #31333F;
 					color: white;
 					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 					padding: 0.8%;
@@ -126,7 +126,7 @@
 					font-size: 20px;
 					font-weight: bold;
 					position: fixed;
-					top: 50%;
+					top: 35%;
 					right: 45%;
 					
 					font-size: 18pt;
@@ -136,7 +136,7 @@
 			
 			.view_hours_style{
 					background-color: #31333F; 
-					border: 2px solid white;
+					border: 2px solid #31333F;
 					color: white;
 					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 					padding: 0.8%;
@@ -147,17 +147,17 @@
 					font-size: 20px;
 					font-weight: bold;
 					position: fixed;
-					top: 60%;
-					right: 45%;
+					top: 48%;
+					right: 43%;
 					
 					font-size: 18pt;
 					font-family: sans-serif;
 					cursor:pointer;
 			}
 			
-			.leave_request_style{
+			.view_schedule_style{
 					background-color: #31333F; 
-					border: 2px solid white;
+					border: 2px solid #31333F;
 					color: white;
 					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 					padding: 0.8%;
@@ -168,13 +168,57 @@
 					font-size: 20px;
 					font-weight: bold;
 					position: fixed;
-					top: 70%;
-					right: 45%;
+					top: 61%;
+					right: 41.8%;
 					
 					font-size: 18pt;
 					font-family: sans-serif;
 					cursor:pointer;
 			}
+			.view_request_style{
+					background-color: #31333F; 
+					border: 2px solid #31333F;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 74%;
+					right: 42.3%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
+			}			
+			
+			
+			.leave_request_style{
+					background-color: #31333F; 
+					border: 2px solid #31333F;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 87%;
+					right: 41.7%;
+					
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
+			}
+			
+			
 			
 			.logout{
 					position:absolute;
@@ -188,6 +232,7 @@
 			label a:hover {
 					color: orange;
 			}
+			
 	</style>
 	
 	
@@ -199,10 +244,10 @@
   <body>
 		
 		<div class="header">
-		<label ><a href="Login.html" class="logout">Log out</a></label>
+		<label ><a href="Login_Employee.html" class="logout">Log out</a></label>
 	 
 		<div class="logo">
-		<a href="clock%20in.html">
+		<a href="clock%20in%20employee.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
 		
@@ -210,7 +255,7 @@
 	
 	<ul >
 		<label class="right" >
-		<li><a href="clock%20in.html"  style="color:orange;text-decoration: underline">Home</a></li>
+		<li><a href="clock%20in%20employee.html"  style="color:orange;text-decoration: underline">Home</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Languages</a>
 			<div class="dropdown-content">
@@ -225,12 +270,7 @@
 		</label>
 	</ul>
  </div>
- 
-
 	</div> 
-
-
-	
 		</div>
 		
 		<br>
@@ -238,7 +278,7 @@
 		
     <div class="paragraph">
   
-		<h1 align="center"> My Dashboard <h1>
+		<h1 align="center"  style="font-family: sans-serif, Arial"><b> My Dashboard </b><h1>
 	   
 	</div>
 	
@@ -246,11 +286,23 @@
 			<button class="profile_style">Profile</button>
 		</form>
 		<br>
-		<form action="view%20hours.html">
+		<br>
+		<form action="view hours employee.html">
 			<button class="view_hours_style">View Hours</button>
 		</form>
 		<br>
-		<form action="Leave%20Request.html">
+		<br>
+		<form action="view schedule.html">
+			<button class="view_schedule_style">View Schedule</button>
+		</form>
+		<br>
+		<br>
+		<form action="ViewRequest_employee.html">
+			<button class="view_request_style">View Request</button>
+		</form>
+		<br>
+		<br>		
+		<form action="Leave%20Request_css.html">
 			<button class="leave_request_style">Leave Request</button>
 		</form>
 	
