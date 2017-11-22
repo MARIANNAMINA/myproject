@@ -66,8 +66,8 @@
 	  } 
 
        .save_style {
-	    background-color: #4CAF50; 
-        border: 2px solid #4CAF50;
+	    background-color: #31333F; 
+        border: 2px solid #31333F;
 		color: white;
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         padding: 0.8%;
@@ -169,12 +169,11 @@
 		<ul>
 		<label class="nav">
 		<li><a href="EmployeeDashboard.html">Home</a></li>
-		<li><a href="Leave%20Request.html">Profile</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
-		<li><a href="view%20schedule.html">View Hours</a></li>
-		<li><a href="view%20schedule.html">Request For Leave</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="EditProfile.html"  style="color:orange;text-decoration: underline">Profile</a></li>
+		<li><a href="view hours.html">View Hours</a></li>
+		<li><a href="view schedule.html">View Schedule</a></li>
 		<li><a href="view%20schedule.html">View Request</a></li>
+		<li><a href="Leave Request_css.html">Request For Leave</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -239,21 +238,23 @@
 	  <input style="margin-left:90px" name="Email" id="Email" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <button onclick="openWin()" class="save_style">Save</button>
-	  <button onclick="openWin1()" class="cancel_style">Cancel</button>
+	  <button onclick="myFunction1()" class="save_style">Save</button>
+	  <button onclick="myFunction2 ()" class="cancel_style">Cancel</button>
 	 
      </div>
     </div>
 	<script>
-	var myWindow;
-
-	function openWin() {
-		myWindow = window.open("save_changes.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
+		function myFunction1() {
+    if(confirm('Are you certain you want to save the changes you made?')){window.location.replace("EmployeeDashboard.html");}
+	else {window.location.replace("EditProfile.html");
+	}
+	}
+	function myFunction2() {
+    if(confirm('Are you certain you want to discard your changes ?')){window.location.replace("EmployeeDashboard.html");}
+	else {window.location.replace("EditProfile.html");
 	}
 	
-	function openWin1() {
-		myWindow = window.open("cancel_screen_edit.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
-	}
+}
 	
 	</script>
   </body>
