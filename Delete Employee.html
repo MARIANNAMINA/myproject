@@ -3,7 +3,7 @@
  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
-    <title>Edit Employee</title>
+    <title>Delete Employee</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -63,11 +63,13 @@
 		left: 85%;
 		vertical-align: bottom;
 		display: table-cell;
+		
+		
 	  } 
 
        .save_style {
-	    background-color: #4CAF50; 
-        border: 2px solid #4CAF50;
+	    background-color: #31333F; 
+        border: 2px solid #31333F;
 		color: white;
 		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         padding: 0.8%;
@@ -170,12 +172,16 @@
 		<label class="nav">
 		<li><a href="EmployeeDashboard.html">Home</a></li>
 		<li><a href="Leave%20Request.html">Profile</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
 		<li><a href="view%20schedule.html">View Hours</a></li>
-		<li><a href="view%20schedule.html">Request For Leave</a></li>
+		<li><a href="view%20schedule.html">View Schedule</a></li>
 		<li><a href="view%20schedule.html">View Request</a></li>
+		<li><a href="view%20schedule.html">Request For Leave</a></li>
+		<li><a href="view%20schedule.html">Average per week</a></li>
+		<li><a href="view%20schedule.html">Add Employee</a></li>
+		<li><a href="view%20schedule.html">Employee Status</a></li>
 		<li><a href="view%20schedule.html">IP Range</a></li>
 		<li><a href="view%20schedule.html">Payroll Report</a></li>
+		<li><a href="view%20schedule.html" style="color:orange">Delete Employee</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -194,31 +200,41 @@
 	  </div>
 	  </div>
 	 
-	  <h2 style="text-align:center"><b>Delete Profile</b></h2>
-      
+	  <h2 style="text-align:center"><b>Delete Employee</b></h2>
+      <br>
+	  <br>
 	  
-	  <div style="margin-left:59px">
-	  <label>Username</label> 
-	  <input style="margin-left:117px" name="ID" id="ID" required="" type="text" placeholder="">
+	  <div style="text-align:center">
+	  <label><b>Username</b></label> 
+	  <input style="text-align:center" name="username" id="username" required="" type="text" placeholder="">
 	  <br>
 	  <br>
 	 
-	  <button onclick="openWin()" class="save_style">Save</button>
-	  <button onclick="openWin1()" class="cancel_style">Cancel</button>
+	  <button onclick="myFunction1()" style="text-align: center; padding: 10px 24px; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">Save</button>
+	  <button onclick="myFunction2()" style="text-align: center; padding: 10px 24px; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">Cancel</a>
 	 
      </div>
     </div>
 	<script>
-	var myWindow;
+<!--	var myWindow; -->
 
-	function openWin() {
-		myWindow = window.open("save_changes.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
+	function myFunction1() {
+		if(confirm('are you certain you want to save the Report?')){
+			window.location.replace("ManagerDS_css.html");
+			window.alert("Report was saved");
+		}
+		else {
+			window.location.replace("AveragerPerWeek_CSS.html");
+		}
 	}
-	
-	function openWin1() {
-		myWindow = window.open("cancel_screen_edit.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
+	function myFunction2() {
+		if(confirm('Are you certain you want to exit?')){
+			window.location.replace("ManagerDS_css.html");
+		}
+		else {
+			window.location.replace("AveragerPerWeek_CSS.html");
+		}
 	}
-	
 	</script>
   </body>
 </html>
