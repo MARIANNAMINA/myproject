@@ -25,11 +25,17 @@
   
   }
   
+    .paragraph2 {
+     
+     padding: 50px 0px 0px 600px;
+  
+  }
+  
   	 		
 			  .buttonstyle {
 			  
 				 background-color: #31333F; 
-				 border: 2px solid #31333F;
+				 border: 2px solid #ffffff;
 				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 				 color: #ffffff ;
 				 padding: 10px 24px;
@@ -37,27 +43,31 @@
 				 text-align: center;
 				 text-decoration: none;
 				 display: inline-block;
-				 font-size: 20px;
+				 font-size: 30px;
+				 font-weight: bold;
+			   
+			   }
+			   
+			   
+			   
+			   
+			 .buttonstyle1 {
+			  
+				 background-color: #ffffff; 
+				 border: 2px solid #31333F;
+				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				 color: #31333F ;
+				 padding: 10px 24px;
+				 border-radius: 3px;
+				 text-align: center;
+				 text-decoration: none;
+				 display: inline-block;
+				 font-size: 30px;
 				 font-weight: bold;
 			   
 			   }
  
-  <!--
- .buttonstyle {
-  
-     background-color: #DCDCDC; 
-     border: 2px solid #DCDCDC;
-     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-     color: black;
-     padding: 10px 24px;
-     border-radius: 3px;
-     text-align: center;
-     text-decoration: none;
-     display: inline-block;
-     font-size: 20px;
-     font-weight: bold;
-   
-   } -->
+
    
 	.username{
 		margin-left:43px;
@@ -170,40 +180,8 @@
         font-size: 16px;
 	  }
 	
-	    .save_style {
-	    background-color: #4CAF50; 
-        border: 2px solid #4CAF50;
-		color: white;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        padding: 0.8%;
-		border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-		font-weight: bold;
-		position: absolute;
-        left: 94%;
-		vertical-align: bottom;
-		display: table-cell;
-	  } 
-	
-		  .cancel_style {
-	    background-color: #DCDCDC; 
-        border: 2px solid #DCDCDC;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        padding: 0.8%;
-		border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-		font-weight: bold;
-		position: absolute;
-		left: 85%;
-		vertical-align: bottom;
-		display: table-cell;
-	  }
+
+
 	
  </style>
   
@@ -218,12 +196,23 @@
 	 <div class="header2">
 	 <label ><a href="new 1.html" class="logout"><b>Log out</b></a></label>
 	 <div class="logo">
-		<a href="EmployeeDashboard.html">
+		<a href="ManagerDS_css.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="EmployeeDashboard.html">Home</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>
+		<li><a href="EditProfile.html">Profile</a></li>
+		<li><a href="view%20hours.html">View Hours</a></li>
+		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="ViewHours.html">View Requests</a></li>
+		<li><a href="Leave%20Request_css.html">Request For Leave</a></li>
+		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
+		<li><a href="view%20schedule.html" style="color:orange;text-decoration: underline">Add Employee</a></li>
+		<li><a href="EmployeeStatus.html">Employee Status</a></li>
+		<li><a href="IPrange_css.html">IP Range</a></li>
+		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
+		<li><a href="Delete%20Employee.html">Delete Employee</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -279,19 +268,22 @@
    
 	</div>
 	
+	<div class="paragraph2">
+		<button onclick="myFunction2()" class="buttonstyle1">Cancel</a>
 		<button onclick="myFunction1()" class="buttonstyle">Save</button>
-		<button onclick="myFunction2()" class="buttonstyle">Cancel</a>
+	
+	</div>
 	
 <script>
 		function myFunction1() {
-    if(confirm('are you certain you want to save the changes?')){window.location.replace("ManagerDS_css.html");
-	window.alert("changes was saved");}
+    if(confirm('Are you certain you want to save the changes?')){window.location.replace("ManagerDS_css.html");
+	window.alert("Changes was saved");}
 	else {window.location.replace("add Employee.html");
 	}
 	}
 	function myFunction2() {
-    if(confirm('Are you certain you want to cancel?')){window.location.replace("add Employee.html");}
-	else {window.location.replace("ManagerDS_css.html");
+    if(confirm('Are you certain you want to cancel?')){window.location.replace("ManagerDS_css.html");}
+	else {window.location.replace("add Employee.html");
 	}
 	
 }
