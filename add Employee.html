@@ -25,7 +25,25 @@
   
   }
   
-  .buttonstyle {
+  	 		
+			  .buttonstyle {
+			  
+				 background-color: #31333F; 
+				 border: 2px solid #31333F;
+				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				 color: #ffffff ;
+				 padding: 10px 24px;
+				 border-radius: 3px;
+				 text-align: center;
+				 text-decoration: none;
+				 display: inline-block;
+				 font-size: 20px;
+				 font-weight: bold;
+			   
+			   }
+ 
+  <!--
+ .buttonstyle {
   
      background-color: #DCDCDC; 
      border: 2px solid #DCDCDC;
@@ -39,7 +57,7 @@
      font-size: 20px;
      font-weight: bold;
    
-   }
+   } -->
    
 	.username{
 		margin-left:43px;
@@ -261,19 +279,23 @@
    
 	</div>
 	
-		<button onclick="openWin()" class="save_style">Save</button>
-		<button onclick="openWin1()" class="cancel_style">Cancel</button>
+		<button onclick="myFunction1()" class="buttonstyle">Save</button>
+		<button onclick="myFunction2()" class="buttonstyle">Cancel</a>
 	
-	<script>
-	var myWindow;
-	function openWin() {
-		myWindow = window.open("save_changes_add_employee.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
+<script>
+		function myFunction1() {
+    if(confirm('are you certain you want to save the changes?')){window.location.replace("ManagerDS_css.html");
+	window.alert("changes was saved");}
+	else {window.location.replace("add Employee.html");
+	}
+	}
+	function myFunction2() {
+    if(confirm('Are you certain you want to cancel?')){window.location.replace("add Employee.html");}
+	else {window.location.replace("ManagerDS_css.html");
 	}
 	
-	function openWin1() {
-		myWindow = window.open("cancel_screen_add_employee.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=300,width=700,height=400");
-	}
-     </script>
+}
+</script>
     </body> 
   </html> 
   
