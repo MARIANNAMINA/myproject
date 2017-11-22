@@ -94,45 +94,22 @@
 				display: block;
 				text-align: left;
 			}
-			.dropdown-content a:hover {background-color: #f1f1f1}
+			.dropdown-content a:hover {background-color: #31333F}
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
-			a:link, a:visited {
-				background-color: #31333F;
-				color: white;
-				padding: 10px 24px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-			}
-			   .logout{
-			position:absolute;
-			color: orange;
-			left: 94%;
-			bottom:95%;
-			font-size: 14pt;
 			
-	   }
-			.logout_style{
-					background-color: #31333F; 
-					border: 2px solid white;
-					color: white;
-					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-					padding: 0.8%;
-					border-radius: 8px;
-					text-align: center;
-					text-decoration: none;
-					display: inline-block;
-					font-size: 20px;
+			.logout{
+					position:absolute;
+					color: orange;
+					left: 94%;
+					bottom:95%;
+					font-size: 14pt;
 					font-weight: bold;
-					position: fixed;
-					top: 4%;
-					right: 1%;
-					
-					font-size: 18pt;
-					font-family: sans-serif;
-					cursor:pointer;
+			}
+			
+			label a:hover {
+					color: orange;
 			}
 	</style>
 	
@@ -144,10 +121,9 @@
   </head>
   <body>
 		
+	<div style="font-weight: bold">	
 		<div class="header">
-	 	 <form action="Login.html">
-			<button class="logout">Log Out</button>
-		</form>
+	<label ><a href="ManagerDS_css.html" class="logout">Log out</a></label>
 	 
 		<div class="logo">
 		<a href="clock%20in.html">
@@ -158,12 +134,20 @@
 	
 	<ul >
 		<label class="right" >
-		<li><a href="clock%20in.html">Home</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>
 		<li><a href="EditProfile.html">Profile</a></li>
-		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="Leave%20Request.html">Leave Request</a></li>
+		<li><a href="view%20hours.html" >View Hours</a></li>
+		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="ViewRequest_employee.html">View Requests</a></li>
+		<li><a href="Leave%20Request_css.html">Request For Leave</a></li>
+		<li><a href="AveragerPerWeek_CSS.html" style="color:orange;text-decoration: underline">Average per week</a></li>
+		<li><a href="add%20Employee.html">Add Employee</a></li>
+		<li><a href="EmployeeStatus.html">Employee Status</a></li>
+		<li><a href="IPrange_css.html">IP Range</a></li>
+		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
+		<li><a href="Delete%20Employee.html">Delete Employee</a></li>
 		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">Languages</a>
+			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
 				<a href="#">Ελληνικά</a>
 				<a href="#">English</a>
@@ -180,7 +164,7 @@
 
 	</div> 
 
-
+</div> 
 	
 		</div>
 		
@@ -199,7 +183,7 @@
 	
 <style>
 .username {
-margin-left: 600px;
+margin-left: 550px;
 
 }
 
@@ -217,12 +201,13 @@ font-size:20px;
 #label2 {
 font-size:25px;}
 #label1 {
+
 font-size:25px;}
 </style>
-		<body>
+		
 		<form class="username">
 <div >
-					<label  id="label2" for="textinput" ><b>FROM</label> 
+					<label  id="label2" for="textinput" ><b>FROM</b></label> 
 					<input id="textinput1" name="textinput" type="text" placeholder=""  required="">
 				
 				</div>  
@@ -239,7 +224,7 @@ font-size:25px;}
 		
 			<button onclick="myFunction1()" class="buttonstyle">SAVE REPORT</button>
 			<button onclick="myFunction2()" class="buttonstyle">CANCEL</a>
-		</div>
+		
 <script>
 		function myFunction1() {
     if(confirm('are you certain you want to save the Report?')){window.location.replace("ManagerDS_css.html");
