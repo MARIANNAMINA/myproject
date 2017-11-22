@@ -33,8 +33,9 @@
         font-size: 20px;
 		font-weight: bold;
 		position: fixed;
-		bottom: 4%;
-		right: 10%; 
+		position: fixed;
+	    bottom: 4%;
+	    right: 10%; 
 		
 	  } 
 
@@ -52,14 +53,14 @@
 		font-weight: bold;
 		position: fixed;
 		bottom: 4%;
-		right: 1%; 
-		
+		right: 1%;
 	  } 
 	  
 	
 	</Style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
+	
     <body>
 	   
 	  <div class="header"> 
@@ -72,23 +73,25 @@
 	  
 	  
 	  <div style="font-weight: bold">
-	  <h1 style="text-align:center"><b>Clock out</b></h1>
+	  <h3 style="text-align:center"><b>Are you sure you want to exit without saving your changes?</b></h1>
 	  <br>
-	  <br>
-      <h4 style="text-align:left;margin-left:3%"> DD/MM/YYYY  HH:MM:SS </h4>
-	  <br>
-	  <h2 style="text-align:center">Username</h2>
-	  <h2 style="text-align:center">Comfirmation</h2>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <br>
-	  <form action="clock%20in.html">
-		<button class="cancel_style">Cancel</button>
-		<button class="continue_style">Continue</button>
-	  </form>
-     </div>
-    
+	  
+	 <button class="cancel_style" onclick="window.open('save_changes.html', '_self', 'save_changes.html'); window.close();">Yes</button>
+	 <button class="continue_style" onClick="window.close();handlingWin()">No</button>
+	 
+    </div>
+    <script>
+	var myWindow;
+
+	function handlingWin() {
+	myWindow=window.open(null,'EditProfile.html',null);window.close();
+	myWindow=window.open('EditProfile.html','EditProfile.html','EditProfile.html');window.close();
+	myWindow=window.open('EmployeeDashboard.html', 'EditProfile.html', 'EmployeeDashboard'); window.close();
+
+	}
+	
+	</script>
   </body>
+ 
+	
 </html>
