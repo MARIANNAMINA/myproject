@@ -11,31 +11,25 @@
 			<style>
 			
 			.header { 
-				  background-color: #31333F; 
-				  text-align: left; 
-				  color: white;
-					
+				   background-color: #31333F;
+				   color: white;
+				   margin-bottom: 1.1%;    		
 				 } 
-			  
-			   .right {
-				  position: absolute;
-				  top: 70px;
-				  left: 120px;
-				  margin-left:20px;
-				 }
 				 
 			  .paragraph {
-				 
 				 padding: 0px 0px 0px 40px;
-			  
 			  }
 			  .logo{
-					margin-left: 0;
-					margin-top: 1%;
-					display:inline-block;
+				   margin-top: 1.6%;
+				   margin-bottom: 0.1%;
+				   margin-left: 1.3%;
+				   display:inline-block;
 					}
 			  .nav{
-					display:inline-block;
+					 position: absolute;
+					 top: 9%;
+					 left: 8%;
+					 font-weight: bold;
 					}
 					
 			  .buttonstyle1 {
@@ -249,14 +243,28 @@
 					font-family: sans-serif;
 					cursor:pointer;
 			  }
+			  
+			   .buttonstyle11{
+			        background-color: #31333F; 
+					border: 2px solid #31333F;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 0.8%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: fixed;
+					top: 80%;
+					left: 43%;
+		
+					font-size: 18pt;
+					font-family: sans-serif;
+					cursor:pointer;
+			  }			  
 			   
-			 ul {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				overflow: hidden;
-				background-color: #31333F;
-			}
 			li {
 				float: left;
 			}
@@ -312,8 +320,6 @@
 	</style>
 	
 	
-	
-	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
@@ -327,11 +333,9 @@
 		<a href="clock in manager.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
-		
-<div class="nav">
 	
 	<ul >
-		<label class="right" >
+		<label class="nav" >
 
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn"><b>Language</b></a>
@@ -346,33 +350,21 @@
 		</li>
 		</label>
 	</ul>
- </div>
- 
-
-	</div> 
-
-
-	
-		</div>
-		
-		<br>
-		
+	</div> 	
+		</div>		
 		
     <div class="paragraph">
   
-		<h1 align="center">MANAGER DASHBOARD <h1>
+		<h1 align="center">Manager Dashboard <h1>
 	   
 	</div>
-	</br>
+
 	
 <!--CSS FOR BUTTONS-->
 <style>
 .form-group {
 margin-left: 200px;
-
 }
-
-
 </style>
 
 		<div class="form-group">
@@ -382,7 +374,7 @@ margin-left: 200px;
 				<button class="buttonstyle1">View Hours</button>
 				</form>
 				
-				<form action="AveragerPerWeek_CSS.html">
+				<form action="averagerPerWeek.html">
 				<button class="buttonstyle8">Average per week</button>
 				</form>
 				
@@ -394,7 +386,7 @@ margin-left: 200px;
 				<button class="buttonstyle4">View Schedule</button>
 				</form>
 				
-				<form action="Leave Request_css.html">
+				<form action="Leave Request_Manager.html">
 				<button class="buttonstyle5">Request For Leave</button>
 				</form>
 				
@@ -416,6 +408,10 @@ margin-left: 200px;
 				
 				<form action="EditProfileManager.html">
 				<button class="buttonstyle10">Profile</button>
+			    </form>
+				
+				<form action="Delete Employee.html">
+				<button class="buttonstyle11">Delete Employee</button>
 			    </form>
 		</div>
 	
