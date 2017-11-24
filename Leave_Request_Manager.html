@@ -14,10 +14,7 @@
 				   background-color: #31333F;
 				   color: white;
 				   margin-bottom: 1.1%;    
-			  }
-			  
-
-				 
+			  } 
 			  .paragraph {
 				 
 				 padding: 0px 0px 0px 40px;
@@ -29,47 +26,43 @@
 				   margin-left: 1.3%;
 				   display:inline-block;
 				  }
-			   .nav{
+			  .nav{
 					 position: absolute;
 					 top: 9%;
 					 left: 8%;
 					 font-weight: bold;
-				  }
+			  }
 					
-	.buttonstyle {
-			  
-		background-color: #31333F; 
-		border: 2px solid #31333F;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		color: #ffffff ;
-		padding: 10px 24px;
-		border-radius: 3px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		font-weight: bold;
-			   
-	}
-			   
-			   
-			   
-			   
-	.buttonstyle1 {
-			  
-		background-color: #ffffff; 
-		border: 2px solid #31333F;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		color: #31333F ;
-		padding: 10px 24px;
-		border-radius: 3px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		font-weight: bold;
-			   
-	}
+			.buttonstyle {
+					  
+				background-color: #31333F; 
+				border: 2px solid #31333F;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				color: #ffffff ;
+				padding: 10px 24px;
+				border-radius: 3px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 20px;
+				font-weight: bold;
+					   
+			}			   
+			.buttonstyle1 {
+					  
+				background-color: #ffffff; 
+				border: 2px solid #31333F;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				color: #31333F ;
+				padding: 10px 24px;
+				border-radius: 3px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 20px;
+				font-weight: bold;
+					   
+			}
 
 			li {
 				float: left;
@@ -145,20 +138,17 @@
 			.username{
 					margin-left: 100px;
 			}	
-
-    .paragraph2 {
-     
-		padding: 10px 0px 0px 500px;
-	
-	}
+			.paragraph2 {
+			 
+				padding: 10px 0px 0px 460px;
+			
+			}
 			label a:hover {
 					color: orange;
 			}	
 	</style>
 	
-	
-	
-	
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
@@ -174,20 +164,20 @@
 		<ul>
 		<label class="nav">
 		<li><a href="ManagerDS_css.html">Home</a></li>
-		<li><a href="Leave%20Request.html" >Profile</a></li>
+		<li><a href="EditProfileManager.html" >Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
-		<li><a href="Leave Request_css.html" style="color:orange;text-decoration: underline">Request For Leave</a></li> 
-		<li><a href="view%20schedule.html">Average per week</a></li>
-		<li><a href="view%20schedule.html">IP Range</a></li>
-		<li><a href="view%20schedule.html">Payroll Report</a></li>
+		<li><a href="view schedule manager.html">View Schedule</a></li>
+		<li><a href="Leave Request_Manager.html" style="color:orange;text-decoration: underline">Request For Leave</a></li> 
+		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
+		<li><a href="IPrange_css.html">IP Range</a></li>
+		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 			<div class="dropdown-content">
-				<a href="#">Add Employee</a>
-				<a href="#">Employee Status</a>
+				<a href="add Employee.html">Add Employee</a>
+				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
-				<a href="#">Delete Employee</a>
+				<a href="Delete%20Employee.html">Delete Employee</a>
 			</div>
 		</li>		
 		<li class="dropdown">
@@ -236,8 +226,6 @@
 	<label id="label" for="textinput"><b>Description:</b></label>  
   <input id="textinput" name="textinput" type="text" >
  
-
-  </br></br>
   </div>
   <div>
   
@@ -248,12 +236,12 @@
 			
 			<script>
 function myFunction1() {
-    if(confirm('Are you certain you want to exit?')){window.location.replace("EmployeeDashboard.html");}
+    if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
 	else {window.location.replace("Leave Request_css.html");
 	}
 	}
 	function myFunction2() {
-    if(confirm('are you certain about the Leave Request?')){window.location.replace("EmployeeDashboard.html");}
+    if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
 	else {window.location.replace("Leave Request_css.html");
 	}
 	

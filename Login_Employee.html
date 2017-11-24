@@ -51,16 +51,25 @@
 					display: inline-block;
 					font-size: 20px;
 					font-weight: bold;
-					position: fixed;
-					bottom: 15px;
+					position: absolute;
+					top: 600px;
 					left: 650px;
-	<!--				top: 87%;
-					right: 45%;
-		-->			
 					font-size: 18pt;
 					font-family: sans-serif, Arial;
 					cursor:pointer;
 			}
+			
+			input{
+	    background-color: #f1f1f1;
+        color: black;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+	  }
+	  
 		
 			</style>
 	
@@ -79,7 +88,7 @@
 				<br>
 				<div class="username">
 					<label  for="textinput" ><b>Username :</b></label> 
-					<input id="textinput" name="textinput" type="text" placeholder=""  required="">
+					<input name="textinput" type="text" placeholder=""  required="">
 				
 				</div>  
 			
@@ -87,7 +96,7 @@
 			
 				<div class="password">
 					<label for="passwordinput" > <b>Password :  </b></label>
-					<input id="passwordinput" name="passwordinput" type="password" placeholder=""  required="">
+					<input name="passwordinput" type="password" placeholder=""  required="">
 				</div>
 				
 				<br>	

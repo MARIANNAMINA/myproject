@@ -24,26 +24,26 @@
 		font-weight: bold;
 	  } 
 	 
-	 .nav{
-		 position: absolute;
-		 top: 9%;
-	     left: 8%;
-      }
-	  
-	 .header {
-	   background-color: #31333F;
-       color: white;
-	   margin-bottom: 1.1%;	     
+	.header {
+		background-color: #31333F;
+		color: white;
+		margin-bottom: 1.1%;    
+	  } 
+	.paragraph {		 
+		padding: 0px 0px 0px 40px;		  
 	  }
-	  
-	 .logo{
-	   margin-top: 1.6%;
-	   margin-bottom: 0.1%;
-	   margin-left: 1.3%;
-	   display:inline-block;
-	 
-      }
-	  
+	.logo{
+		margin-top: 1.6%;
+		margin-bottom: 0.1%;
+		margin-left: 1.3%;
+		display:inline-block;
+	 }
+	 .nav{
+		position: absolute;
+		top: 9%;
+		left: 8%;
+		font-weight: bold;
+	 }
 	
 	 th {
        border: 4px solid #31333F;
@@ -63,7 +63,7 @@
 	 display:inline-block
 	}
 	
-		  li.dropdown {
+	  li.dropdown {
         display: inline-block;
       }
 	  
@@ -108,24 +108,24 @@
 	   .logout{
 			position:absolute;
 			color: orange;
-			left: 94.5%;
-			bottom:96%;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+			font-weight: bold;
 			
 	   }
 	 		
-	   label a:hover, a:active{
-          color: orange;
-		  text-decoration: underline;
-       }
+		label a:hover {
+				color: orange;
+		}
 	     
 	</Style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
-	 <div style="font-weight: bold">
-	 <div class="header">
-	 <label ><a href="new 1.html" class="logout"><b>Log out</b></a></label>
-	 <div class="logo">
+		<div class="header">
+		<label ><a href="Login_Employee.html" class="logout">Log out</a></label>
+		<div class="logo">
 		<a href="EmployeeDashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
@@ -133,10 +133,10 @@
 		<label class="nav">
 		<li><a href="EmployeeDashboard.html">Home</a></li>
 		<li><a href="EditProfile.html">Profile</a></li>
-		<li><a href="view hours.html">View Hours</a></li>
+		<li><a href="view%20hours%20employee.html">View Hours</a></li>
 		<li><a href="view schedule.html" style="color:orange;text-decoration: underline">View Schedule</a></li>
-		<li><a href="view%20schedule.html">View Request</a></li>
-		<li><a href="Leave Request_css.html">Request For Leave</a></li>
+		<li><a href="ViewRequest_employee.html">View Request</a></li>
+		<li><a href="Leave%20Request_css.html">Request For Leave</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -151,20 +151,18 @@
 		</label>
 	</ul>
 		
-		</div>
 	  </div>
 	  </div>
 	  </div>
 	  <div style="margin-left:60px ">
-	  <h2 style="text-align:center"><b>View Schedule</b></h2>
-      <h4 style="margin-left:35px"><b>Week #</b></h4>
+	  <h2 style="text-align:center">View Schedule</h2>
 	  <br>
+      <h4 style="margin-left:22px"><b>Week 47</b></h4>
 	  <button class="buttonstyle"><</button>
 	  <button class="buttonstyle">></button>
 	  <br>
 	  <label style="margin-left:20px">Prev</label>
 	  <label style="margin-left:30px">Next</label> 
-	  <br>
 	  <br>
 	  </div>
 	  <hr style>
