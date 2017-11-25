@@ -117,7 +117,16 @@
 					width:400px;
 					margin-left:20px;
 			}
-
+			  input{
+				background-color: #f1f1f1;
+				color: black;
+				padding: 10px 24px;
+				border-radius: 8px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			  }
 			#label {
 					margin-left:360px;
 			}
@@ -146,6 +155,15 @@
 			label a:hover {
 					color: orange;
 			}	
+			body{
+				height:100%;
+			   width:100%;
+			   background-image:url("statare3.jpg");  
+			   background-repeat:no-repeat;  
+			   background-size:cover;   
+			   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+			   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+			}			
 	</style>
 	
 
@@ -166,15 +184,15 @@
 		<li><a href="ManagerDS_css.html">Home</a></li>
 		<li><a href="EditProfileManager.html" >Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view schedule manager.html">View Schedule</a></li>
-		<li><a href="Leave Request_Manager.html" style="color:orange;text-decoration: underline">Request For Leave</a></li> 
+		<li><a href="view%20schedule%20manager.html">View Schedule</a></li>
+		<li><a href="Leave_Request_Manager.html" style="color:orange;text-decoration: underline">Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
 		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add Employee.html">Add Employee</a>
+				<a href="add%20Employee.html">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
 				<a href="Delete%20Employee.html">Delete Employee</a>
@@ -199,7 +217,7 @@
 		</div>
     <div class="paragraph">
 	<br>
-		<h1 align="center">Leave Request<h1>
+		<h1 align="center"><b>Leave Request</b><h1>
 	   
 	</div>
 	<br>
@@ -221,14 +239,14 @@
 					<input id="textinput3" name="textinput3" type="text" placeholder=""  required="">
 				
 				</div>  
-			</br>
+			<br>
 			
 	<label id="label" for="textinput"><b>Description:</b></label>  
   <input id="textinput" name="textinput" type="text" >
  
   </div>
   <div>
-  
+  <br>
   	<div class="paragraph2">
 			<button onclick="myFunction1()" class="buttonstyle1">Cancel</button>
 			<button onclick="myFunction2()" class="buttonstyle">Continue</button>
@@ -236,13 +254,13 @@
 			
 			<script>
 function myFunction1() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
-	else {window.location.replace("Leave Request_css.html");
+    if(confirm('Do you want to leave this page?')){window.location.replace("ManagerDS_css.html");}
+	else {window.location.replace("Leave_Request_Manager.html");
 	}
 	}
 	function myFunction2() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
-	else {window.location.replace("Leave Request_css.html");
+    if(confirm('Do you want to leave this page?')){window.location.replace("ManagerDS_css.html");}
+	else {window.location.replace("Leave_Request_Manager.html");
 	}
 	
 }
