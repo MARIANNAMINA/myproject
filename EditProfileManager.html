@@ -61,6 +61,7 @@
 		font-weight: bold;
 		position: absolute;
 		left: 85%;
+		top: 140%;
 		vertical-align: bottom;
 		display: table-cell;
 		color: #31333F; 
@@ -80,6 +81,7 @@
 		font-weight: bold;
 		position: absolute;
         left: 94%;
+		top: 140%;
 		vertical-align: bottom;
 		display: table-cell;
 	  } 
@@ -144,18 +146,27 @@
 			left: 94%;
 			bottom:95%;
 			font-size: 14pt;
-			
+			font-weight:bold;
 	   }
 	 		
 	   label a:hover {
           color: orange;
        }
 	   
+		body{
+			height:100%;
+		   width:100%;
+		   background-image:url("statare3.jpg");  
+		   background-repeat:no-repeat;  
+		   background-size:cover;   
+		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}		   
+	   
 	</Style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
-	   <div style="font-weight: bold">
 	   
 	 <div class="header"> 
 		<label ><a href="Login_Manager.html" class="logout">Log out</a></label>
@@ -165,23 +176,23 @@
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="ManagerDS_css.html">Home</a></li>
-		<li><a href="EditProfileManager.html" style="color:orange;text-decoration: underline">Profile</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>		
+		<li><a href="EditProfileManager.html"  style="color:orange;text-decoration: underline">Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view schedule manager.html">View Schedule</a></li>
-		<li><a href="Leave Request_css.html">Request For Leave</a></li> 
+		<li><a href="view%20schedule%20manager.html">View Schedule</a></li>
+		<li><a href="Leave_Request_Manager.html" >Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
-		<li><a href="Payrol Report.html">Payroll Report</a></li>
+		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add Employee.html">Add Employee</a>
+				<a href="add%20Employee.html">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
-				<a href="Delete Employee.html">Delete Employee</a>
+				<a href="Delete%20Employee.html">Delete Employee</a>
 			</div>
-		</li>		
+		</li>			
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -196,7 +207,6 @@
 		</label>
 	</ul>
 		
-		</div>
 	  </div>
 	  </div>
 	 
@@ -207,43 +217,43 @@
 	  <label class="right"><b>USERNAME</b></label><br>
 	  <label class="right1"><b>ROLE</b></label>
 	  <div style="margin-left:59px">
-	  <label><b>ID</b></label> 
+	  <label><b>ID : </b></label> 
 	  <input style="margin-left:117px" name="ID" id="ID" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>First Name</b></label> 
-	  <input style="margin-left:57px" name="First Name" id="First Name" required="" type="text" placeholder="">
+	  <label><b>First Name : </b></label> 
+	  <input style="margin-left:52px" name="First Name" id="First Name" required="" type="text" placeholder="">
 	   
-	  <label style="margin-left:4%"><b>Last Name</b></label> 
+	  <label style="margin-left:50px"><b>Last Name : </b></label> 
 	  <input style="margin-left:57px" name="Last Name" id="Last Name" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Address</b></label> 
+	  <label><b>Address : </b></label> 
 	  <input style="margin-left:74px" name="Address" id="Address" required="" type="text" placeholder="">
+	  
+	  
+	  <label style="margin-left:50px"><b>City : </b></label> 
+	  <input style="margin-left:106px" name="City" id="City" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>City</b></label> 
-	  <input style="margin-left:104px" name="City" id="City" required="" type="text" placeholder="">
+	  <label><b>Date of Birth : </b></label> 
+	  <input style="margin-left:37px" name="Date of Birth" id="Date of Birth" required="" type="text" placeholder="DD/MM/YYYY">
 	  <br>
 	  <br>
-	  <label><b>Date of Birth</b></label> 
-	  <input style="margin-left:41px" name="Date of Birth" id="Date of Birth" required="" type="text" placeholder="DD/MM/YYYY">
-	  <br>
-	  <br>
-	  <label><b>Gender</b></label> 
+	  <label><b>Gender : </b></label> 
 	  <input style="margin-left:79px" name="Gender" id="Gender" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Phone</b></label> 
-	  <input style="margin-left:84px" name="Phone" id="Phone" required="" type="text" placeholder="">
+	  <label><b>Phone : </b></label> 
+	  <input style="margin-left:86px" name="Phone" id="Phone" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Emergency Phone</b></label> 
+	  <label><b>Emergency Phone : </b></label> 
 	  <input name="Emergency Phone" id="Emergency Phone" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Email</b></label> 
-	  <input style="margin-left:90px" name="Email" id="Email" required="" type="text" placeholder="">
+	  <label><b>Email: </b></label> 
+	  <input style="margin-left:97px" name="Email" id="Email" required="" type="text" placeholder="">
 	  <br>
 	  <br>
 	  <button onclick="myFunction1()" class="save_style">Save</button>

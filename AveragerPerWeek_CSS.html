@@ -29,13 +29,6 @@
 	  left: 8%;
 	  font-weight: bold;
 	}
-			  
-			   .right {
-				  position: absolute;
-				  top: 70px;
-				  left: 120px;
-				  margin-left:20px;
-				 }
 				 
 			  .paragraph {
 				 
@@ -144,17 +137,44 @@
 		bottom:180px;
 		left:710px;
 	  } 
+
+		.username {
+			margin-left: 540px;	
+		}
+
+		#textinput2 {
+			margin-left: 32px;
+			font-size:20px;
+		}
+
+		#textinput1 {
+			margin-left: 6px;
+			font-size:20px;
+		}
+		
+		#label2 {
+			font-size:20px;
+		}
+		#label1 {
+			font-size:20px;
+		}	  
+
+		body{
+			height:100%;
+		   width:100%;
+		   background-image:url("statare3.jpg");  
+		   background-repeat:no-repeat;  
+		   background-size:cover;   
+		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}	
 	</style>
-	
-	
-	
 	
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
 		
-	<div style="font-weight: bold">	
 		<div class="header">
 	<label ><a href="Login_Manager.html" class="logout">Log out</a></label>
 	 
@@ -162,26 +182,23 @@
 		<a href="ManagerDS_css.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
-		
-
-	
 	<ul>
 		<label class="nav">
-		<li><a href="ManagerDS_css.html">Home</a></li>
-		<li><a href="EditProfileManager.html">Profile</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>		
+		<li><a href="EditProfileManager.html" >Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view schedule manager.html">View Schedule</a></li>
-		<li><a href="Leave Request_css.html">Request For Leave</a></li> 
+		<li><a href="view%20schedule%20manager.html">View Schedule</a></li>
+		<li><a href="Leave_Request_Manager.html" >Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html" style="color:orange;text-decoration: underline">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
-		<li><a href="Payrol Report.html">Payroll Report</a></li>
+		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add Employee.html">Add Employee</a>
+				<a href="add%20Employee.html">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
-				<a href="Delete Employee.html">Delete Employee</a>
+				<a href="Delete%20Employee.html">Delete Employee</a>
 			</div>
 		</li>		
 		<li class="dropdown">
@@ -198,73 +215,34 @@
 		</label>
 	</ul>
 
- 
-
-	</div> 
-
 </div> 
-	
-		</div>
-		
-	
-		
-			
+	</div>
+				
     <div class="paragraph">
   
-		<h1 align="center"><b>Average per week</b><h1>
+		<h1 align="center"><b>Average per Week</b><h1>
 	   
 	</div>
 	<br>
-	<br>
+	<br>		
 	
-
-		
-	
-<style>
-.username {
-margin-left: 540px;
-
-}
-
-#textinput2 {
-margin-left: 32px;
-font-size:20px;
-
-}
-
-#textinput1 {
-
-font-size:20px;
-
-}
-#label2 {
-font-size:25px;
-}
-#label1 {
-
-font-size:25px;}
-</style>
-		
 		<form class="username">
-<div >
-					<label  id="label2" for="textinput" ><b>From</b></label> 
+			<div >
+					<label  id="label2" for="textinput" ><b>From : </b></label> 
 					<input id="textinput1" name="textinput" type="text" placeholder=""  required="">
-				
-				</div>  
+			</div>  			
+			<br>
+			<div>
+				<label id="label1" for="textinput"><b>To : </b></label>
+				<input id="textinput2" name="textinput" type="text" placeholder=""  required="">
+
+			</div>
+
 			
-				<br>
-			
-				<div>
-					<label id="label1" for="textinput"><b>To</b></label>
-					<input id="textinput2" name="textinput" type="text" placeholder=""  required="">
-				</div>
-  
-		
-</br></br></br>
-		
 			<button onclick="myFunction1()" class="save_style">Save report</button>
 			<button onclick="myFunction2()" class="cancel_style">Cancel</a>
 		
+		</form>
 <script>
 		function myFunction1() {
     if(confirm('Do you want to save the Report?')){window.location.replace("ManagerDS_css.html");

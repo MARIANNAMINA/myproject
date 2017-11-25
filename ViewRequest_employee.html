@@ -15,18 +15,6 @@
 	   margin-left: 59px;
 	   display:inline-block;
 	 }
-
-	 .right {
-	  position: absolute;
-	  top: 220px;
-      left: 165px;
-	 }
-
-	 .right1 {
-	  position: absolute;
-	  top: 240px;
- 	  left: 165px;
-	 }
 	 
 		  .nav{
 					 position: absolute;
@@ -182,6 +170,20 @@
 		tr:nth-child(even){
 			background-color: #f2f2f2
 		}
+		
+		.paragraph {		 
+			padding: 0px 0px 0px 40px;  
+		}		
+
+		body{
+			height:100%;
+		   width:100%;
+		   background-image:url("statare3.jpg");  
+		   background-repeat:no-repeat;  
+		   background-size:cover;   
+		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}			
 
  </style>
   
@@ -191,8 +193,6 @@
     </head>
     
     <body> 
-    
-     <div style="font-weight: bold">
 	   
 	 <div class="header"> 
 		<label ><a href="Login_Employee.html" class="logout"><b>Log out</b></a></label>
@@ -222,28 +222,27 @@
 		</label>
 	</ul>
 		
-		</div>
 	  </div>
 	  </div>
+	  
+	  <div class="paragraph">
     
-     <div style="margin-left:60px">
   
 	<h1 align="center"><b>View Request</b></h1>
 	
-	<label style="font-size: 20px;"><b>USERNAME</b></label><br>
-  
-    <h4>Page 1</h4>
+	<label style="font-size: 20px" ><b>USERNAME</b></label>
+	<br>
+    <br>
+    <h4 style="margin-left:22px">Page 1</h4>
     <button class="buttonstyle"> < </button> 
     <button class="buttonstyle"> > </button> 
    
    <br>
    
-   <label style="margin-left:15px"> Prev </label>
-   <label style="margin-left:40px"> Next </label>
+   <label style="margin-left:20px"> Prev </label>
+   <label style="margin-left:30px"> Next </label>
    
-   </div>
-
-  <hr>
+    <hr>
    
    <div style="overflow-x:auto;">
    
@@ -272,7 +271,7 @@
    </div>
    
   </div>
-     
+    </div> 
 	 
     </body> 
   </html> 
