@@ -169,19 +169,26 @@
 			font-weight: bold;
 		}
 		
-		table {
-			border-collapse: collapse;
-			width: 100%;
-		}
+		td {
+     text-align: left;
+     padding: 8px;
+	 color:black;
+	 background-color:white;
+	 border:2px solid #31333F;
+  }
+ th{
+     text-align: left;
+     padding: 8px;
+	 background-color:#31333F;
+	 border:2px solid #31333F;
+	 color:white;
+  }
 
-		th, td {
-			text-align: left;
-			padding: 8px;
-		}
-
-		tr:nth-child(even){
-			background-color: #f2f2f2
-		}
+ tr:nth-child(even){
+  background-color: white;
+  border:2px solid #31333F;
+  color:black;
+ }
 		
 		.paragraph {		 
 			padding: 0px 0px 0px 40px;  
@@ -283,6 +290,21 @@
       <td>John1325</td> 
       <td>22/12/2017</td>  
       <td>27/12/2017</td> 
+      <td>Personal</td> 
+	  <td>
+		<select name="selectbasic" class="form-control" id="selectbasic">
+			<option value="Pending">Pending</option>
+			<option value="Approve">Approve</option>
+			<option value="Deny">Deny</option>
+		</select></td>
+       
+     </tr> 
+	 
+	 <tr> 
+     
+      <td>Jake2025</td> 
+      <td>26/12/2017</td>  
+      <td>28/12/2017</td> 
       <td>Personal</td> 
 	  <td>
 		<select name="selectbasic" class="form-control" id="selectbasic">
