@@ -142,7 +142,26 @@
 			 
 				padding: 20px 0px 0px 440px;
 			
-			}			
+			}	
+			 input{
+				background-color: #f1f1f1;
+				color: black;
+				padding: 10px 24px;
+				border-radius: 8px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			  }				
+		body{
+			height:100%;
+		   width:100%;
+		   background-image:url("statare3.jpg");  
+		   background-repeat:no-repeat;  
+		   background-size:cover;   
+		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}				
 	</style>
 	
 	
@@ -159,23 +178,23 @@
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="ManagerDS_css.html">Home</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>		
 		<li><a href="EditProfileManager.html" >Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view schedule manager.html">View Schedule</a></li>
-		<li><a href="Leave Request_Manager.html" >Request For Leave</a></li> 
+		<li><a href="view%20schedule%20manager.html" >View Schedule</a></li>
+		<li><a href="Leave_Request_Manager.html" >Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
-		<li><a href="IPrange_css.html">IP Range</a></li>
+		<li><a href="IPrange_css.html" >IP Range</a></li>
 		<li><a href="Payrol%20Report.html" style="color:orange;text-decoration: underline">Payroll Report</a></li>
 		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
+			<a href="javascript:void(0)" class="dropbtn" >My Employees</a>
 			<div class="dropdown-content">
-				<a href="add Employee.html">Add Employee</a>
+				<a href="add%20Employee.html">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
 				<a href="Delete%20Employee.html">Delete Employee</a>
 			</div>
-		</li>		
+		</li>	
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -192,11 +211,8 @@
 		
 	  </div>
 	  </div>
-
-
 		<br>
-		
-		
+	
 		  <div class="paragraph">
   
 		<h1 align="center">Payrol Report<h1>
@@ -204,14 +220,15 @@
 	</div>
 			<br>
 
-
 		<form class="username">
 		<div >
 					<label  id="label" for="textinput1" ><b>SELECT DATE:</b></label> 
-					<input id="textinput1" name="textinput1" type="search" placeholder="DD/MM/YYYY"  required="">
+					<input id="textinput1" name="textinput1" type="search" placeholder=""  required="">
+					
 				<div>
+				<br>
 					<label id="label" for="textinput2"> <b>TO:</b></label>
-					<input id="textinput2" name="textinput2" type="search" placeholder="DD/MM/YYYY"  required="">
+					<input id="textinput2" name="textinput2" type="search" placeholder=""  required="">
 				</div>
 				<br>
 				<div class="paragraph3">			

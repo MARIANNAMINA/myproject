@@ -63,9 +63,7 @@
 		position: absolute;
 		left: 85%;
 		vertical-align: bottom;
-		display: table-cell;
-		
-		
+		display: table-cell;		
 	  } 
 
        .save_style {
@@ -150,7 +148,6 @@
 				bottom:95%;
 				font-size: 14pt;
 				font-weight: bold;
-			
 	   }
 	 		
 	   label a:hover {
@@ -186,15 +183,21 @@
 			background-color: #f2f2f2
 		}
 		
-			.paragraph {
-			 
-					padding: 0px 0px 0px 40px;
-		  
-			}		
+		.paragraph {		 
+			padding: 0px 0px 0px 40px;  
+		}	
+		body{
+			height:100%;
+		   width:100%;
+		   background-image:url("statare3.jpg");  
+		   background-repeat:no-repeat;  
+		   background-size:cover;   
+		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}			
 
  </style>
-  
-  
+    
      <!-- Bootstrap CSS --> 
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
     </head>
@@ -208,23 +211,23 @@
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="ManagerDS_css.html">Home</a></li>
+		<li><a href="ManagerDS_css.html">Home</a></li>		
 		<li><a href="EditProfileManager.html" >Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view schedule manager.html">View Schedule</a></li>
-		<li><a href="Leave Request_Manager.html">Request For Leave</a></li> 
+		<li><a href="view%20schedule%20manager.html" >View Schedule</a></li>
+		<li><a href="Leave_Request_Manager.html" >Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
 		<li><a href="Payrol%20Report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add Employee.html">Add Employee</a>
-				<a href="EmployeeStatus.html">Employee Status</a>
+				<a href="add%20Employee.html">Add Employee</a>
+				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html" style="color:orange;text-decoration: underline">View Requests</a>
 				<a href="Delete%20Employee.html">Delete Employee</a>
 			</div>
-		</li>		
+		</li>	
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -250,17 +253,15 @@
 	
 	<br>
   
-    <h2>Page 1</h2>
+    <h4 style="margin-left:22px"><b>Page 1</b></h4>
     <button class="buttonstyle"> < </button> 
     <button class="buttonstyle"> > </button> 
    
    <br>
    
-   <label style="margin-left:15px"> Prev </label>
-   <label style="margin-left:40px"> Next </label>
+   <label style="margin-left:20px"> Prev </label>
+   <label style="margin-left:30px"> Next </label>
    
-   
-
   <hr>
    
    <div style="overflow-x:auto;">
