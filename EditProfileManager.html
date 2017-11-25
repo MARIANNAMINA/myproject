@@ -150,7 +150,6 @@
 	   label a:hover {
           color: orange;
        }
-
 	   
 	</Style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -169,7 +168,7 @@
 		<li><a href="ManagerDS_css.html">Home</a></li>
 		<li><a href="EditProfileManager.html" style="color:orange;text-decoration: underline">Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="view schedule manager.html">View Schedule</a></li>
 		<li><a href="Leave Request_css.html">Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
@@ -201,49 +200,49 @@
 	  </div>
 	  </div>
 	 
-	  <h2 style="text-align:center"><b>Edit Profile</b></h2>
+	  <h1 style="text-align:center"><b>Edit Profile</b></h1>
       <Img class="parent" src = "https://www.buira.org/assets/images/shared/default-profile.png" alt = "this image shows employee's photo" height = "100" width = "100"  >  
 	  <br>
 	  <br>
 	  <label class="right"><b>USERNAME</b></label><br>
 	  <label class="right1"><b>ROLE</b></label>
 	  <div style="margin-left:59px">
-	  <label>ID</label> 
+	  <label><b>ID</b></label> 
 	  <input style="margin-left:117px" name="ID" id="ID" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>First Name</label> 
+	  <label><b>First Name</b></label> 
 	  <input style="margin-left:57px" name="First Name" id="First Name" required="" type="text" placeholder="">
 	   
-	  <label style="margin-left:4%">Last Name</label> 
+	  <label style="margin-left:4%"><b>Last Name</b></label> 
 	  <input style="margin-left:57px" name="Last Name" id="Last Name" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>Address</label> 
+	  <label><b>Address</b></label> 
 	  <input style="margin-left:74px" name="Address" id="Address" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>City</label> 
+	  <label><b>City</b></label> 
 	  <input style="margin-left:104px" name="City" id="City" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>Date of Birth</label> 
+	  <label><b>Date of Birth</b></label> 
 	  <input style="margin-left:41px" name="Date of Birth" id="Date of Birth" required="" type="text" placeholder="DD/MM/YYYY">
 	  <br>
 	  <br>
-	  <label>Gender</label> 
+	  <label><b>Gender</b></label> 
 	  <input style="margin-left:79px" name="Gender" id="Gender" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>Phone</label> 
+	  <label><b>Phone</b></label> 
 	  <input style="margin-left:84px" name="Phone" id="Phone" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>Emergency Phone</label> 
+	  <label><b>Emergency Phone</b></label> 
 	  <input name="Emergency Phone" id="Emergency Phone" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label>Email</label> 
+	  <label><b>Email</b></label> 
 	  <input style="margin-left:90px" name="Email" id="Email" required="" type="text" placeholder="">
 	  <br>
 	  <br>
@@ -254,7 +253,8 @@
     </div>
 	<script>
 		function myFunction1() {
-    if(confirm('Do you want to save the changes you made?')){window.location.replace("ManagerDS_css.html");}
+    if(confirm('Do you want to save the changes you made?')){window.location.replace("ManagerDS_css.html");
+		window.alert("Changes were saved");}
 	else {window.location.replace("EditProfileManager.html");
 	}
 	}

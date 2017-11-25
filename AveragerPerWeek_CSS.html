@@ -43,23 +43,6 @@
 			  
 			  }
 			 
-					
-			  .buttonstyle {
-			  
-				 background-color: #31333F; 
-				 border: 2px solid #31333F;
-				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				 color: #ffffff ;
-				 padding: 10px 24px;
-				 border-radius: 3px;
-				 text-align: center;
-				 text-decoration: none;
-				 display: inline-block;
-				 font-size: 20px;
-				 font-weight: bold;
-			   
-			   }
-			 
 			li {
 				float: left;
 			}
@@ -111,6 +94,56 @@
 			label a:hover {
 					color: orange;
 			}
+			
+			 input{
+	    background-color: #f1f1f1;
+        color: black;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+	  }
+	  
+			.cancel_style {
+	    background-color: #FFFFFF; 
+        border: 2px solid #31333F;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+		left: 85%;
+		vertical-align: bottom;
+		display: table-cell;
+		color: #31333F;
+		bottom:180px;
+		left:570px;
+	} 
+	
+	 .save_style {
+	    background-color: #31333F; 
+        border: 2px solid #31333F;
+		color: white;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0.8%;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+		vertical-align: bottom;
+		display: table-cell;
+		bottom:180px;
+		left:710px;
+	  } 
 	</style>
 	
 	
@@ -137,7 +170,7 @@
 		<li><a href="ManagerDS_css.html">Home</a></li>
 		<li><a href="EditProfileManager.html">Profile</a></li>
 		<li><a href="view%20hours.html">View Hours</a></li>
-		<li><a href="view%20schedule.html">View Schedule</a></li>
+		<li><a href="view schedule manager.html">View Schedule</a></li>
 		<li><a href="Leave Request_css.html">Request For Leave</a></li> 
 		<li><a href="AveragerPerWeek_CSS.html" style="color:orange;text-decoration: underline">Average per week</a></li>
 		<li><a href="IPrange_css.html">IP Range</a></li>
@@ -178,22 +211,23 @@
 			
     <div class="paragraph">
   
-		<h1 align="center">AVERAGE PER WEEK <h1>
+		<h1 align="center"><b>Average per week</b><h1>
 	   
 	</div>
-	</br>
+	<br>
+	<br>
 	
 
 		
 	
 <style>
 .username {
-margin-left: 550px;
+margin-left: 540px;
 
 }
 
 #textinput2 {
-margin-left: 38px;
+margin-left: 32px;
 font-size:20px;
 
 }
@@ -204,7 +238,8 @@ font-size:20px;
 
 }
 #label2 {
-font-size:25px;}
+font-size:25px;
+}
 #label1 {
 
 font-size:25px;}
@@ -212,7 +247,7 @@ font-size:25px;}
 		
 		<form class="username">
 <div >
-					<label  id="label2" for="textinput" ><b>FROM</b></label> 
+					<label  id="label2" for="textinput" ><b>From</b></label> 
 					<input id="textinput1" name="textinput" type="text" placeholder=""  required="">
 				
 				</div>  
@@ -220,15 +255,15 @@ font-size:25px;}
 				<br>
 			
 				<div>
-					<label id="label1" for="textinput" > <b>TO</b></label>
+					<label id="label1" for="textinput"><b>To</b></label>
 					<input id="textinput2" name="textinput" type="text" placeholder=""  required="">
 				</div>
   
 		
 </br></br></br>
 		
-			<button onclick="myFunction1()" class="buttonstyle">SAVE REPORT</button>
-			<button onclick="myFunction2()" class="buttonstyle">CANCEL</a>
+			<button onclick="myFunction1()" class="save_style">Save report</button>
+			<button onclick="myFunction2()" class="cancel_style">Cancel</a>
 		
 <script>
 		function myFunction1() {

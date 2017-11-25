@@ -163,7 +163,7 @@
 	   <div style="font-weight: bold">
 	   
 	 <div class="header"> 
-		<label ><a href="Login_Employee.html" class="logout">Log out</a></label>
+		<label ><a href="Login_Employee.html" class="logout"><b>Log out</b></a></label>
 		<div class="logo">
 		<a href="EmployeeDashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -194,7 +194,7 @@
 	  </div>
 	  </div>
 	 
-	  <h2 style="text-align:center"><b>Edit Profile</b></h2>
+	  <h1 style="text-align:center"><b>Edit Profile</b></h1>
       <Img class="parent" src = "https://www.buira.org/assets/images/shared/default-profile.png" alt = "this image shows employee's photo" height = "100" width = "100"  >  
 	  <br>
 	  <br>
@@ -247,7 +247,8 @@
     </div>
 	<script>
 		function myFunction1() {
-    if(confirm('Do you want to save the changes you made?')){window.location.replace("EmployeeDashboard.html");}
+    if(confirm('Do you want to save the changes you made?')){window.location.replace("EmployeeDashboard.html");
+		window.alert("Changes were saved");}
 	else {window.location.replace("EditProfile.html");
 	}
 	}
