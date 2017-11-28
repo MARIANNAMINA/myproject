@@ -92,7 +92,7 @@
 			
 				<div class="password">
 					<label for="passwordinput" > <b>Password :  </b></label>
-					<input style="margin-left:27px" id="passwordinput" name="word" type="password" placeholder=""  required="">
+					<input style="margin-left:27px" id="userPassword" name="word" type="password" placeholder=""  required="">
 				</div>
 				
 				<br>	
