@@ -8,7 +8,7 @@ $username=$_POST['username'];
 
 $sql2= "SELECT username FROM staff WHERE username='$username'";
 $resultCheck=mysqli_num_rows(mysqli_query($conn,$sql2));
-echo $resultCheck;
+
 $sql = "DELETE FROM staff WHERE username='$username' ";
 
 
