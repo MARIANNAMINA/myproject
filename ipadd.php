@@ -6,12 +6,15 @@ if (isset($_POST['ok'])){
 $username=$_POST['username'];
 $ip=$_POST['ip'];
 
-
-
-$sql = "INSERT INTO staff (IPrange) VALUES ('$ip')";
+$sql2= "SELECT username FROM staff WHERE username='$username'";
+$resultCheck=mysqli_num_rows(mysqli_query($conn,$sql2));
+$row=mysqli_fetch_row(mysqli_query($conn,$sql2));
+$ans=$row[0];
+if ( $resultCheck>0){
+$sql = "UPDATE staff SET IPRange='$ip' WHERE username='$ans'";
 
 if(!mysqli_query($conn,$sql)){
-	echo '<script type="text/javascript">window.alert("NOT INSERTED"); 
+	echo '<script type="text/javascript">window.alert("NOT INSERTE"); 
 	window.location.replace("IPrange_css.html");
 	</script>';
 }
@@ -19,6 +22,12 @@ else{echo '<script type="text/javascript">window.alert("INSERTED IP");
 	window.location.replace("EmployeeDashboard.html");
 	</script>';}
 
+}
+else{
+	echo '<script type="text/javascript">window.alert("NOT INSERTED"); 
+	window.location.replace("IPrange_css.html");
+	</script>';
+}
 }
 else {echo '<script type="text/javascript">alert("NOT FOUND"); 
 	window.location.replace("IPrange_css.html");
