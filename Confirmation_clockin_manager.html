@@ -94,11 +94,29 @@
 	  <br>
 	  <br>
 	  <br>
-	  <form action="clock%20in%20manager.html">
-		<button class="cancel_style">Cancel</button>
-		<button class="continue_style">Continue</button>
-	  </form>
+	
+		<button onclick="myFunction10()" class="cancel_style">Cancel</button>
+		
+		
+		<button onclick="myFunction20()" class="continue_style">Continue</button>
+	
      </div>
+		<script>
+		function myFunction10() {
+    if(confirm('do you want to cancel?')){window.location.replace("clock in manager.html");
+	}
+	else {window.location.replace("Confirmation_clockin_manager.html");
+	}
+	}
+	function myFunction20() {
+    if(confirm('do you want to continue?')){window.location.replace("clock in manager.html");}
+	else {window.location.replace("Confirmation_clockin_manager.html");
+	}
+	
+}
+</script>
+
+	 
     
   </body>
 </html>
