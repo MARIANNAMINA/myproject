@@ -173,7 +173,7 @@
   <body>
 		
 		<div class="header">
-	 	<label ><a href="Login_Manager.html" class="logout">Log out</a></label>
+	 	<label ><a href="Login_Manager.php" class="logout">Log out</a></label>
 		<div class="logo">
 		<a href="ManagerDS_css.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -192,7 +192,7 @@
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add%20Employee.html">Add Employee</a>
+				<a href="add%20Employee.php">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
 				<a href="Delete%20Employee.html">Delete Employee</a>
@@ -223,33 +223,34 @@
 	<br>
 <div>
 
-		<form class="username">
+		<form class="username" action="Managerleave.php" method="POST">
 <div >
 					<label  id="label" for="textinput1" ><b>USERNAME:</b></label> 
-					<input id="textinput1" name="textinput1" type="text" placeholder=""  required="">
+					<input id="textinput1" name="username" type="text" placeholder=""  required="">
 					 
 				<div >
 					<label  id="label" for="textinput2" ><b>REQUEST DAYS FROM:</b></label> 
-					<input id="textinput2" name="textinput2" type="text" placeholder=""  required="">
+					<input id="textinput2" name="From"" type="date" placeholder=""  required="">
 				
 				</div>  
 			
 			<div >
 					<label  id="label" for="textinput3" ><b>REQUEST DAYS TO:</b></label> 
-					<input id="textinput3" name="textinput3" type="text" placeholder=""  required="">
+					<input id="textinput3" name="To" type="date" placeholder=""  required="">
 				
 				</div>  
 			<br>
 			
 	<label id="label" for="textinput"><b>Description:</b></label>  
-  <input id="textinput" name="textinput" type="text" >
+  <input id="textinput" name="desc" type="text" >
  
   </div>
   <div>
   <br>
   	<div class="paragraph2">
-			<button onclick="myFunction1()" class="buttonstyle1">Cancel</button>
-			<button onclick="myFunction2()" class="buttonstyle">Continue</button>
+			<label onclick="myFunction1()" class="buttonstyle1">Cancel</label>
+			<button type="submit" name="continue" class="buttonstyle">Continue</button>
+			</form>
 	</div>		
 			
 			<script>
