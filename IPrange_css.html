@@ -158,7 +158,7 @@
   </head>
   <body>
 		<div class="header">
-	 	<label ><a href="Login_Manager.html" class="logout">Log out</a></label>
+	 	<label ><a href="Login_Manager.php" class="logout">Log out</a></label>
 		<div class="logo">
 		<a href="ManagerDS_css.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -177,7 +177,7 @@
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" >My Employees</a>
 			<div class="dropdown-content">
-				<a href="add%20Employee.html">Add Employee</a>
+				<a href="add%20Employee.php">Add Employee</a>
 				<a href="EmployeeStatus_Manager.html">Employee Status</a>
 				<a href="ViewRequest_manager.html">View Requests</a>
 				<a href="Delete%20Employee.html">Delete Employee</a>
@@ -209,10 +209,16 @@
 	<br>
 	<br>
 	
-		<form class="username">
+		<form class="username" action="ipadd.php" method="POST">
 		<div >
-			<label  id="label" for="textinput" style="font-size: 20px"><b>INSERT IP RANGE:</b></label> 
-			<input required id="textinput" name="textinput" type="text" placeholder="" ></input>	
+			<label  id="label" for="textinput" style="font-size: 20px"><b>USERNAME:</b></label> 
+			<input required id="textinput" name="username" type="text" placeholder="" ></input>	
+		</div>  
+	
+		</br>
+		<div >
+			<label  id="label" for="textinput" style="font-size: 20px"><b>IP to insert:  </b></label> 
+			<input required id="textinput" name="ip" type="text" placeholder="" ></input>	
 		</div>  
 		
 		<br>
@@ -222,7 +228,8 @@
 		
 		<div class="paragraph2">
 			<button onclick="myFunction2()" class="buttonstyle1">CANCEL</button>		
-			<button onclick="myFunction1()" class="buttonstyle">OK</button>
+			<button type="submit" name="ok" class="buttonstyle">OK</button>
+			</form>
 		</div>	
 			
 <script type="text/javascript">
@@ -236,13 +243,6 @@ function myFunction2(){
 	
 	}
 	}
-	function myFunction1(){
-	 window.alert("IP APPROVED");
-	window.location.replace("ManagerDS_css.html");
-
-	
-	
-}
 </script>
 
 </form>
