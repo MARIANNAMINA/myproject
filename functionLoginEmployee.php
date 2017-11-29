@@ -14,7 +14,7 @@ $result=mysqli_query($conn,$sql);
 $resultCheck=mysqli_num_rows($result);
 
 if ($resultCheck < 1){
-	echo '<script type="text/javascript">alert("WRONG PASSWORD"); 
+	echo '<script type="text/javascript">alert("WRONG PASSWORD OR USERNAME"); 
 	window.location.replace("Login_Employee.php");
 	</script>';
 exit();}
