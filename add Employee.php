@@ -221,7 +221,7 @@
 		<br>
 	<div>	
 		<label id="label2" for="textinput"><b>Password : </b></label>
-		<input style="margin-left:28px" type="textinput2" name="password" type="text">
+		<input style="margin-left:28px" type="password" name="password" type="text">
 	</div>	
 		<br>
 		<br>
