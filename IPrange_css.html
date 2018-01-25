@@ -104,17 +104,10 @@
 				display: block;
 			}
 			.username {
-				margin-left: 100px;
+				margin-left: 80px;
+				margin-right: 80px;
 			}
-			
-			#textinput {
-					margin-left: 20px;
-					font-size:20px;
-			}
-			#label {
-				margin-left:410px;
-			}	
-			
+						
 			.logout{
 				position:absolute;
 				color: orange;
@@ -150,7 +143,32 @@
 		   background-size:cover;   
 		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
 		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
-		}				
+		}
+		 table {
+			 border-collapse: collapse;
+			 width: 100%;
+		  }
+		 td {
+			 text-align: left;
+			 padding: 8px;
+			 color:black;
+			 background-color:white;
+			 border:2px solid #31333F;
+		  }
+		 th{
+			 text-align: left;
+			 padding: 8px;
+			 background-color:#31333F;
+			 border:2px solid #31333F;
+			 color:white;
+		  }
+
+		 tr:nth-child(even){
+		  background-color: white;
+		  border:2px solid #31333F;
+		  color:black;
+		 }
+		
 	</style>
 	
     <!-- Bootstrap CSS -->
@@ -202,7 +220,7 @@
 		
     <div class="paragraph">
   
-		<h1 align="center"><b>IP Range</b><h1>
+		<h1 align="center"><b>Location Request</b><h1>
 	   
 	</div>
 	<br>
@@ -210,40 +228,60 @@
 	<br>
 	
 		<form class="username" action="ipadd.php" method="POST">
-		<div >
-			<label  id="label" for="textinput" style="font-size: 20px"><b>USERNAME:</b></label> 
-			<input required id="textinput" name="username" type="text" placeholder="" ></input>	
-		</div>  
-	
-		</br>
-		<div >
-			<label  id="label" for="textinput" style="font-size: 20px"><b>IP to insert:  </b></label> 
-			<input required id="textinput" name="ip" type="text" placeholder="" ></input>	
-		</div>  
+
 		
 		<br>
 		<br>
 		<br>
-		<br>
-		
-		<div class="paragraph2">
-			<button onclick="myFunction2()" class="buttonstyle1">CANCEL</button>		
-			<button type="submit" name="ok" class="buttonstyle">OK</button>
-			</form>
-		</div>	
-			
-<script type="text/javascript">
-		
-function myFunction2(){
-    if(confirm('Do you want to leave this page?')){
-	window.location.replace("ManagerDS_css.html");
-	}
-	else {
-	window.location.replace("IPrange_css.html");
-	
-	}
-	}
-</script>
+
+
+ <div style="overflow-x:auto;">
+   
+    <table style="width:100%"> 
+      
+     <tr> 
+     
+      <th>Username</th> 
+      <th>Location</th>  
+      <th>Hours</th>  
+      <th>State</th>   
+      
+     </tr> 
+      
+     <tr> 
+     
+      <td>John1325</td> 
+      <td>Nicosia</td>  
+      <td>8 hours</td> 
+	  <td>
+		<select name="selectbasic" class="form-control" id="selectbasic">
+			<option value="Pending">Pending</option>
+			<option value="Approve">Approve</option>
+			<option value="Deny">Deny</option>
+		</select></td>
+	  </td>
+       
+     </tr> 
+	 
+	 <tr> 
+     
+      <td>Jake2025</td> 
+      <td>Limassol</td>  
+      <td>9 hours</td> 
+	   <td>
+		<select name="selectbasic" class="form-control" id="selectbasic">
+			<option value="Pending">Pending</option>
+			<option value="Approve">Approve</option>
+			<option value="Deny">Deny</option>
+		</select></td>	   
+	   </td>
+       
+     </tr> 
+      
+    </table>  
+    
+   </div>
+   
 
 </form>
 </body>
