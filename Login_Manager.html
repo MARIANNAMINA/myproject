@@ -26,6 +26,8 @@
 				text-align: left;
 				color: #ffffff;
 				font-family: sans-serif, Arial;
+				
+				
 			}
 			
 			.password, .username{
@@ -56,17 +58,36 @@
 					font-family: sans-serif, Arial;
 					cursor:pointer;
 			}
+			
 			input{
-				background-color: #f1f1f1;
-				color: black;
-				padding: 10px 24px;
-				border-radius: 8px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-			  }				
+	    background-color: #f1f1f1;
+        color: black;
+        padding: 10px 24px;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+	  }
+	  
+	   .logout{
+					position:absolute;
+					color: orange;
+					left: 91%;
+					bottom:94%;
+					font-size: 14pt;
+					font-weight: bold;
+					
+			   }
+
 		
+			label a:hover {
+				background-color: #31333F;
+				color: orange;
+				background-color: transparent;
+				text-decoration: underline;
+			}
+
 			</style>
 	
 	
@@ -77,15 +98,19 @@
   <body>
   
 	<div class="header">
+<<<<<<< HEAD
 	  <label ><a href="Login_Employee.html" class="logout">Log out</a></label>
+=======
+	  <label ><a href="contact_manager_login.html" class="logout">Contact us</a></label>
+>>>>>>> 4dd7856bc2a228b693fb65a0cdfaee6acaf94ff2
 	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="283" height="250">  
 	  <label for="companyname"  style="font-size: 50pt;"> <b>Statare Brands LTD </b></label>
 	</div>
 			
 				<br>
 				<div class="username">
-					<label  for="textinput"  ><b>Username :</b></label> 
-					<input style="margin-left:20px" id="textinput" name="textinput" type="text" placeholder=""  required="">
+					<label  for="textinput" ><b>Username :</b></label> 
+					<input style="margin-left:20px" name="textinput" type="text" placeholder=""  required="">
 				
 				</div>  
 			
@@ -93,7 +118,7 @@
 			
 				<div class="password">
 					<label for="passwordinput" > <b>Password :  </b></label>
-					<input style="margin-left:27px" id="passwordinput" name="passwordinput" type="password" placeholder=""  required="">
+					<input style="margin-left:27px" name="passwordinput" type="password" placeholder=""  required="">
 				</div>
 				
 				<br>	
