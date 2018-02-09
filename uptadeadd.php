@@ -14,16 +14,16 @@ $sql = "INSERT INTO staff (username,password,Name,Surname,birthdate) VALUES ('$u
 
 if(!mysqli_query($conn,$sql)){
 	echo '<script type="text/javascript">window.alert("NOT INSERTED"); 
-	window.location.replace("add Employee.php");
+	window.location.replace("add_employee.php");
 	</script>';
 }
 else{echo '<script type="text/javascript">window.alert("NSERTED CORRECTLY"); 
-	window.location.replace("ManagerDS_css.html");
+	window.location.replace("manager_dashboard.html");
 	</script>';}
 
 }
 else {echo '<script type="text/javascript">alert("NOT FOUND"); 
-	window.location.replace("add Employee.html");
+	window.location.replace("add_employee.html");
 	</script>';
 exit();}
 ?>

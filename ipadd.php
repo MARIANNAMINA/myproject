@@ -15,22 +15,22 @@ $sql = "UPDATE staff SET IPRange='$ip' WHERE username='$ans'";
 
 if(!mysqli_query($conn,$sql)){
 	echo '<script type="text/javascript">window.alert("NOT INSERTE"); 
-	window.location.replace("IPrange_css.html");
+	window.location.replace("ip_range.html");
 	</script>';
 }
 else{echo '<script type="text/javascript">window.alert("INSERTED IP"); 
-	window.location.replace("EmployeeDashboard.html");
+	window.location.replace("employee_dashboard.html");
 	</script>';}
 
 }
 else{
 	echo '<script type="text/javascript">window.alert("NOT INSERTED"); 
-	window.location.replace("IPrange_css.html");
+	window.location.replace("ip_range.html");
 	</script>';
 }
 }
 else {echo '<script type="text/javascript">alert("NOT FOUND"); 
-	window.location.replace("IPrange_css.html");
+	window.location.replace("ip_range.html");
 	</script>';
 exit();}
 ?>
