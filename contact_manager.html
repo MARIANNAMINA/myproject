@@ -173,14 +173,15 @@
   <body>
 		
 		<div class="header">
+	 	<label ><a href="login_manager.php" class="logout">Log out</a></label>
 		<div class="logo">
-
+		<a href="clock_in_manager.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
-		
+		</a>
 		
 		<ul>
 		<label class="nav">
-		
+		<li><a href="clock_in_manager.html">Home</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -192,7 +193,7 @@
 				<a href="#">Svenska</a>
 			</div>
 		</li>
-		<li><a href="contact_manager_login.html" style="color:orange;text-decoration: underline">Contact Us</a></li>
+		<li><a href="contact_manager.html" style="color:orange;text-decoration: underline">Contact Us</a></li>
 		</label>
 	</ul>
 
@@ -202,7 +203,7 @@
 	<br>
 <div>
 
-		<form class="username">
+		<form class="username"> <!--action="Managerleave.php" method="POST"-->
 <div >
 
 				<div >
@@ -238,13 +239,13 @@
 			
 			<script>
 function myFunction1() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("login_manager.html");}
-	else {window.location.replace("contact_manager_login.html");
+    if(confirm('Do you want to leave this page?')){window.location.replace("manager_dashboard.html");}
+	else {window.location.replace("contact_manager.html");
 	}
 	}
 	function myFunction2() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("login_manager.html");}
-	else {window.location.replace("contact_manager_login.html");
+    if(confirm('Do you want to leave this page?')){window.location.replace("manager_dashboard.html");}
+	else {window.location.replace("manager_dashboard.html");
 	}
 	
 }
