@@ -67,6 +67,22 @@
 				font-size: 16px;
 			  }				
 		
+			label a:hover {
+				background-color: #31333F;
+				color: orange;
+				background-color: transparent;
+				text-decoration: underline;
+			}
+		
+		   .logout{
+					position:absolute;
+					color: orange;
+					left: 91%;
+					bottom:94%;
+					font-size: 14pt;
+					font-weight: bold;
+					
+			   }	
 			</style>
 	
 	
@@ -77,6 +93,9 @@
   <body>
   
 	<div class="header">
+	
+	<label ><a href="contact_manager_login.html" class="logout">Contact us</a></label>
+	
 	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="283" height="250">  
 	  <label for="companyname"  style="font-size: 50pt;"> <b>Statare Brands LTD </b></label>
 	</div>
