@@ -117,7 +117,7 @@
 		font-weight: bold;
 		position: absolute;
 		left: 85%;
-		top: 140%;
+		top: 160%;
 		vertical-align: bottom;
 		display: table-cell;
 		color: #31333F; 
@@ -136,7 +136,7 @@
 		font-weight: bold;
 		position: absolute;
         left: 94%;
-		top: 140%;
+		top: 160%;
 		vertical-align: bottom;
 		display: table-cell;
 	  }	  
@@ -148,7 +148,10 @@
 			background-size:cover;   
 			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
 			-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
-		}	  
+		}	
+	input[type=checkbox] {
+		transform: scale(1.7);
+	}		
 	
  </style>
   
@@ -205,78 +208,82 @@
 		<h1 align = center><b>Add Employee</b><h1>
 		<br>
 	</div>
+	<form action="uptadeadd.php" method="post" class="username" id="form_id">
  	  <div style="margin-left:59px">
  
  	  <label><b>Username : </b></label> 
-	  <input style="margin-left:60px" name="Username" id="Username" required="" type="text" placeholder="">
-	  
+	  <input style="margin-left:124px" name="Username" id="Username" required="" type="text" placeholder="">
 	  <label style="margin-left:56px"><b>Password : </b></label> 
-	  <input style="margin-left:57px" name="Password" id="Password" required="" type="text" placeholder="">
+	  <input style="margin-left:124px" name="Password" id="Password" required="" type="text" placeholder="">
 	  <br>
 	  <br>	
  	  <label><b>ID : </b></label> 
-	  <input style="margin-left:117px" name="ID" id="ID" required="" type="text" placeholder="">
-	  
-	  <label style="margin-left:98px"><b>SSN : </b></label> 
-	  <input style="margin-left:57px" name="SSN" id="SSN" required="" type="text" placeholder="">
+	  <input style="margin-left:182px" name="ID" id="ID" required="" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>SSN : </b></label> 
+	  <input style="margin-left:166px" name="SSN" id="SSN" required="" type="text" placeholder="">
 	  <br>
 	  <br>
 	  <label><b>First Name : </b></label> 
-	  <input style="margin-left:52px" name="First Name" id="First Name" required="" type="text" placeholder="">
-	   
-	  <label style="margin-left:50px"><b>Last Name : </b></label> 
-	  <input style="margin-left:57px" name="Last Name" id="Last Name" required="" type="text" placeholder="">
+	  <input style="margin-left:116px" name="FirstName" id="FirstName" required="" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Last Name : </b></label> 
+	  <input style="margin-left:118px" name="LastName" id="LastName" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Address : </b></label> 
-	  <input style="margin-left:74px" name="Address" id="Address" required="" type="text" placeholder="">
-	  
-	  <label style="margin-left:69px"><b>Country : </b></label> 
-	  <input style="margin-left:55px" name="City" id="City" required="" type="text" placeholder="">
+	  <label><b>Department number : </b></label> 
+	  <input style="margin-left:44px" name="DepartmentNum" id="DepartmentNum" required="" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Role : </b></label> 
+	  <input style="margin-left:163px" name="Role" id="Role" required="" type="text" placeholder="">
 	  <br>
 	  <br>
-	  <label><b>Department : </b></label> 
-	  <input style="margin-left:44px" name="Department" id="Department" required="" type="text" placeholder="">
-	  
-	  <label style="margin-left:96px"><b>Role : </b></label> 
-	  <input style="margin-left:55px" name="Role" id="Role" required="" type="text" placeholder="">
-	  <br>
-	  <br>	  
-	  <label><b>Date of Birth : </b></label> 
-	  <input style="margin-left:37px" name="Date of Birth" id="Date of Birth" required="" type="text" placeholder="DD/MM/YYYY">
-	  
-	  <label style="margin-left:83px"><b>Salary : </b></label> 
-	  <input style="margin-left:55px" name="Salary" id="Salary" required="" type="text" placeholder="">
-	  <br>
-	  <br>
-	  <label><b>Gender : </b></label> 
-	  <input style="margin-left:79px" name="Gender" id="Gender" required="" type="text" placeholder="">
+	  <label><b>Salary : </b></label> 
+	  <input style="margin-left:154px" name="Salary" id="Salary" required="" type="text" placeholder="">	
+	  <label style="margin-left:56px"><b>Salary Type : </b></label> 
+	  <input style="margin-left:107px" name="SalaryType" id="SalaryType" required="" type="text" placeholder="">
 	  <br>
 	  <br>
 	  <label><b>Phone : </b></label> 
-	  <input style="margin-left:86px" name="Phone" id="Phone" required="" type="text" placeholder="">
+	  <input style="margin-left:153px" name="Phone" id="Phone" required="" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Emergency Phone : </b></label> 
+	  <input style="margin-left:60px" name="EmergencyPhone" id="EmergencyPhone" required="" type="text" placeholder="">
 	  <br>
-	  <br>
-	  <label><b>Emergency Phone : </b></label> 
-	  <input name="Emergency Phone" id="Emergency Phone" required="" type="text" placeholder="">
-	  <br>
-	  <br>
+	  <br>	
 	  <label><b>Email: </b></label> 
-	  <input style="margin-left:97px" name="Email" id="Email" required="" type="text" placeholder="">
+	  <input style="margin-left:164px" name="Email" id="Email" required="" type="text" placeholder="">
 	  <br>
-	  <br>  
-	  <button onclick="myFunction1()" class="save_style">Save</button>
-	  <button onclick="myFunction2 ()" class="cancel_style">Cancel</button>
+	  <br>
+	  <label><b>Country : </b></label> 
+	  <input style="margin-left:140px" name="Country" id="Country" required="" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Address : </b></label> 
+	  <input style="margin-left:131px" name="Address" id="Address" required="" type="text" placeholder="">
+	  <br>
+	  <br>
+	  <label><b>Date of Birth : </b></label> 
+	  <input style="margin-left:103px" name="DateofBirth" id="DateofBirth" required="" type="text" placeholder="DD/MM/YYYY">
+	  <br>
+	  <br>
+	  <label><b>Gender : </b></label> 
+	  <input style="margin-left:143px" name="Gender" id="Gender" required="" type="text" placeholder="">
+	  <br>
+	  <br> 
+	  <label><b>Manager : </b></label> 
+	  <input style="margin-left:136px" type="checkbox" name="Manager" id="Manager" />	
+	  <br>
+	  <br>	  
+	  <button type="submit" onclick="myFunction1()" class="save_style" name="save">Save</button>
+	  <button onclick="myFunction2()" class="cancel_style">Cancel</button>
 	  
      </div>
-    </div>	  
+    </div>	
 
+</form>
 <script>
-		function myFunction1() {
+	function myFunction1() {
     if(confirm('Do you want to save the changes you made?')){window.location.replace("manager_dashboard.html");
-	window.alert("Changes were saved");}
+	window.alert("Changes were saved");
+	document.getElementById("form_id").submit();
+	return true;}
 	else {window.location.replace("add_employee.html");
-	}
+	return false;}
 	}
 	function myFunction2() {
     if(confirm('Do you want to discard your changes?')){window.location.replace("manager_dashboard.html");}
