@@ -187,8 +187,10 @@
 	  <br>
 	  <br>
 	  <br>
+	  
+	  	<form action="delete_employee.php" method="post" class="username"  id="form_id" >
 	  <div style="text-align:center">
-	  <label style="font-size: 20px"><b>Username:</b> </label> 
+	  <label style="font-size: 20px" name="Username" id="Username"><b>Username:</b> </label> 
 	  <input style="margin-left: 20px">
 	  <br>
 	  <br>
@@ -197,11 +199,12 @@
 	  <br>	  	  
 
 	  <button onclick="myFunction2()" class="cancel_style">Cancel</button>
-	  <button onclick="myFunction1()" class="save_style">Save</button>
+	  <button onclick="myFunction1()" class="save_style" name="save">Save</button>
 	  
 	 
      </div>
-    </div>
+	 </form>
+    
 	<script>
 <!--	var myWindow; -->
 
@@ -209,9 +212,12 @@
 		if(confirm('Do want to delete this employee?')){
 			window.location.replace("manager_dashboard.html");
 			window.alert("Employee has been deleted");
+			document.getElementById("form_id").submit();
+			return true;
 		}
 		else {
 			window.location.replace("average_per_week.html");
+			return false;
 		}
 	}
 	function myFunction2() {
