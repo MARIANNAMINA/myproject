@@ -173,7 +173,13 @@
   <body>
 		
 		<div class="header">
-	 	<label ><a href="login_manager.php" class="logout">Log out</a></label>
+
+                <form action"logout.php">
+                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
+                </form>
+
+
+
 		<div class="logo">
 		<a href="clock_in_manager.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -203,37 +209,37 @@
 	<br>
 <div>
 
-		<form class="username"> <!--action="Managerleave.php" method="POST"-->
+		<form method="post" class="username" id="form_id" action="contact.php">
 <div >
 
 				<div >
 					<label  id="label" for="textinput2" ><b>FROM :</b></label> 
-					<input id="textinput2" name="From" type="text" placeholder=""  required="">
-				
+					<input name="From" id="From" type="text" placeholder=""  required="">
+				    
 				</div>  
 			
 				<div >
 					<label  id="label" for="textinput3" ><b>TO :</b></label> 
-					<input id="textinput3" name="To" type="text" placeholder=""  required="">
+					<input name="To" id="To" type="text" placeholder=""  required="">
 				
 				</div> 
 				<div >
 					<label  id="label" for="textinput3" ><b>SUBJECT :</b></label> 
-					<input id="textinput1" name="To" type="text" placeholder=""  required="">
+					<input name="Subject" id="Subject" type="text" placeholder=""  required="">
 				
 				</div>  
 				
-			<br>
+				<br>
 			
-	<label id="label" for="textinput"><b>Description:</b></label>  
-  <input id="textinput" name="desc" type="text" >
+				<label id="label" for="textinput"><b>Description:</b></label>  
+				<input name="Description" id="Description" type="text" placeholder=""  required="">
  
   </div>
   <div>
   <br>
   	<div class="paragraph2">
 			<label onclick="myFunction1()" class="buttonstyle1">Cancel</label>
-			<button onclick="myFunction2()" class="buttonstyle">Send</button>
+			<button onclick="myFunction2()" class="buttonstyle" name="Send">Send</button>
 			</form>
 	</div>		
 			
@@ -243,12 +249,17 @@ function myFunction1() {
 	else {window.location.replace("contact_manager.html");
 	}
 	}
-	function myFunction2() {
-    if(confirm('Do you want to send your message?')){window.location.replace("manager_dashboard.html");}
-	else {window.location.replace("contact_manager.html");
+function myFunction2() {
+	
+	if(confirm('Do you want to send the message?')){
+		document.getElementById("form_id").submit();
+		//window.alert("OLA KALAAAAA!!!");
+		window.location.replace("clock_in_manager.html");
+		return true;
 	}
 	
 }
+	
 </script>
 		</div>
 
