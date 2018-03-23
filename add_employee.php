@@ -1,5 +1,8 @@
-<!doctype html> 
-  <html lang="en"> 
+<?php 
+session_start();
+include('uptadeadd.php');
+?><!doctype html>  
+  <html lang="en">
    <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
@@ -10,7 +13,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
   
   <style>
-    
+    .error{
+		color:red;
+		position:absolute;
+	}
 	.paragraph {
 		padding: 0px 0px 0px 0px;
 	}
@@ -18,46 +24,7 @@
     .paragraph2 {
      	padding: 0px 0px 0px 600px;
 	}
-  
-	.buttonstyle {		  
-		background-color: #31333F; 
-		border: 2px solid #31333F;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		color: #ffffff ;
-		padding: 10px 24px;
-		border-radius: 3px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		font-weight: bold;
-	}
-
-	.buttonstyle1 {			  
-		background-color: #ffffff; 
-		border: 2px solid #31333F;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-		color: #31333F ;
-		padding: 10px 24px;
-		border-radius: 3px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 20px;
-		font-weight: bold;
-	}
-    
-		.username {
-			margin-left: 500px;	
-		}
-
-		.textinput1, .textinput2, .textinput3, textinput4, textinput5 {
-			font-size:20px;
-		}
-		#label1, #label2, #label3, #label4, #label5 {
-			font-size:20px;
-		}	
-	
+   	
 	.logout{
 		position:absolute;
 		color: orange;
@@ -97,7 +64,7 @@
 		display: inline-block;
 		color: white;
 		text-align: center;
-		padding: 14px 16px;
+		padding: 17px 11px;
 		text-decoration: none;
 	}
 	li a:hover, .dropdown:hover .dropbtn {
@@ -143,42 +110,83 @@
         display: inline-block;
         font-size: 16px;
 	  }
-
-			body{
-				height:100%;
-			   width:100%;
-			   background-image:url("statare3.jpg");  
-			   background-repeat:no-repeat;  
-			   background-size:cover;   
-			   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
-			   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
-			}	  
+	.cancel_style {
+	    background-color: #FFFFFF; 
+        border: 2px solid #31333F;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0.8%;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+		left: 85%;
+		top: 220%;
+		vertical-align: bottom;
+		display: table-cell;
+		color: #31333F; 
+	} 
+       .save_style {
+	    background-color: #31333F; 
+        border: 2px solid #31333F;
+		color: white;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        padding: 0.8%;
+		border-radius: 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+		font-weight: bold;
+		position: absolute;
+        left: 94%;
+		top: 220%;
+		vertical-align: bottom;
+		display: table-cell;
+	  }	  
+		body{
+			height:100%;
+			width:100%;
+			background-image:url("statare3.jpg");  
+			background-repeat:no-repeat;  
+			background-size:cover;   
+			filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
+			-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+		}	
+	input[type=checkbox] {
+		transform: scale(1.7);
+	}		
 	
  </style>
-  
-  
-     <!-- Bootstrap CSS --> 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"> 
     </head>
     
     <body> 
 
 	 <div class="header">
-	 <label ><a href="login_manager.php" class="logout"><b>Log out</b></a></label>
+	
+                <form action"logout.php">
+                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
+                </form>
+
+
+
 	 <div class="logo">
-		<a href="ManagerDS_css.html">
+		<a href="manager_dashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="ManagerDS_css.html">Home</a></li>		
-		<li><a href="EditProfileManager.html" >Profile</a></li>
-		<li><a href="view_hours.html">View Hours</a></li>
+		<li><a href="manager_dashboard.html">Home</a></li>		
+		<li><a href="edit_profile_manager.html" >Profile</a></li>
+		<li><a href="view_hours_manager.html">View Hours</a></li>
 		<li><a href="view_schedule_manager.html">View Schedule</a></li>
-		<li><a href="Leave_Request_Manager.html" >Request For Leave</a></li> 
-		<li><a href="AveragerPerWeek_CSS.html" >Average per week</a></li>
-		<li><a href="IPrange_css.html">IP Range</a></li>
-		<li><a href="Payrol_Report.html">Payroll Report</a></li>
+		<li><a href="leave_request_manager.html" >Leave Request</a></li> 
+		<li><a href="average_per_week.html" >Average per week</a></li>
+		<li><a href="ip_range.html">Location Request</a></li>
+		<li><a href="payroll_report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn"style="color:orange;text-decoration: underline">My Employees</a>
 			<div class="dropdown-content">
@@ -206,68 +214,164 @@
 	  </div>
 	
 	<div class="paragraph">
-  
 		<h1 align = center><b>Add Employee</b><h1>
-		
 		<br>
- </div>
+	</div>
+	
+	<form method="post" class="username" name="form_id" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
+ 	
+	  <div style="margin-left:59px">
+	
+ 	  <label><b>Username : </b></label> 
+	  <input style="margin-left:124px" name="Username" id="Username" type="text" value="<?php echo "$Username"; ?>" placeholder="">
+	  <label style="margin-left:56px"><b>Password : </b></label> 
+	  <input style="margin-left:124px" name="Password" id="Password" value="<?php echo "$Password"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$username_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$password_error"; ?></span>
+	 
+	  <br>
+	  <br>	
+	  
+ 	  <label><b>ID : </b></label> 
+	  <input style="margin-left:182px" name="ID" id="ID" value="<?php echo "$ID"; ?>" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>SSN : </b></label> 
+	  <input style="margin-left:166px" name="SSN" id="SSN" value="<?php echo "$SSN"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$id_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$ssn_error"; ?></span>
 
-	<form action="uptadeadd.php" method="post" class="username" >	
-	<div>
-		<label id="label1" for="textinput"><b>Username : </b></label>
-		<input style="margin-left:23px" type="textinput1" name="username" type="text" >
-	</div>	
-		<br>
-		<br>
-	<div>	
-		<label id="label2" for="textinput"><b>Password : </b></label>
-		<input style="margin-left:28px" type="password" name="password" type="text">
-	</div>	
-		<br>
-		<br>
-	<div>	
-		<label id="label3" for="textinput"> <b>Name : </b></label>
-		<input style="margin-left:63px" type="textinput3" name="name" type="text">
-	</div>	
-		<br>
-		<br>
-	<div>	
-		<label id="label4" for="textinput"> <b>Surname : </b></label>
-		<input style="margin-left:39px" type="textinput4" name="surname" type="text">
-	</div>	
-		<br>
-		<br>
-	<div>	
-		<label id="label5" for="textinput"> <b>Date Of Birth : </b></label>
-		<input style="margin-left:0px" type="textinput5" name="birthday" type="text" placeholder="YYYY-MM-DD">
-	</div>
+	  <br>
+	  <br>
+	  
+	  <label><b>First Name : </b></label> 
+	  <input style="margin-left:116px" name="FirstName" id="FirstName" value="<?php echo "$FN"; ?>" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Last Name : </b></label> 
+	  <input style="margin-left:118px" name="LastName" id="LastName" value="<?php echo "$LN"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$name_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$last_name_error"; ?></span>
+	  
+	  <br>
+	  <br>
+	 
+	  <label><b>Department number : </b></label>
+      <input style="margin-left:45px" name="DepartmentNum" id="DepartmentNum" value="<?php echo "$DN"; ?>" type="text" placeholder="">	
+	  
+	  <!--<select style="margin-left:45px" name="dynamicList" id="dynamicList" onclick="myFunction()" form="inner"></select>-->  
+	  
+	  <label style="margin-left:56px"><b>Role : </b></label> 
+	  <input style="margin-left:163px" name="Role" id="Role" value="<?php echo "$Role"; ?>" type="text" placeholder="">
+	   <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$dept_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$role_error"; ?></span>
+	  
+	  <br>
+	  <br>
+	 
+	  <label><b>Country Number : </b></label>
+      <input style="margin-left:73px" name="CountryNumber" id="CountryNumber" value="<?php echo "$CN"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$country_num_error"; ?></span>
+	  
+	  <br>
+	  <br>
+	  
+	  <label><b>Salary : </b></label> 
+	  <input style="margin-left:154px" name="Salary" id="Salary" type="text" value="<?php echo "$S"; ?>" placeholder="">
+	  <label style="margin-left:56px"><b>Salary Type : </b></label>
+        	 <select style="margin-left:110px" name="SalaryType" id="SalaryType">
+                    <option value="Fixed">Fixed</option>
+                    <option value="FixedWithOvertime">Fixed With Overtime</option>
+	            <option value="PartTime">Part Time</option>
+                 </select>
+	  <br>
+  	  <span style="margin-left:214px" class="error"><?php echo "$salary_error"; ?></span>
+	  <br>
+	  <br>
+	   
+	  <label><b>Phone : </b></label> 
+	  <input style="margin-left:153px" name="Phone" id="Phone" value="<?php echo "$P"; ?>" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Emergency Phone : </b></label> 
+	  <input style="margin-left:60px" name="EmergencyPhone" id="EmergencyPhone" value="<?php echo "$EP"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$phone_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$emergency_phone_error"; ?></span>
+	  
+	  <br>
+	  <br>
+	  
+	  <label><b>Email: </b></label> 
+	  <input style="margin-left:164px" name="Email" id="Email" value="<?php echo "$E"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$email_error"; ?></span>
+	  
+	  <br>
+	  <br>
 	
-	<div class="paragraph2">
-		<label onclick="myFunction2()" class="buttonstyle1">Cancel</label>
-		
-		<button onclick="myFunction1()"  type="submit" name="save" class="buttonstyle">Save</button>
-	
-	</div>
-	</form>
-	
+	  <label><b>Country : </b></label> 
+	  <input style="margin-left:140px" name="Country" id="Country" value="<?php echo "$C"; ?>" type="text" placeholder="">
+	  <label style="margin-left:56px"><b>Address : </b></label> 
+	  <input style="margin-left:131px" name="Address" id="Address" value="<?php echo "$A"; ?>" type="text" placeholder="">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$country_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$address_error"; ?></span>
+	 
+	  <br>
+	  <br>
+	   
+	  <label><b>Date of Birth : </b></label> 
+	  <input style="margin-left:103px" name="DateofBirth" id="DateofBirth" value="<?php echo "$DOB"; ?>" placeholder="YYYY-MM-DD">
+	  <br>
+	  <span style="margin-left:214px" class="error"><?php echo "$birthdate_error"; ?></span>
+	  
+	  <br>
+	  <br>
+ 
+	  <label><b>Manager : </b></label> 
+	  <input style="margin-left:136px" type="checkbox" name="Manager" id="Manager">	
+	 
+	  <br>
+	  <br>
+ 
+	  <label><b>Gender : </b></label>
+          <select style="margin-left:143px" name="Gender" id="Gender">
+	  <option value="Male">Male</option>
+	  <option value="Female">Female</option>
+	  </select>
+          <br>
+          <br>
+	  <button onclick="myFunction1()" class="save_style" name="save">Save</button>
+	  <button onclick="myFunction2()" class="cancel_style">Cancel</button>
+	  
+     </div>
+    </div>	
+
+	  </form>
+	 
+	<!--<form method="post" id="inner">
+	</form>-->
+	  
 <script>
-		/* {
-    if(confirm('Do you want to save the changes you made?')){
-	window.alert("Changes were saved");}
-	else {window.location.replace("add_employee.html");window.exit();
+
+	function myFunction1() {
+		if(confirm('Do you want to save the changes you made?')){
+		document.getElementById("form_id").submit();
+		return true;
+	}else{
+		window.location.replace("manager_dashboard.html")
 	}
-	}*/
-		function myFunction2() {
-    if(confirm('Do you want to discard your changes?')){window.location.replace("manager_dashboard.html");}
-	else {window.location.replace("add_employee.html");
+	}
+	
+	function myFunction2() {
+    if(confirm('Do you want to discard your changes?')){
+	window.location.replace("manager_dashboard.html");}
+	else {
+	window.location.replace("add_employee.php");
 	}
 	
 }
-	
 </script>
-
-
-
     </body> 
   </html> 
-  
+
