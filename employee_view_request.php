@@ -280,7 +280,7 @@
  
   <div style="overflow-x:auto;">
  
-    <table style="width:100%" name="table" id="table"> 
+    <table style="width:97.5%" name="table" id="table"> 
       
      <tr> 
      
@@ -298,10 +298,6 @@
 		$sql = "SELECT  `FromDate`, `ToDate`,  `Reason`, `State` FROM `Leave` WHERE `Username` LIKE '$Username'";
         $result = mysqli_query($conn, $sql);
 		
-		//$sql = "SELECT  FromDate, ToDate, Reason, State FROM Leave WHERE Username LIKE '$Username'";
-		//$result = mysqli_query($conn, $sql);
-		
-		
 		
 		if(!$result){
 			echo '<script type="text/javascript">
@@ -309,15 +305,20 @@
 				</script>';
 			exit();
 		}else{
-					//echo "EKSO APO WHILE";
-		//<!--//echo mysqli_num_rows($result); -->
-			while($row = mysqli_fetch_array($result)){ 		
-				echo "<tr><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td><td>" . $row['State'] . "</td></tr>";
+		
+			while($row = mysqli_fetch_array($result)){ 	
+				if ($row['State'] == 'p'){
+					echo "<tr><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td><td> Pending </td></tr>";
+				}else if ($row['State'] == 'a'){
+					echo "<tr><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td><td> Accepted </td></tr>";
+				}else if ($row['State'] == 'r'){
+					echo "<tr><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td><td> Rejected </td></tr>";
+				}
+				
 			}
 		}
 
 	?>
-
 		
     </table>  
     
