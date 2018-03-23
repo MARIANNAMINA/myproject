@@ -1,8 +1,9 @@
-<!doctype html> 
-  <html lang="en"> 
-  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
-  <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
-    <head> 
+<?php session_start();
+?><!DOCTYPE HTML>
+<html lang="en">
+<link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+<link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+<head> 
     <title>Statare LTD</title> 
      <!-- Required meta tags --> 
       <meta charset="utf-8"> 
@@ -35,7 +36,22 @@
 					font-weight: bold;
 			}
 		
-			  .buttonstyle {
+			  .buttonstyle1 {
+			  
+				 background-color: #31333F; 
+				 border: 2px solid #31333F;
+				 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				 color: #ffffff ;
+				 padding: 10px 24px;
+				 border-radius: 3px;
+				 text-align: center;
+				 text-decoration: none;
+				 display: inline-block;
+				 font-size: 20px;
+				 font-weight: bold;
+				margin-left:80px;
+			   }
+			  .buttonstyle2 {
 			  
 				 background-color: #31333F; 
 				 border: 2px solid #31333F;
@@ -50,7 +66,6 @@
 				 font-weight: bold;
 			   
 			   }
-
 			 table {
 				 border-collapse: collapse;
 				 width: 100%;
@@ -86,7 +101,7 @@
 				display: inline-block;
 				color: white;
 				text-align: center;
-				padding: 14px 16px;
+				padding: 17px 11px;
 				text-decoration: none;
 			}
 
@@ -168,7 +183,10 @@
 			   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
 			   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
 			}
-		   
+			.username {
+				margin-left: 80px;
+				margin-right: 80px;
+			}		   
 
  </style>
   
@@ -181,7 +199,14 @@
     
     <!--image-->
      <div class="header"> 		
-		<label ><a href="login_manager.php" class="logout">Log out</a></label>
+
+                <form action"logout.php">
+                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
+                </form>
+
+
+
+
 	 	<div class="logo">
 		<a href="manager_dashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -193,15 +218,15 @@
 		<li><a href="edit_profile_manager.html" >Profile</a></li>
 		<li><a href="view_hours_manager.html">View Hours</a></li>
 		<li><a href="view_schedule_manager.html" >View Schedule</a></li>
-		<li><a href="leave_request_manager.html" >Request For Leave</a></li> 
-		<li><a href="average_per_week.html">Average per week</a></li>
-		<li><a href="ip_range.html">IP Range</a></li>
+		<li><a href="Leave_Request_Manager.html" >Leave Request</a></li> 
+		<li><a href="Average_per_Week.html">Average per week</a></li>
+		<li><a href="ip_range.html">Location Request</a></li>
 		<li><a href="payroll_report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add_employee.php">Add Employee</a>
-				<a href="employee_status_manager.html" style="color:orange;text-decoration: underline">Employee Status</a>
+				<a href="add_employee.html">Add Employee</a>
+				<a href="employee_status_manager.php" style="color:orange;text-decoration: underline">Employee Status</a>
 				<a href="view_request_manager.html">View Requests</a>
 				<a href="delete_employee.html">Delete Employee</a>
 			</div>
@@ -229,56 +254,147 @@
 	
 	<br>
 		
-   <h2>Page 1</h2>
-    <button class="buttonstyle"> < </button> 
-    <button class="buttonstyle"> > </button> 
+   <h4 style="margin-left:80px"><b>Page 1</b></h4>
+    <button class="buttonstyle1"> < </button> 
+    <button class="buttonstyle2"> > </button> 
    
    <br>
    
-   <label style="margin-left:15px"> Prev </label>
-   <label style="margin-left:40px"> Next </label>
+   <label style="margin-left:80px"><b> Prev </b></label>
+   <label style="margin-left:37px"><b> Next </b></label>
 
   <hr>
+  <form class="username"  method="POST">
    
    <div style="overflow-x:auto;">
-   
-    <table style="width:100%"> 
-      
-     <tr> 
-     
-      <th>ID</th> 
+<?php
+include_once 'db.php';
+$Username=$_SESSION['username'];
+$sql="SELECT `Leave`.LeaveID,Employee.Username,Employee.Name,Employee.Surname FROM `Leave` INNER JOIN Employee ON (`Leave`.Username=Employee.Username) WHERE `Leave`.FromDate <= curdate() AND `Leave`.ToDate >= curdate() AND `Leave`.State='A' AND Employee.UsernameManager LIKE '$Username'";
+$leaveSql=mysqli_query($conn,$sql);
+if(!($leaveSql)){
+	echo "Errormessage" . mysqli_error($conn) . "!!!";
+	exit();
+}else{
+$sqlClockedIn="SELECT AttendanceTime.*,Employee.Name,Employee.Surname,Employee.ID FROM (SELECT MAX(AttendanceTime.ClockIn) AS ClockInMax,AttendanceTime.Date,AttendanceTime.Username FROM AttendanceTime WHERE AttendanceTime.Date = curdate() GROUP BY AttendanceTime.Date,AttendanceTime.Username) AS A INNER JOIN AttendanceTime ON (A.Date=AttendanceTime.Date AND A.ClockInMax=AttendanceTime.ClockIn AND A.Username=AttendanceTime.Username) INNER JOIN Employee ON Employee.Username=A.Username WHERE Employee.UsernameManager LIKE '$Username'";
+$conClockedIn=mysqli_query($conn,$sqlClockedIn);
+if(!$conClockedIn){
+	echo '<script type="text/javascript">
+	window.alert("ERROR CONNECTION WITH DATABASE2");
+	window.location.replace("employee_status_manager.php");
+	</script>';
+	exit();
+}else{?>
+<table style="width:100%" name="table" id="table"> 
+<tr> 
+      <th>Username</th> 
       <th>First Name</th>  
       <th>Last Name</th>  
       <th>Status</th>  
       <th>Time in</th>  
       
      </tr> 
-      
-     <tr> 
-     
-	  <td>999999</td>
-      <td>John</td> 
-      <td>Smith</td>  
-      <td>Clocked in</td> 
-      <td>20/11/2017 9:00 AM</td> 
-       
-     </tr> 
-	 
-	 <tr> 
-     
-	  <td>987654</td>
-      <td>Daniel</td> 
-      <td>Cruz</td>  
-      <td>Out</td> 
-      <td>-</td> 
-       
-     </tr> 
-      
-    </table>  
-    
+<?php	
+	while($row = mysqli_fetch_array($conClockedIn)){
+		$flag=false;
+		while($rowLeave=mysqli_fetch_array($leaveSql)){
+			if(strcmp($row['Username'],$rowLeave['Username']) == 0){
+				echo "<tr>";
+				echo "<td>" . $rowLeave['Username'] . "</td>";
+				echo "<td>" . $rowLeave['Name'] . "</td>";
+				echo "<td>" . $rowLeave['Surname'] . "</td>";
+				echo "<td>Leave</td>";
+				echo "<td>-</td>";
+				echo "</tr>";
+				$flag=true;
+				break;
+			}
+		}
+		if(!($flag)){
+		if(is_null($row['ClockOut']) && is_null($row['Break']) && is_null($row['ReturnBreak'])){
+		echo "<tr>";
+		echo "<td>" . $row['Username'] . "</td>";
+		echo "<td>" . $row['Name'] . "</td>";
+		echo "<td>" . $row['Surname'] . "</td>";
+		echo "<td>Clocked in</td>";
+		echo "<td>" . $row['ClockIn'] . "</td>";
+		echo "</tr>";
+		}elseif(!is_null($row['ClockOut']) && is_null($row['Break']) && is_null($row['ReturnBreak'])){
+		echo "<tr>";
+		echo "<td>" . $row['Username'] . "</td>";
+		echo "<td>" . $row['Name'] . "</td>";
+		echo "<td>" . $row['Surname'] . "</td>";
+		echo "<td>Clocked out</td>";
+		echo "<td>-</td>";
+		echo "</tr>";
+		}elseif(is_null($row['ClockOut']) && !is_null($row['Break']) && is_null($row['ReturnBreak'])){
+		echo "<tr>";
+		echo "<td>" . $row['Username'] . "</td>";
+		echo "<td>" . $row['Name'] . "</td>";
+		echo "<td>" . $row['Surname'] . "</td>";
+		echo "<td>On Break</td>";
+		echo "<td>" . $row['ClockIn'] . "</td>";
+		echo "</tr>";
+		}elseif(is_null($row['ClockOut']) && !is_null($row['Break']) && !is_null($row['ReturnBreak'])){
+			if($row['Break'] > $row['ReturnBreak']){
+					echo "<tr>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Surname'] . "</td>";
+					echo "<td>On Break</td>";
+					echo "<td>" . $row['ClockIn'] . "</td>";
+					echo "</tr>";
+			}elseif($row['Break'] < $row['ReturnBreak']){
+					echo "<tr>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Surname'] . "</td>";
+					echo "<td>Returned from break</td>";
+					echo "<td>" . $row['ClockIn'] . "</td>";
+					echo "</tr>";
+			}else{
+				echo "Something went wrong";
+			}
+		}elseif(!is_null($row['ClockOut']) && !is_null($row['Break']) && !is_null($row['ReturnBreak'])){
+			if($row['ClockOut']>$row['Break'] && $row['ClockOut']>$row['ReturnBreak']){
+				    echo "<tr>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Surname'] . "</td>";
+					echo "<td>Clocked out</td>";
+					echo "<td>-</td>";
+					echo "</tr>";
+			}elseif($row['Break']>$row['ClockOut'] && $row['Break']>$row['ReturnBreak']){
+				    echo "<tr>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Surname'] . "</td>";
+					echo "<td>On Break</td>";
+					echo "<td>" . $row['ClockIn'] . "</td>";
+					echo "</tr>";
+			}elseif($row['ReturnBreak']>$row['ClockOut'] && $row['ReturnBreak']>$row['Break'] ){
+				    echo "<tr>";
+					echo "<td>" . $row['Username'] . "</td>";
+					echo "<td>" . $row['Name'] . "</td>";
+					echo "<td>" . $row['Surname'] . "</td>";
+					echo "<td>Returned from break</td>";
+					echo "<td>" . $row['ClockIn'] . "</td>";
+					echo "</tr>";
+			}else{
+				echo "Something went wrong";
+			}
+		}else{
+			echo "Something went wrong";
+		}
+		}
+	}	
+}
+}
+?>
+   </table>  
    </div>
-   
+   </form>
   </div>
      
     </body> 
-  </html> 
+</html> 
