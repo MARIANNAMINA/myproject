@@ -1,6 +1,4 @@
-<?php session_start();
-include('changeState_viewRequest.php');
-?>
+<?php session_start();?>
 <!doctype html> 
   <html lang="en"> 
 	<link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
@@ -305,7 +303,7 @@ include('changeState_viewRequest.php');
    
    <div style="overflow-x:auto;">
    
-    <table style="width:100%"> 
+    <table style="width:97.5%"> 
       
      <tr> 
      
@@ -321,11 +319,12 @@ include('changeState_viewRequest.php');
 		$Username=$_SESSION['username'];
 		
 		
-		$sql = "SELECT  `FromDate`, `ToDate`,  `Reason` FROM `Leave` WHERE `Username` LIKE '$Username'";
+		$sql = "SELECT  `Username`, `FromDate`, `ToDate`,  `Reason` FROM `Leave` WHERE  `Username` LIKE ( SELECT  `Username` FROM  `Employee` WHERE  `UsernameManager` LIKE  '$Username')";
         $result = mysqli_query($conn, $sql);
 		
 		
 		if(!$result){
+			echo $Username;
 			echo '<script type="text/javascript">
 				window.alert("ERROR CONNECTION WITH DATABASE");
 				</script>';
@@ -334,18 +333,20 @@ include('changeState_viewRequest.php');
 		
 			while($row = mysqli_fetch_array($result)){ 	
 				
-				echo "<tr><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td>";
-			}
-		}
-	?>
-		<td>
+				echo "<tr><td>" . $row['Username'] . "</td><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td>";
+				
+		/*<td>
 			<select name="selectbasic" class="form-control" id="selectbasic">
 				<option value="Pending">Pending</option>
 				<option value="Reject">Reject</option>
 				<option value="Accept">Accept</option>
 			</select></td>
-		</tr>
-      
+		</tr>*/
+			}
+		}
+	?>
+		
+      <?php include('changeState_viewRequest.php');?>
     </table>  
     
    </div>
