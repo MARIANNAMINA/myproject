@@ -152,12 +152,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
-  <body>
+  <body onload="show();">
 		
 		<div class="header">
-	
+		
+		<form action="logout.php">		 	
 		<label ><a href="index.html" class="logout"><b>Log out</b></a></label>
-	 
+	 	</form>  
+
 		<div class="logo">
 		<a href="clock_in_manager.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -176,39 +178,181 @@
 				<a href="#">Svenska</a>
 			</div>
 		</li>
-		<li><a href="contact_manager.html">Contact Us</a></li>
+			<form action="add_employee.php"> 
+				<li><a href="contact_manager.php">Contact Us</a></li>
+			</form> 
 		</label>
 	</ul>
 	</div> 	
 		</div>		
 		
     <div class="paragraph">
-  
+		 <div class="date">
+                <p id="date"></p>
+        </div>
 
-	<div class="date">
-		<div id="date" >25/01/2018</div>
-	</div>
+		<script>
+                n =  new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+        </script>
+
 	
-	<div class="timer">
-		<div id="timer" >00:00:00</div>
-	</div>
+<!--	<div class="timer"><span id="time" name="time"></span></div>-->
 	<p />
 	<p />	
-	
-	<form action="confirmation_clock_in_manager.html">
-		<button id="ClockInButton"class="clockbutton">Clock in</button><p />
+	<form action="clockIn.php" method="post" id=form_id>
+	<button onclick="myFunction()" name="ClockInButton" id="ClockInButton"class="clockbutton">Clock in</button><p />
 	</form>
-	<form action="confirmation_clock_out_manager.html">
-	<button id="ClockInButton"class="clockbutton">Clock out</button><p />
-	</form>
-	<form action="confirmation_break_manager.html">
-	<button id="ClockInButton"class="clockbutton">Break</button><p />
-	</form>
-	<button id="ReturnFromBreak"class="clockbutton">Return from Break</button><p />
+
+        <form action="clockOut.php" method="post" id=form_id1>
+        <button onclick="myFunction1()" name="ClockOutButton" id="ClockOutButton"class="clockbutton">Clock out</button><p />
+        </form>
+
+        <form action="break.php" method="post" id=form_id2>
+        <button onclick="myFunction2()" name="Break" id="Break"class="clockbutton">Break</button><p />
+        </form>
+
+        <form action="returnFromBreak.php" method="post" id=form_id3>
+        <button onclick="myFunction3()" name="returnFromBreak" id="returnFromBreak"class="clockbutton">Return from Break</button><p />
+        </form>
+
+	<script>
+
+	function myFunction() {
+        document.getElementById("form_id").submit();
+        }
+
+        function myFunction1() {
+        document.getElementById("form_id1").submit();
+        }
+
+        function myFunction2() {
+        document.getElementById("form_id2").submit();
+        }
+
+        function myFunction3() {
+        document.getElementById("form_id3").submit();
+        }
+
+	</script>
+
 	<form action="manager_dashboard.html">
-	<button id="DashBoard"class="clockbutton">Log on to Dashboard</button><p />
+<!--	<button onclick="myFunction()" id="DashBoard" name="DashBoard" class="clockbutton" form="inner">Log on to Dashboard</button><p /> -->
+ <button id="DashBoard" name="DashBoard" class="clockbutton" >Log on to Dashboard</button><p /> 
+   <!--<?php $_SESSION['clock']= document.getElementById('time')?>-->
 	</form>
-	
+<!--script>
+
+
+
+
+function myFunction() {
+var currentdate = new Date(); 
+var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+
+        
+}
+
+</script>-->	
+      <!-- <form action="clock.php" method="post" id="inner">
+        </form> 
+-->
+<!--<script>	
+ /* function myFunction() {
+        document.getElementById("inner").submit();
+        }
+*/
+
+var	clsStopwatch = function() {
+		// Private vars
+		var	startAt	= 0;	// Time of last start / resume. (0 if not running)
+		var	lapTime	= 0;	// Time on the clock when last stopped in milliseconds
+
+		var	now	= function() {
+				return (new Date()).getTime(); 
+			}; 
+ 
+		// Public methods
+		// Start or resume
+		this.start = function() {
+				startAt	= startAt ? startAt : now();
+			};
+
+		// Stop or pause
+		this.stop = function() {
+				// If running, update elapsed time otherwise keep it
+				lapTime	= startAt ? lapTime + now() - startAt : lapTime;
+				startAt	= 0; // Paused
+			};
+
+		// Reset
+		this.reset = function() {
+				lapTime = startAt = 0;
+			};
+
+		// Duration
+		this.time = function() {
+				return lapTime + (startAt ? now() - startAt : 0); 
+			};
+	};
+
+var x = new clsStopwatch();
+var $time;
+var clocktimer;
+
+function pad(num, size) {
+	var s = "0000" + num;
+	return s.substr(s.length - size);
+}
+
+function formatTime(time) {
+	var h = m = s = 0;
+	var newTime = '';
+
+	h = Math.floor( time / (60 * 60 * 1000) );
+	time = time % (60 * 60 * 1000);
+	m = Math.floor( time / (60 * 1000) );
+	time = time % (60 * 1000);
+	s = Math.floor( time / 1000 );
+
+	newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2);
+	return newTime;
+}
+
+function show() {
+	$time = document.getElementById('time');
+	update();
+}
+
+function update() {
+	$time.innerHTML = formatTime(x.time());
+}
+
+function start() {
+	clocktimer = setInterval("update()", 1);
+	x.start();
+}
+
+function stop() {
+	x.stop();
+	clearInterval(clocktimer);
+}
+
+function reset() {
+	stop();
+	x.reset();
+	update();
+}
+</script>-->
 	</body>
 	</div>	
 </html>
+
