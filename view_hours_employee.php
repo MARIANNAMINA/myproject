@@ -196,12 +196,12 @@
 
 
 	 <div class="logo">
-		<a href="manager_dashboard.html">
+		<a href="EmployeeDashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
 		</a>
 		<ul>
 		<label class="nav">
-		<li><a href="manager_dashboard.html">Home</a></li>
+		<li><a href="EmployeeDashboard.html">Home</a></li>
 		<li><a href="edit_profile_manager.html" >Profile</a></li>
 		<li><a href="view_hours_manager.html" style="color:orange;text-decoration: underline">View Hours</a></li>
 		<li><a href="view_schedule_manager.html">View Schedule</a></li>
