@@ -77,14 +77,23 @@
 	  color:black;
 	 }
 
- 	.logout{
-		position:absolute;
-		color: orange;
-		left: 94%;
-		bottom:95%;
-		font-size: 14pt;
+		<!--.logout{
+					position:absolute;
+					color: orange;
+					left: 94%;
+					bottom:95%;
+					font-size: 14pt;
+	   }-->
+
+	 		
+	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
 			
-	}
+		}	
 	 		
 	label a:hover {
         color: orange;
@@ -189,9 +198,9 @@
     
 	 <div class="header">
 
-                <form action"logout.php">
-                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
-                </form>
+		<form action="logout_employee.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
 
 
 
@@ -364,6 +373,10 @@
     
       </div>
   </div>
-     
+     <script>
+	 	function myFunction4() {
+        document.getElementById("form_id4").submit();
+        }
+	</script>
     </body> 
   </html> 

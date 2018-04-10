@@ -51,11 +51,15 @@
 	table {
 		 border-collapse: collapse;
 		 width: 85%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: auto;
+		margin-top: auto;	
 	 }
 	 
 	td {
 		 font-size: 20px;
-		 text-align: left;
+		 text-align: center;
 		 padding: 8px;
 		 color:black;
 		 background-color:white;
@@ -64,7 +68,7 @@
 	 
 	 th{
 		 font-size: 20px;
-		 text-align: left;
+		 text-align: center;
 		 padding: 8px;
 		 background-color:#31333F;
 		 border:2px solid #31333F;
@@ -73,18 +77,26 @@
 
 	 tr:nth-child(even){
 	  background-color: white;
+	  text-align: center;
 	  border:2px solid #31333F;
 	  color:black;
 	 }
-
- 	.logout{
-		position:absolute;
-		color: orange;
-		left: 94%;
-		bottom:95%;
-		font-size: 14pt;
+        <!--.logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+	   }-->
+	   
+	   	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
 			
-	}
+		}
 	 		
 	label a:hover {
         color: orange;
@@ -189,9 +201,9 @@
     
 	 <div class="header">
 
-                <form action"logout.php">
-                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
-                </form>
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
 
 
 
@@ -243,9 +255,9 @@
 
       <div style="overflow-x:auto;">
   
-	<table style="margin-left:80px" name="table" id="table">
-		<tr>
-		<th>Date</th>
+	<table style="width:90%" name="table" id="table">
+		<tr style="text-align:center">
+		<th>Date </th>
 		<th>ClockIn</th>
 		<th>ClockOut</th>
         <th>Break Length </th>
@@ -364,6 +376,10 @@
     
       </div>
   </div>
-     
+     <script>
+	 		function myFunction4() {
+        document.getElementById("form_id4").submit();
+        }
+		</script>
     </body> 
   </html> 

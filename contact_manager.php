@@ -106,14 +106,22 @@
 				display: block;
 			}
 
-			 .logout{
-					position:absolute;
-					color: orange;
-					left: 94%;
-					bottom:95%;
-					font-size: 14pt;
-					font-weight: bold;
-			   }
+      <!--  .logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+	   }-->
+	   
+	   	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
+			
+		}
 			
 			#textinput {
 					padding:0 5px 150px;
@@ -195,9 +203,9 @@
 		
 		<div class="header">
 
-                <form action"logout.php">
-                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
-                </form>
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
 
 
 
@@ -230,7 +238,7 @@
 	<br>
 <div>
 
-		<form method="post" class="username" id="form_id" onsubmit="return redirect()" action="<?php $_SERVER['PHP_SELF']; ?>">
+		<form method="post" class="username" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 				
 				<label  id="label" for="textinput3" ><b><label style="color:red">*</label>TO :</b></label> 
 				<div class = "input1">
@@ -260,27 +268,26 @@
 			</form>
 	</div>		
 			
-			<script>
-function myFunction1() {
-    if(confirm('Do you want to leave this page?')){
-		window.location.replace("manager_dashboard.html");
-		return true;
-	}
+	<script>
+		function myFunction1() {
+			if(confirm('Do you want to leave this page?')){
+				window.location.replace("manager_dashboard.html");
+				return true;
+			}
 
-}
-function myFunction2() {
-	if(confirm('Do you want to send the message?')){
-		document.getElementById("form_id").submit();
-	}
-	
-}
+		}
+		function myFunction2() {
+			if(confirm('Do you want to send the message?')){
+				document.getElementById("form_id").submit();
+			}
+			
+		}
 
-function redirect() {
-  window.location.replace("manager_dashboard.html");
-  return false;
-}
+		function myFunction4() {
+        document.getElementById("form_id4").submit();
+        }
 	
-</script>
+	</script>
 		</div>
 
 
