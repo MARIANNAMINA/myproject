@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+  
+?>
 <!doctype html> 
   <html lang="en"> 
 	<link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
@@ -142,15 +144,22 @@
 		margin-left:4;
 	   }
 	   
-	   .logout{
-				position:absolute;
-				color: orange;
-				left: 94%;
-				bottom:95%;
-				font-size: 14pt;
-				font-weight: bold;
-	   }
-	 		
+        <!--.logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+	   }-->
+	   
+	   	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
+			
+		}
 	   label a:hover {
           color: orange;
        }
@@ -187,15 +196,22 @@
 			
 		}		
 		
+		table{
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: auto;
+			margin-top: auto;
+		}
+		
 		td {
-     text-align: left;
+     text-align: center;
      padding: 8px;
 	 color:black;
 	 background-color:white;
 	 border:2px solid #31333F;
   }
  th{
-     text-align: left;
+     text-align: center;
      padding: 8px;
 	 background-color:#31333F;
 	 border:2px solid #31333F;
@@ -234,10 +250,9 @@
     
     <body> 	   
 	 <div class="header"> 
-
-                <form action"logout.php">
-                <label ><a href="index.html" class="logout"><b>Log out</b></a></label>
-                </form>
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
 
 
 
@@ -260,7 +275,7 @@
 			<div class="dropdown-content">
 				<a href="add_employee.html">Add Employee</a>
 				<a href="employee_status_manager.html">Employee Status</a>
-				<a href="view_request_manager.html" style="color:orange;text-decoration: underline">View Requests</a>
+				<a href="manager_view_request.php" style="color:orange;text-decoration: underline">View Requests</a>
 				<a href="delete_employee.html">Delete Employee</a>
 			</div>
 		</li>	
@@ -303,23 +318,25 @@
    
    <div style="overflow-x:auto;">
    
-    <table style="width:97.5%"> 
+    <table style="width:97.5%" name="table" id="table""> 
       
-     <tr> 
+     <tr style="text-align:center"> 
      
-      <th>Username</th> 
+      <th>Name</th> 
+	  <th>Surname</th> 
       <th>From</th>  
       <th>To</th>  
-      <th>Description</th>  
+      <th>Reason</th>  
       <th>State</th>  
       
      </tr> 
 		<?php 
 		include_once 'db.php';
+		include('changeState_viewRequest.php');
 		$Username=$_SESSION['username'];
 		
 		
-		$sql = "SELECT  `Username`, `FromDate`, `ToDate`,  `Reason` FROM `Leave` WHERE  `Username` LIKE ( SELECT  `Username` FROM  `Employee` WHERE  `UsernameManager` LIKE  '$Username')";
+		$sql = "SELECT  `Name`, `Surname`, `FromDate`, `ToDate`,  `Reason`, `Leave`.`State`, `Leave`.`Username`, `Leave`.`LeaveID` FROM `Leave`, `Employee` WHERE `Leave`.`Username`=`Employee`.`Username` AND `Leave`.`Username` IN ( SELECT  `Username` FROM  `Employee` WHERE  `UsernameManager` LIKE  '$Username')";
         $result = mysqli_query($conn, $sql);
 		
 		
@@ -330,26 +347,55 @@
 				</script>';
 			exit();
 		}else{
-		
-			while($row = mysqli_fetch_array($result)){ 	
+			?>
+			
+			<form method="post" id="status" action="<?php $_SERVER['PHP_SELF']; ?>">
+			<?php
+			
+			while($row = mysqli_fetch_array($result)){	
 				
-				echo "<tr><td>" . $row['Username'] . "</td><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td>";
+				$UsernameEmp = $row['Username'];
+				$LeaveID = $row['LeaveID'];
 				
-		/*<td>
-			<select name="selectbasic" class="form-control" id="selectbasic">
-				<option value="Pending">Pending</option>
-				<option value="Reject">Reject</option>
-				<option value="Accept">Accept</option>
-			</select></td>
-		</tr>*/
+				echo "<tr><td>" . $row['Name'] . "</td><td>" . $row['Surname'] . "</td><td>" . $row['FromDate'] . "</td><td>" . $row['ToDate'] . "</td><td>" . $row['Reason'] . "</td>";
+				
+				?><td>
+					
+					<select name='selectbasic' class="form-control" id="selectbasic" onchange="myFunction()">
+						<option value='Pending' selected="selected">Pending</option>
+						<option value='Reject'>Reject</option>
+						<option value='Accept'>Accept</option>
+					</select>
+					</td>
+				</tr>
+				</form>
+				<?php 
+					changeState($UsernameEmp, $LeaveID);
 			}
 		}
+	
 	?>
+			
 		
-      <?php include('changeState_viewRequest.php');?>
     </table>  
     
    </div>
+   <script>
+   
+   function selevtValue() {
+    document.getElementById("mySelect").selectedIndex = ;
+}
+function myFunction() {
+    document.getElementById("status").submit();
+}
+
+		
+		function myFunction4() {
+        document.getElementById("form_id4").submit();
+        }
+</script>
+							
+	
    
   </div>
   <!--   </form> -->

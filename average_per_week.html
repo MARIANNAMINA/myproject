@@ -74,15 +74,22 @@
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
+        <!--.logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+	   }-->
+	   
+	   	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
 			
-			.logout{
-					position:absolute;
-					color: orange;
-					left: 94%;
-					bottom:95%;
-					font-size: 14pt;
-					font-weight: bold;
-			}
+		}
 			
 			label a:hover {
 					color: orange;
@@ -142,10 +149,14 @@
 			margin-left: 540px;	
 		}
 
-		#textinput2 {
-			margin-left: 32px;
-			font-size:20px;
-		}
+	#textinput2 {
+					margin-left: 50px;
+					font-size:20px;
+			}
+			#textinput3 {
+					margin-left: 75px;
+					font-size:20px;
+			}
 
 		#textinput1 {
 			margin-left: 6px;
@@ -176,8 +187,9 @@
   <body>
 		
 		<div class="header">
-	<label ><a href="login_manager.html" class="logout">Log out</a></label>
-	 
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>   
 		<div class="logo">
 		<a href="manager_dashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -197,7 +209,7 @@
 			<div class="dropdown-content">
 				<a href="add_employee.html">Add Employee</a>
 				<a href="employee_status_manager.html">Employee Status</a>
-				<a href="view_request_manager.html">View Requests</a>
+				<a href="manager_view_request.php">View Requests</a>
 				<a href="delete_Employee.html">Delete Employee</a>
 			</div>
 		</li>		
@@ -226,29 +238,52 @@
 	<br>
 	<br>		
 	
-		<form class="username">
+		<form class="username"  action="average_per_week_manager.php" method="POST">
+				<div >
+					<label  id="label" for="textinput2" ><b>FROM:</b></label> 
+					<input id="textinput2" name="From" type="date" placeholder=""  required="">
+				
+				</div>  
+			<br>
 			<div >
-					<label  id="label2" for="textinput" ><b>From : </b></label> 
-					<input id="textinput1" name="textinput" type="text" placeholder=""  required="">
-			</div>  			
-			<br>
-			<div>
-				<label id="label1" for="textinput"><b>To : </b></label>
-				<input id="textinput2" name="textinput" type="text" placeholder=""  required="">
-
-			</div>
+					<label  id="label" for="textinput3" ><b>TO:</b></label> 
+					<input id="textinput3" name="To" type="date" placeholder=""  required="">
+				
+				</div>  
 			
 			<br>
 			<br>
 			<br>
 			
-			<button onclick="myFunction1()" class="save_style">Save report</button>
+			<button  name="continue" class="save_style">Export</button>
 			<button onclick="myFunction2()" class="cancel_style">Cancel</a>
 		
 		</form>
 <script>
+
+
+		var obj, dbParam, xmlhttp, myObj, x, txt = "";  
+		obj = { "table":"AttendanceTime", "limit":10};
+		dbParam = JSON.stringify(obj);
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				myObj = JSON.parse(this.responseText);
+				for (x in myObj) {
+					txt += myObj[x].name + "<br>";
+					window.alert(txt);
+				}
+			}
+		};
+		xmlhttp.open("POST", "average_per_week_manager.php", true);
+		xmlhttp.setRequestHeader("Content-type", "application/json");
+		xmlhttp.send("AttendanceTime=" + dbParam);
+		
+
+
 		function myFunction1() {
-    if(confirm('Do you want to save the Report?')){window.location.replace("manager_dashboard.html");
+    if(confirm('Do you want to save the Report?')){
+	window.location.replace("manager_dashboard.html");
 	window.alert("Report was saved");}
 	else {window.location.replace("average_per_week.html");
 	}
@@ -259,9 +294,13 @@
 	}
 	
 }
+
+		
+		function myFunction4() {
+        document.getElementById("form_id4").submit();
+        }
+
+	
 </script>
-
-
-</form>
 </body>
 </html>

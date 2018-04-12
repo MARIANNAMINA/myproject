@@ -10,15 +10,22 @@
 
 		
 			<style>
-		
-			.logout{
-				position:absolute;
-				color: orange;
-				left: 94%;
-				bottom:95%;
-				font-size: 14pt;
-					
-			}
+        <!--.logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 14pt;
+	   }-->
+	   
+	   	.logout{
+			position:center;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+			color: orange;
+			
+		}
 					
 			label a:hover {
 				color: orange;
@@ -171,7 +178,13 @@
   <body>
   
 	 <div class="header">
-	 <label ><a href="login_manager.html" class="logout"><b>Log out</b></a></label>
+
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
+
+
+
 	 <div class="logo">
 		<a href="manager_dashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -191,7 +204,7 @@
 			<div class="dropdown-content">
 				<a href="add_employee.html">Add Employee</a>
 				<a href="employee_status_manager.html">Employee Status</a>
-				<a href="view_request_manager.html">View Requests</a>
+				<a href="manager_view_request.html">View Requests</a>
 				<a href="delete_employee.html">Delete Employee</a>
 			</div>
 		</li>	
@@ -220,40 +233,32 @@
 	</div>
 			<br>
 
-		<form class="username">
+		<form name="form_id" class="username" method="post" action="payroll_function.php">
 		<div >
 					<label  id="label" for="textinput1" ><b>FROM:</b></label> 
-					<input id="textinput1" name="textinput1" type="search" placeholder=""  required="">
+					<input id="textinput1" name="from_date" type="date" placeholder=""  required="">
 					
 				<div>
 				<br>
 					<label id="label" for="textinput2"> <b>TO:</b></label>
-					<input id="textinput2" name="textinput2" type="search" placeholder=""  required="">
+					<input id="textinput2" name="to_date" type="date" placeholder=""  required="">
 				</div>
 				<br>
 			
 				<label  id="label" for="textinput3"> <b>FILE NAME:</b></label>
-				<input id="textinput3" name="textinput3" type="search" placeholder=""  required="">
+				<input id="textinput3" name="file_name" type="search" placeholder=""  required="">
 				
 		</div>			
 
   	<div class="paragraph2">
-			<button onclick="myFunction1()" class="buttonstyle">Export</button>			
+			<button onclick="myFunction1()" class="buttonstyle" name="export_btn">Export</button>			
 	</div>			
 		
 <script>
-		function myFunction1() {
-    if(confirm('Do you want to save the Report?')){window.location.replace("manager_dashboard.html");
-	window.alert("Report was saved");}
-	else {window.location.replace("payroll_report.html");
-	}
-	}
-	function myFunction2() {
-    if(confirm('Do you want to export the Report?')){window.location.replace("manager_dashboard.html");}
-	else {window.location.replace("payroll_report.html");
-	}
-	
-}
+	myFunction1(){
+	document.getElementById('form_id').submit();
+}	
+
 </script>
 
 
