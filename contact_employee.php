@@ -6,12 +6,98 @@
   <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 			<style>
+			
+ .confirm_box {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.confirm_box .overlay {
+  background:rgba(0,0,0,0.5);
+  position:absolute;
+  z-index:9;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+}
+.confirm_box .confirm_model {
+  position:absolute;
+  width:100%;
+  height:100%;
+  left:0;
+  top:0;
+  z-index:10;
+  overflow:hidden;
+}
+.confirm_box .confirm_model .model {
+  background:#fff;
+  width: 400px;
+  border-radius:4px;
+  margin:40px auto;
+  overflow:hidden;
+}
+.confirm_box .confirm_model .model .header{
+  float:left;
+  width:100%;
+  background:#f8f8f8;
+  border-bottom:solid 2px #ccc;
+  padding:10px;
+  box-sizing:border-box;
+}
+.confirm_box .confirm_model .model .header h1{
+  font-size:14px !important;
+  font-family:helvetica;
+  color:#555;
+  font-weight:300;
+}
+.confirm_box .confirm_model .model .content {
+  padding:10px 20px;
+  float:left;
+  width:100%;
+  box-sizing:border-box;
+}
+.confirm_box .confirm_model .model .content p{
+  font-size:12px !important;
+  font-family:helvetica;
+  color:#555;
+  font-weight:300;
+}
+.confirm_box .confirm_model .model .content .buttons_container {
+  float:left;
+  width:100%;
+  padding:10px;
+  text-align:right;
+}
+.confirm_box .confirm_model .model .content .buttons_container .button{
+  float:right;
+  padding:5px 20px;
+  border:none;
+  margin:0 10px;
+  border-radius:3px;
+  border-bottom:solid 2px transparent;
+  cursor:pointer;
+}
+.confirm_box .confirm_model .model .content .buttons_container .button:hover {
+  border-bottom:solid 2px rgba(0,0,0,0.4);
+}
+.confirm_box .confirm_model .model .content .buttons_container .button.confirm {
+  background: #31333F; 
+  color:#fff;
+}
+.confirm_box .confirm_model .model .content .buttons_container .button.deny {
+  background:#a30;
+  color:#fff;
+}
 			
 			.header {
 				   background-color: #31333F;
@@ -105,23 +191,17 @@
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
-			   
-		<!--.logout{
+
+       .logout{
 			position:absolute;
 			color: orange;
 			left: 94%;
 			bottom:95%;
-			font-size: 14pt;
-	   }-->
-	   
-	   	.logout{
-			position:center;
 			font-size: 16pt;
 			background-color: #31333F;
 			border: #31333F;
-			color: orange;
-			
-		}
+	   }
+	   
 			
 			#textinput {
 					padding:0 5px 150px;
@@ -193,6 +273,7 @@
 				color:red;
 				position:absolute;
 			}
+			
 	</style>
 	
 
@@ -263,38 +344,103 @@
   <div>
   <br>
   	<div class="paragraph2">
-			<label onclick="myFunction1()" class="buttonstyle1">Cancel</label>
-			<button onclick="myFunction2()" class="buttonstyle" name="Send">Send</button>
-			</form>
+		<!--	<label onclick="myFunction1()" class="buttonstyle1">Cancel</label>
+			<button onclick="myFunction2()" class="buttonstyle" name="Send">Send</button>-->
+			
+		<button class="buttonstyle1" id="cancel" name="cancel">Cancel</button>	
+		<button class="buttonstyle" id="send" name="send">Send</button>
+	    
+	</form>
 	</div>		
 			
+	</div>
+
+</div>
+		  
+<div  id="welcomeDiv" style="display:none" class="confirm_box">
+  <div class="overlay"></div>
+   <div class="confirm_model">
+     <div class="model">
+	 <div class="header">
+         <h1 class="title">
+           Do you want to send the message?
+         </h1>
+       </div>
+       <div class="content">
+         <div class="buttons_container">
+           <button class="confirm button" id="yes" name="yes">Yes</button>
+           <button class="deny button" id="no" name="no">No</button>
+         </div>
+       </div>
+     </div>
+  </div>
+</div>
+
+<div  id="cancelDiv" style="display:none" class="confirm_box">
+  <div class="overlay"></div>
+   <div class="confirm_model">
+     <div class="model">
+	 <div class="header">
+         <h1 class="title">
+           Do you want to leave this page?
+         </h1>
+       </div>
+       <div class="content">
+         <div class="buttons_container">
+           <button class="confirm button" id="yes2" name="yes2">Yes</button>
+           <button class="deny button" id="no2" name="no2">No</button>
+         </div>
+       </div>
+     </div>
+  </div>
+</div>
+			
+
+  			
 	<script>
-		function myFunction1() {
+		/*function myFunction1() {
 			if(confirm('Do you want to leave this page?')){
-				window.location.replace("EmployeeDashboard.html");
+				
 				return true;
 			}
 
 		}
-		
 		function myFunction2() {
 			if(confirm('Do you want to send the message?')){
 				document.getElementById("form_id").submit();
 			}
 			
 		}
-		
+
 		function myFunction4() {
         document.getElementById("form_id4").submit();
-        }
-	
-	</script>
-		</div>
+        }*/
+$("#send").click(function ( event ) { 
+    event.preventDefault();
+	document.getElementById('welcomeDiv').style.display = "block";
+	$("#yes").click(function ( event ) { 
+		document.getElementById('welcomeDiv').style.display = "none";
+		document.getElementById('form_id').submit();
+	});
+	$("#no").click(function ( event ) { 
+		document.getElementById('welcomeDiv').style.display = "none";
+		
+	});
+});
 
-
-   </div>
-
+$("#cancel").click(function ( event ) { 
+    event.preventDefault();
+	document.getElementById('cancelDiv').style.display = "block";
+	$("#yes2").click(function ( event ) { 
+		document.getElementById('cancelDiv').style.display = "none";
+	    window.location.replace("clock_in_employee.html");
+	});
+	$("#no2").click(function ( event ) { 
+		document.getElementById('cancelDiv').style.display = "none";
+		//document.getElementById('form_id').submit();
+	});
+});
+</script>
   
-  </form>
   </body>
   </html>

@@ -49,6 +49,10 @@
 		if(empty($to_error) && empty($subject_error) && empty($descripiton_error)){
 			// send email
 			mail($to,$subject,$description,$headers);
+			echo '<script type="text/javascript">
+			window.location.replace("clock_in_manager.html");
+			</script>';
+			
 		}
 	}
 ?>
