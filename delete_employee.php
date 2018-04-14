@@ -4,37 +4,59 @@ if (isset($_POST['save'])){
 	include 'db.php';
 	
 $Username=$_POST['Username'];
+$UsernameManager=$_SESSION['username'];
 
 
-$sql2= "SELECT Username FROM Employee WHERE Username='$Username'";
-$resultCheck=mysqli_num_rows(mysqli_query($conn,$sql2));
-
-$sql = "DELETE FROM Employee WHERE Username='$Username' ";
-
-
-$result=mysqli_query($conn,$sql);
-
-
-if(!mysqli_query($conn,$sql) || $resultCheck<1 ){
-	echo '<script type="text/javascript">window.alert("NOT USER FOUND"); 
+if($Username == null){
+	echo '<script type="text/javascript">window.alert("No Username Found. Please try again"); 
 	window.location.replace("delete_employee.html");
 	</script>';
 }
-else{echo '<script type="text/javascript">window.alert("DELETED SUCCESSFULLY"); 
+else{
+
+
+$sql2= "SELECT Username, UsernameManager FROM Employee WHERE Username LIKE '$Username' AND UsernameManager LIKE '$UsernameManager'";
+$resultCheck=mysqli_num_rows(mysqli_query($conn,$sql2));
+if($resultCheck<1 ||!mysqli_query($conn,$sql2)){	
+	echo '<script type="text/javascript">window.alert("Given Username not found. Please try again."); 
+	window.location.replace("delete_employee.html");
+	</script>';
+}
+else{
+	$sql3 = "INSERT INTO DeletedEmployee (Username,ID,Name,Surname,Birthdate,Gender,Address,Country,Phone,EmergencyPhone,Role,Salary,SalaryType,SSN,Email) (SELECT Username,ID,Name,Surname,Birthdate,Gender,Address,Country,Phone,EmergencyPhone,Role,Salary,SalaryType,SSN,Email FROM Employee WHERE Username LIKE '$Username' AND UsernameManager LIKE '$UsernameManager')";
+	if(!mysqli_query($conn,$sql3)){
+		echo '<script type="text/javascript"> window.alert("ERROR! You may insert a username that already exists in the database. Please try again.");
+		window.location.replace("delete_employee.html");
+		</script>';
+	}
+	$sql = "DELETE FROM Employee WHERE Username LIKE '$Username' AND UsernameManager LIKE '$UsernameManager'";
+	if(!mysqli_query($conn,$sql)){
+		echo '<script type="text/javascript">window.alert("ERROR! You may insert a username that already exists in the database. Please try again."); 
+		window.location.replace("delete_employee.html");
+		</script>';
+	}
+	else{echo '<script type="text/javascript">window.alert("Employee has been deleted successfully."); 
 	window.location.replace("manager_dashboard.html");
 	</script>';
-//	$sql3 = "SELECT * FROM Employee WHERE Username='$Username'";
-//	$sql4 = "INSERT INTO DeletedEmployee (Username,Password,ID,SSN,Name,Surname,NumDept,Role,Salary,SalaryType,Phone,EmergencyPhone,Country,Address,Birthdate,Gender,IsManager,UsernameManager) VALUES ('$Username','$Password','$ID','$SSN','$FirstName','$LastName','$DepartmentNum','$Role','$Salary','$SalaryType','$Phone','$EmergencyPhone','$Country','$Address','$DateofBirth','$Gender','$Manager','$UsernameManager')";
-//	$result1 = mysql_query($conn,$sql4);
+	}
+}
+}
 }
 
+//alert("SUCH FILE DOES NOT EXIST");
+/*else {
+	if (txt == true){
+		echo '<script type="text/javascript"> 
+		window.location.replace("manager_dashboard.html");
+		</script>';
+	}
+	else {
+		echo '<script type="text/javascript"> 
+		window.location.replace("delete_employee.html");
+		</script>';	
+	}
+
+exit();
 }
-
-else {echo '<script type="text/javascript">alert("SUCH FILE DOES NOT EXIST"); 
-	window.location.replace("delete_employee.html");
-	</script>';
-	
-
-exit();}
-
+*/
 ?>

@@ -100,15 +100,16 @@
 				margin-left:4;
 			   }
 			   
-			   .logout{
-					position:absolute;
-					color: orange;
-					left: 94%;
-					bottom:95%;
-					font-size: 14pt;
-					font-weight: bold;
-			   }
-					
+        .logout{
+			position:absolute;
+			color: orange;
+			left: 94%;
+			bottom:95%;
+			font-size: 16pt;
+			background-color: #31333F;
+			border: #31333F;
+	   }
+	   			
 			   label a:hover {
 				  color: orange;
 			   }
@@ -141,7 +142,13 @@
     <body>
 	   
 	 <div class="header"> 
-		<label ><a href="login_manager.html" class="logout">Log out</a></label>
+
+
+		<form action="logout_manager.php" method="post" id=form_id4>	 	
+			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	 	</form>  
+
+
 		<div class="logo">
 		<a href="manager_dashboard.html">
 			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
@@ -149,20 +156,20 @@
 		<ul>
 		<label class="nav">
 		<li><a href="manager_dashboard.html">Home</a></li>
-		<li><a href="edit_profile_manager.html" >Profile</a></li>
-		<li><a href="view_hours_manager.html">View Hours</a></li>
-		<li><a href="view_schedule_manager.html">View Schedule</a></li>
+		<li><a href="edit_profile_manager.php" >Profile</a></li>
+		<li><a href="view_hours_manager.php">View Hours</a></li>
 		<li><a href="leave_request_manager.html" >Leave Request</a></li> 
-		<li><a href="average_per_week.html">Average per week</a></li>
+		<li><a href="average_per_week.html">Average Report</a></li>
 		<li><a href="ip_range.html">Location Request</a></li>
 		<li><a href="payroll_report.html">Payroll Report</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
 			<div class="dropdown-content">
-				<a href="add_employee.html">Add Employee</a>
-				<a href="employee_status_manager.html">Employee Status</a>
-				<a href="view_request_manager.html">View Requests</a>
+				<a href="add_employee.php">Add Employee</a>
+				<a href="choose_employee.html">Edit Employee</a>
 				<a href="delete_employee.html" style="color:orange;text-decoration: underline">Delete Employee</a>
+				<a href="employee_status_manager.php">Employee Status</a>
+				<a href="manager_view_request.php">View Requests</a>
 			</div>
 		</li>		
 		<li class="dropdown">
@@ -210,24 +217,31 @@
 
 	function myFunction1() {
 		if(confirm('Do want to delete this employee?')){
-			window.location.replace("manager_dashboard.html");
-			window.alert("Employee has been deleted");
+		//	window.location.replace("manager_dashboard.html");
+		//	window.alert("Employee has been deleted");
 			document.getElementById("form_id").submit();
 			return true;
 		}
 		else {
-			window.location.replace("average_per_week.html");
-			return false;
+			window.location.replace("delete_employee.html");
+		//	return false;
 		}
 	}
 	function myFunction2() {
+		//var txt;
 		if(confirm('Do you want to leave this page?')){
 			window.location.replace("manager_dashboard.html");
+			//txt = true;
+			return true;
 		}
 		else {
-			window.location.replace("average_per_week.html");
+			window.location.replace("delete_employee.html");
 		}
 	}
+	
+	function myFunction4() {
+        document.getElementById("form_id4").submit();
+    }
 	</script>
   </body>
 </html>
