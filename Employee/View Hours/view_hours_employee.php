@@ -270,7 +270,7 @@ session_start();
 								//calculate break length
 								$endTime = ($row['ReturnBreak']{0} . $row['ReturnBreak']{1})*60*60 + ($row['ReturnBreak']{3} . $row['ReturnBreak']{4})*60 + ($row['ReturnBreak']{6} . $row['ReturnBreak']{7})*1;//calculate in seconds the time in which employee press the button return from break
 								$startTime = ($row['Break']{0} . $row['Break']{1})*60*60 + ($row['Break']{3} . $row['Break']{4})*60 + ($row['Break']{6} . $row['Break']{7})*1;//calculate in seconds the time in which employee press the button break
-								$newTime = "-";//se default value
+								$newTime = "-";//set default value
 											
 								if($endTime != 0){//has returned from break
 											
