@@ -1,0 +1,292 @@
+
+<!doctype html>
+<html lang="eng">
+  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+  <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+  <head>
+    <title>Statare LTD</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+	<!--
+		<style>
+			head{
+				text-align: center;
+			}
+			
+			body {
+			  margin: 0;
+			  text-align: center;
+			 
+			}
+			
+			.header {
+				background-color: #31333F;
+				padding: 5%;
+				text-align: left;
+				color: #ffffff;
+				font-family: sans-serif, Arial;
+			}
+			
+			.password, .username{
+				text-align: center;
+				font-size: 20pt;
+			}
+				
+			label companyname{
+				left: 90%;
+			}
+			
+			.login_style{
+					background-color: #31333F; 
+					border: 2px solid #31333F;
+					color: white;
+					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+					padding: 1%;
+					border-radius: 8px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 20px;
+					font-weight: bold;
+					position: absolute;
+					top: 600px;
+					left: 620px;
+					font-size: 18pt;
+					font-family: sans-serif, Arial;
+					cursor:pointer;
+			}
+			input{
+				background-color: #f1f1f1;
+				color: black;
+				padding: 10px 24px;
+				border-radius: 8px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			  }				
+		
+			</style>
+	
+	-->
+	
+    <!-- Bootstrap CSS -->  <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+  
+	<div class="header">
+	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="283" height="250">  
+	  <label for="companyname"  style="font-size: 50pt;"> <b>Statare Brands LTD </b></label>
+	</div>
+			<form action="function_login_manager.php" method="post">
+				<br>
+				<div class="username">
+					<label  for="textinput"  ><b>Username :</b></label> 
+					<input style="margin-left:20px" id="textinput" name="name" type="text" placeholder=""  required="">
+				
+				</div>  
+			
+				<br>
+			
+				<div class="password">
+					<label for="passwordinput" > <b>Password :  </b></label>
+					<input style="margin-left:27px" id="userPassword" name="word" type="password" placeholder=""  required="">
+				</div>
+				
+				<br>	
+
+					<button type="submit" name="login" class="login_style">Login</button>
+</form>		
+ -->
+<style>	
+
+	
+	@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+	
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(50% - 35px);
+	left: calc(50% - 355px);
+	z-index: 2;
+}
+
+.header div{
+	float: left;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(50% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.login input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.login input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login button{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.login button:hover{
+	opacity: 0.8;
+}
+
+.login button:active{
+	opacity: 0.6;
+}
+
+
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login button:focus{
+	outline: none;
+}
+
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+	</style>
+	
+	 </head>
+  <body>
+
+
+<div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div><b>Statare<span>Brands LTD</span></b></div>
+		</div>
+		<br>
+	<form action="function_login_manager.php" method="post">
+		<div class="login">
+		
+			<div class="username">
+				<input type="text" name="name" placeholder="Username" ><br>
+			</div>
+			
+			
+				<input type="password" name="word" id="word" placeholder="Password" ><br>
+				<input type="checkbox" onclick="myFunction()">Show Password
+			
+			<!--	<input type="button"  value="Login"> --> 
+				<button >Login</button>
+		</div>
+	
+	</form>
+	
+	<script>
+		function myFunction() {
+			var x = document.getElementById("word");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+	
+	</script>
+ </body>
+</html> 
