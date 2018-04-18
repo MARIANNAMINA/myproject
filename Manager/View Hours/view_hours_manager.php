@@ -40,14 +40,13 @@ session_start();
 						<li><a href="view_hours_manager.php" style="color:orange;text-decoration: underline">View Hours</a></li>
 						<li><a href="leave_request_manager.html" >Leave Request</a></li> 
 						<li><a href="average_per_week.html">Average Report</a></li>
-						<li><a href="ip_range.html">Location Request</a></li>
 						<li><a href="payroll_report.html">Payroll Report</a></li>
 						<li class="dropdown">
 							<a href="javascript:void(0)" class="dropbtn">My Employees</a>
 							<div class="dropdown-content">
 								<a href="add_employee.php">Add Employee</a>
-								<a href="choose_employee.html">Edit Employee</a>
-								<a href="delete_employee.html">Delete Employee</a>
+								<a href="choose_employee.php">Edit Employee</a>
+								<a href="delete_employee_.php">Delete Employee</a>
 								<a href="employee_status_manager.php">Employee Status</a>
 								<a href="manager_view_request.php">View Requests</a>
 							</div>
