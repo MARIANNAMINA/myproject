@@ -1,4 +1,9 @@
-<?php session_start();?>
+<?php 
+/*This screen gives the opportunity to an employee to see the situation in which he/she is.
+He/she can see the time of clock in and clock out of each day. Also for each day he/she can see the length of his/her break and the full hours of work. 
+*/
+session_start();
+?>
 <!doctype html>
  
 <html lang="en"> 
