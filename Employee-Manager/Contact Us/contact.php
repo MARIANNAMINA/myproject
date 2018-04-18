@@ -46,7 +46,7 @@
 		$headers .= "Content-type: text/html;\r\n";
 		$headers .= "From: $from";
 
-		if(empty($to_error) && empty($subject_error) && empty($descripiton_error)){//if alla the fields are set
+		if(empty($to_error) && empty($subject_error) && empty($descripiton_error)){//if all the fields are set
 			// send the email
 			mail($to,$subject,$description,$headers);
 			echo '<script type="text/javascript">
