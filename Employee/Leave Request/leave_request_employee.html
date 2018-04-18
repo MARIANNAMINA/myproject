@@ -18,7 +18,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<!-- Style of page-->
 			<style>
 			
 			.header {
@@ -194,7 +194,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   </head>
   <body>
-
+	<!-- Header with the other features-->
 		<div class="header">
 	 	<label ><a href="login_employee.html" class="logout">Log out</a></label>
 		<div class="logo">
@@ -237,41 +237,39 @@
 
 				<div >
 					<label  id="label" for="textinput2" ><b>REQUEST DAYS FROM:</b></label> 
+					<!-- the date which want to start the leave --> 
 					<input id="textinput2" name="From" type="date" placeholder=""  required="">
 				
 				</div>  			
 			<div >
 					<label  id="label" for="textinput3" ><b>REQUEST DAYS TO:</b></label> 
+					<!-- the date which want to return from leave -->
 					<input id="textinput3" name="To" type="date" placeholder=""  required="">
 				
 				</div>  
 			<br>
 			
 			<label id="label" for="textinput4"><b><label style="color:red">*</label>Description :</b></label>  
+			<!-- and the reason which want to leave-->
 			  <input id="textinput4" name="desc" type="text" required="">
  
   </div>
   <br>
   
-  	<div class="paragraph2">
-			<label onclick="myFunction1()" class="buttonstyle1">Cancel</label>
+  	<div class="paragraph2"><!-- the buttons-->
+			<label onclick="cancelButton()" class="buttonstyle1">Cancel</label>
 			<button type="submit" name="continue" class="buttonstyle">Submit</button>
 			</form>
 	</div>		
 			
-			<script>
-function myFunction1() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
-	else {window.location.replace("leave_request_employee.html");
-	}
-	}
-	function myFunction2() {
-    if(confirm('Do you want to send the Leave Request?')){window.location.replace("EmployeeDashboard.html");}
-	else {window.location.replace("leave_request_employee.html");
-	}
-	
-}
-</script>
+	<script>
+		<!-- If the employee click the cancel button then a window appears and ask him/her if he/she are sure --> 
+		function cancelButton() {
+			if(confirm('Do you want to leave this page?')){window.location.replace("EmployeeDashboard.html");}
+			else {window.location.replace("leave_request_employee.html");}
+		}
+		
+	</script>
 		</div>
 
 
