@@ -419,26 +419,26 @@ include('contact.php');
 </div>
 		
 <script>
-	$("#send").click(function ( event ) { 
+	$("#send").click(function ( event ) { //when an employee press the button 'send', an alert box appears 
 		event.preventDefault();
 		document.getElementById('welcomeDiv').style.display = "block";
-		$("#yes").click(function ( event ) { 
+		$("#yes").click(function ( event ) { //if employee press yes at alert box
 			document.getElementById('welcomeDiv').style.display = "none";
 			document.getElementById('form_id').submit();
 		});
-		$("#no").click(function ( event ) { 
+		$("#no").click(function ( event ) { //if employee press no at alert box
 			document.getElementById('welcomeDiv').style.display = "none";
 		});
 	});
 
-	$("#cancel").click(function ( event ) { 
+	$("#cancel").click(function ( event ) { //when an employee press the button 'cancel', an alert box appears 
 		event.preventDefault();
 		document.getElementById('cancelDiv').style.display = "block";
-		$("#yes2").click(function ( event ) { 
+		$("#yes2").click(function ( event ) {//if employee press yes at alert box 
 			document.getElementById('cancelDiv').style.display = "none";
 			window.location.replace("clock_in_employee.html");
 		});
-		$("#no2").click(function ( event ) { 
+		$("#no2").click(function ( event ) { //if employee press no at alert box
 			document.getElementById('cancelDiv').style.display = "none";
 		});
 	});
