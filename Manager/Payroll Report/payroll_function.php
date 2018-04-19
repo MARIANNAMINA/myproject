@@ -1,8 +1,8 @@
 <?php
 /*
-* A manager can can report on the time worked by his employees. The managers give the range of dates the managers
-* want to report, the name of file. If the export button clicked, then select from database the data of his employees
-* concerning their hours of work and create a report on JSON or XML format.
+* A manager can export a report of the working hours of his employees. The manager gives the range of dates in which he
+* wants to export the report and the name of the report. If the export button clicked, then a report with the working hours of employees 
+* has been exported in the form of manager's decision(XML or JSON). 
 */
 
 session_start();
