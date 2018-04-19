@@ -2,6 +2,8 @@
 - Author: Maria Kouppi
 -
 - This is a php file for leave request functionality that an employee can do. If the employees click the sumbit button
+- first of all, it does the check for the dates if they are correct and after then the date of leave, the date when
+- leave is over and the reason submit on database.
 -->
 <?php
 session_start();
