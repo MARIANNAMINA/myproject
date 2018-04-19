@@ -1,306 +1,497 @@
+<!--
+- Author: Maria Kouppi
+-
+- A manager can can report on the time worked by his employees. At the top of the page you will see
+- the menu with the other features you can do on this web page. The managers give the range of dates the managers
+- want to report, the name of file and the format which they want the report has(XML or JSON). When the fields are
+- complete, pressing the button 'Export’, depending on the choice in the format, the report exports either in XML
+- either in JSON.
+-
+-->
 <!doctype html>
-<html lang="eng">
-  <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
-  <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
-  <head>
-    <title>Statare Ltd</title>
+<html lang="en">
+<link rel="shortcut icon"
+      href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+<link rel="apple-touch-icon"
+      href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
+<head>
+    <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-			<style>
-			
-		.header { 
-	  background-color: #31333F;
-	  color: white;
-	  margin-bottom: 1.1%;    		
-	} 
-	  
-	.logo{
-	  margin-top: 1.6%;
-	  margin-bottom: 0.1%;
-	  margin-left: 1.3%;
-      display:inline-block;
-	}
-	  
-	.nav{
-	  position: absolute;
-	  top: 9%;
-	  left: 8%;
-	  font-weight: bold;
-	}
-				 
-			  .paragraph {
-				 
-				 padding: 0px 0px 0px 40px;
-			  
-			  }
-			 
-			li {
-				float: left;
-			}
-			li a, .dropbtn {
-				display: inline-block;
-				color: white;
-				text-align: center;
-				padding: 17px 11px;
-				text-decoration: none;
-			}
-			li a:hover, .dropdown:hover .dropbtn {
-				background-color: #31333F;
-				color: orange;
-				background-color: transparent;
-				text-decoration: underline;
-			}
-			li.dropdown {
-				display: inline-block;
-			}
-			.dropdown-content {
-				display: none;
-				position: absolute;
-				background-color: #31333F ;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-				z-index: 1;
-			}
-			.dropdown-content a {
-				color: white;
-				padding: 12px 16px;
-				text-decoration: none;
-				display: block;
-				text-align: left;
-			}
-			.dropdown-content a:hover {background-color: #31333F}
-			.dropdown:hover .dropdown-content {
-				display: block;
-			}
-        <!--.logout{
-			position:absolute;
-			color: orange;
-			left: 94%;
-			bottom:95%;
-			font-size: 14pt;
-	   }-->
-	   
-	   	.logout{
-			position:center;
-			font-size: 16pt;
-			background-color: #31333F;
-			border: #31333F;
-			color: orange;
-			
-		}
-			
-			label a:hover {
-					color: orange;
-			}
-			
-			 input{
-	    background-color: #f1f1f1;
-        color: black;
-        padding: 10px 24px;
-		border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-	  }
-	  
-			.cancel_style {
-	    background-color: #FFFFFF; 
-        border: 2px solid #31333F;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        padding: 10px 24px;
-		border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-		font-weight: bold;
-		position: absolute;
-		left: 85%;
-		vertical-align: bottom;
-		display: table-cell;
-		color: #31333F;
-		bottom:170px;
-		left:570px;
-	} 
-	
-	 .save_style {
-	    background-color: #31333F; 
-        border: 2px solid #31333F;
-		color: white;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        padding: 0.8%;
-		border-radius: 8px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-		font-weight: bold;
-		position: absolute;
-		vertical-align: bottom;
-		display: table-cell;
-		bottom:170px;
-		left:710px;
-	  } 
+    <!--the style of page-->
+    <style>
 
-		.username {
-			margin-left: 540px;	
-		}
-
-	#textinput2 {
-					margin-left: 50px;
-					font-size:20px;
-			}
-			#textinput3 {
-					margin-left: 75px;
-					font-size:20px;
-			}
-
-		#textinput1 {
-			margin-left: 6px;
-			font-size:20px;
-		}
-		
-		#label2 {
-			font-size:20px;
-		}
-		#label1 {
-			font-size:20px;
-		}	  
-
-		body{
-			height:100%;
-		   width:100%;
-		   background-image:url("statare3.jpg");  
-		   background-repeat:no-repeat;  
-		   background-size:cover;   
-		   filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
-		   -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
-		}	
-	</style>
-	
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-  <body>
-		
-		<div class="header">
-		<form action="logout_manager.php" method="post" id=form_id4>	 	
-			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-	 	</form>   
-		<div class="logo">
-		<a href="manager_dashboard.html">
-			<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
-		</a>
-	<ul>
-		<label class="nav">
-		<li><a href="manager_dashboard.html">Home</a></li>		
-		<li><a href="edit_profile_manager.html" >Profile</a></li>
-		<li><a href="view_hours_manager.html">View Hours</a></li>
-		<li><a href="view_schedule_manager.html">View Schedule</a></li>
-		<li><a href="leave_request_manager.html" >Leave Request</a></li> 
-		<li><a href="average_per_week.html" style="color:orange;text-decoration: underline">Average per week</a></li>
-		<li><a href="ip_range.html">Location Request</a></li>
-		<li><a href="payroll_report.html">Payroll Report</a></li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
-			<div class="dropdown-content">
-				<a href="add_employee.html">Add Employee</a>
-				<a href="employee_status_manager.html">Employee Status</a>
-				<a href="manager_view_request.php">View Requests</a>
-				<a href="delete_Employee.html">Delete Employee</a>
-			</div>
-		</li>		
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">Language</a>
-			<div class="dropdown-content">
-				<a href="#">Ελληνικά</a>
-				<a href="#">English</a>
-				<a href="#">Norsk</a>
-				<a href="#">Polski</a>
-				<a href="#">Deutsch</a>
-				<a href="#">Svenska</a>
-			</div>
-		</li>
-		</label>
-	</ul>
-
-</div> 
-	</div>
-				
-    <div class="paragraph">
-  
-		<h1 align="center"><b>Average per Week</b><h1>
-	   
-	</div>
-	<br>
-	<br>		
-	
-		<form class="username"  action="average_per_week_manager.php" method="POST">
-				<div >
-					<label  id="label" for="textinput2" ><b>FROM:</b></label> 
-					<input id="textinput2" name="From" type="date" placeholder=""  required="">
-				
-				</div>  
-			<br>
-			<div >
-					<label  id="label" for="textinput3" ><b>TO:</b></label> 
-					<input id="textinput3" name="To" type="date" placeholder=""  required="">
-				
-				</div>  
-			
-			<br>
-			<br>
-			<br>
-			
-			<button  name="continue" class="save_style">Export</button>
-			<button onclick="myFunction2()" class="cancel_style">Cancel</a>
-		
-		</form>
-<script>
-
-
-		var obj, dbParam, xmlhttp, myObj, x, txt = "";  
-		obj = { "table":"AttendanceTime", "limit":10};
-		dbParam = JSON.stringify(obj);
-		xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				myObj = JSON.parse(this.responseText);
-				for (x in myObj) {
-					txt += myObj[x].name + "<br>";
-					window.alert(txt);
-				}
-			}
-		};
-		xmlhttp.open("POST", "average_per_week_manager.php", true);
-		xmlhttp.setRequestHeader("Content-type", "application/json");
-		xmlhttp.send("AttendanceTime=" + dbParam);
-		
-
-
-		function myFunction1() {
-    if(confirm('Do you want to save the Report?')){
-	window.location.replace("manager_dashboard.html");
-	window.alert("Report was saved");}
-	else {window.location.replace("average_per_week.html");
-	}
-	}
-	function myFunction2() {
-    if(confirm('Do you want to leave this page?')){window.location.replace("manager_dashboard.html");}
-	else {window.location.replace("average_per_week.html");
-	}
-	
-}
-
-		
-		function myFunction4() {
-        document.getElementById("form_id4").submit();
+        .confirm_box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
         }
 
-	
-</script>
+        .confirm_box .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            z-index: 9;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .confirm_box .confirm_model {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .confirm_box .confirm_model .model {
+            background: #fff;
+            width: 400px;
+            border-radius: 4px;
+            margin: 40px auto;
+            overflow: hidden;
+        }
+
+        .confirm_box .confirm_model .model .header {
+            float: left;
+            width: 100%;
+            background: #f8f8f8;
+            border-bottom: solid 2px #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .confirm_box .confirm_model .model .header h1 {
+            font-size: 14px !important;
+            font-family: helvetica;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .confirm_box .confirm_model .model .content {
+            padding: 10px 20px;
+            float: left;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .confirm_box .confirm_model .model .content p {
+            font-size: 12px !important;
+            font-family: helvetica;
+            color: #555;
+            font-weight: 300;
+        }
+
+        .confirm_box .confirm_model .model .content .buttons_container {
+            float: left;
+            width: 100%;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .confirm_box .confirm_model .model .content .buttons_container .button {
+            float: right;
+            padding: 5px 20px;
+            border: none;
+            margin: 0 10px;
+            border-radius: 3px;
+            border-bottom: solid 2px transparent;
+            cursor: pointer;
+        }
+
+        .confirm_box .confirm_model .model .content .buttons_container .button:hover {
+            border-bottom: solid 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .confirm_box .confirm_model .model .content .buttons_container .button.confirm {
+            background: #31333F;
+            color: #fff;
+        }
+
+        .confirm_box .confirm_model .model .content .buttons_container .button.deny {
+            background: #a30;
+            color: #fff;
+        }
+
+        .cancel_style {
+            background-color: #FFFFFF;
+            border: 2px solid #31333F;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 0.8%;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+            left: 46%;
+            top: 90%;
+            vertical-align: bottom;
+            display: table-cell;
+            color: #31333F;
+        }
+
+        .save_style {
+            background-color: #31333F;
+            border: 2px solid #31333F;
+            color: white;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 0.8%;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            position: absolute;
+            left: 53%;
+            top: 90%;
+            vertical-align: bottom;
+            display: table-cell;
+        }
+
+        .logout {
+            position: absolute;
+            color: orange;
+            left: 94%;
+            bottom: 95%;
+            font-size: 16pt;
+            background-color: #31333F;
+            border: #31333F;
+        }
+
+        label a:hover {
+            color: orange;
+        }
+
+        .header {
+            background-color: #31333F;
+            color: white;
+            margin-bottom: 1.1%;
+        }
+
+        .paragraph {
+
+            padding: 0px 0px 0px 40px;
+
+        }
+
+        .logo {
+            margin-top: 1.6%;
+            margin-bottom: 0.1%;
+            margin-left: 1.3%;
+            display: inline-block;
+        }
+
+        .nav {
+            position: absolute;
+            top: 9%;
+            left: 8%;
+            font-weight: bold;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 17px 11px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown:hover .dropbtn {
+            background-color: #31333F;
+            color: orange;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #31333F;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #31333F
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .left_assig {
+            margin-left: 4;
+        }
+
+        .username {
+            margin-left: 100px;
+
+        }
+
+        #label {
+            margin-left: 415px;
+        }
+
+        #textinput1 {
+            margin-left: 61px;
+            font-size: 20px;
+        }
+
+        #textinput2 {
+            margin-left: 82px;
+            font-size: 20px;
+        }
+
+        #textinput3 {
+            margin-left: 28px;
+            font-size: 20px;
+        }
+
+        .buttonstyle {
+
+            background-color: #31333F;
+            border: 2px solid #31333F;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 3px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+
+        }
+
+        .paragraph2 {
+
+            padding: 20px 0px 0px 560px;
+
+        }
+
+        .paragraph3 {
+
+            padding: 20px 0px 0px 440px;
+
+        }
+
+        input {
+            background-color: #f1f1f1;
+            color: black;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-image: url("statare3.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg', sizingMethod='scale');
+            -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+        }
+    </style>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+<!-- Header with the other features-->
+<div class="header">
+
+    <form action="logout_manager.php" method="post" id=form_id4>
+        <button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+    </form>
+
+
+    <div class="logo">
+        <a href="manager_dashboard.html">
+            <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png"
+                 width="100" height="100">
+        </a>
+        <ul>
+            <label class="nav">
+                <li><a href="manager_dashboard.html">Home</a></li>
+                <li><a href="edit_profile_manager.php">Profile</a></li>
+                <li><a href="view_hours_manager.php">View Hours</a></li>
+                <li><a href="leave_request_manager.html">Leave Request</a></li>
+                <li><a href="average_per_week_CSS.html" style="color:orange;text-decoration: underline">Average
+                    Report</a></li>
+                <li><a href="ip_range.html">Location Request</a></li>
+                <li><a href="payroll_report.html">Payroll Report</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">My Employees</a>
+                    <div class="dropdown-content">
+                        <a href="add_employee.php">Add Employee</a>
+                        <a href="choose_employee.html">Edit Employee</a>
+                        <a href="delete_employee.html">Delete Employee</a>
+                        <a href="employee_status_manager.php">Employee Status</a>
+                        <a href="manager_view_request.php">View Requests</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Language</a>
+                    <div class="dropdown-content">
+                        <a href="#">Ελληνικά</a>
+                        <a href="#">English</a>
+                        <a href="#">Norsk</a>
+                        <a href="#">Polski</a>
+                        <a href="#">Deutsch</a>
+                        <a href="#">Svenska</a>
+                    </div>
+                </li>
+            </label>
+        </ul>
+
+
+    </div>
+</div>
+
+<div class="paragraph">
+
+    <h1 align="center"><b>Average Report</b></h1>
+
+</div>
+<br>
+
+<form name="form_id" class="username" method="post" action="average_per_week_manager.php">
+    <div>
+        <!-- the range of dates-->
+        <label id="label" for="textinput1"><b>From :</b></label>
+        <input id="textinput1" name="from_date" type="date" placeholder="" required="">
+
+        <br>
+        <br>
+        <label id="label" for="textinput2"> <b>To :</b></label>
+        <input id="textinput2" name="to_date" type="date" placeholder="" required="">
+
+        <br>
+        <br>
+        <!-- the name of file-->
+        <label id="label" for="textinput3"> <b>File name :</b></label>
+        <input id="textinput3" name="file_name" type="search" placeholder="" required="">
+        <br>
+        <br>
+        <!-- the format of report-->
+        <label style="margin-left:415px"><b>Format : </b></label>
+        <select style="margin-left:45px" name="format_export" id="format_export">
+            <option value="XML">XML</option>
+            <option value="JSON">JSON</option>
+        </select>
+
+    </div>
+
+
+    <button class="save_style" id="export_btn" name="export_btn">Export</button>
+    <button class="cancel_style" id="cancel" name="cancel">Cancel</button>
+
+    <div id="welcomeDiv" style="display:none" class="confirm_box">
+        <div class="overlay"></div>
+        <div class="confirm_model">
+            <div class="model">
+                <div class="header">
+                    <h1 class="title">
+                        Do you want to export the file?
+                    </h1>
+                </div>
+                <div class="content">
+                    <div class="buttons_container">
+                        <button class="confirm button" id="yes" name="yes">Yes</button>
+                        <button class="deny button" id="no" name="no">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cancelDiv" style="display:none" class="confirm_box">
+        <div class="overlay"></div>
+        <div class="confirm_model">
+            <div class="model">
+                <div class="header">
+                    <h1 class="title">
+                        Do you want to leave this page?
+                    </h1>
+                </div>
+                <div class="content">
+                    <div class="buttons_container">
+                        <button class="confirm button" id="yes2" name="yes2">Yes</button>
+                        <button class="deny button" id="no2" name="no2">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        $("#export_btn").click(function (event) {
+            event.preventDefault();
+            document.getElementById('welcomeDiv').style.display = "block";
+            $("#yes").click(function (event) {
+                document.getElementById('welcomeDiv').style.display = "none";
+                document.getElementById('form_id').submit();
+            });
+            $("#no").click(function (event) {
+                document.getElementById('welcomeDiv').style.display = "none";
+                //window.location.replace("manager_dashboard.html");
+            });
+        });
+
+        $("#cancel").click(function (event) {
+            event.preventDefault();
+            document.getElementById('cancelDiv').style.display = "block";
+            $("#yes2").click(function (event) {
+                document.getElementById('cancelDiv').style.display = "none";
+                window.location.replace("clock_in_manager.html");
+            });
+            $("#no2").click(function (event) {
+                document.getElementById('cancelDiv').style.display = "none";
+                //document.getElementById('form_id').submit();
+            });
+        });
+    </script>
+
+
+</form>
+
 </body>
 </html>
+
+
+
+
