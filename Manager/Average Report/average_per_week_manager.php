@@ -1,113 +1,84 @@
-<?php session_start();
+<!--
+- Author: Maria Kouppi
+-
+- A manager can can report on the time worked by his employees. The managers give the range of dates the managers
+- want to report, the name of file. If the export button clicked, then select from database the data of his employees
+- concerning their hours of work and create a report on JSON or XML format.
+-
+-->
+<?php
+session_start();
+//ini_set('display_errors',1);
+//error_reporting(E_ALL);
+include('db.php');
 
+// get the values of text box
+$From = $_POST['from_date'];
+$To = $_POST['to_date'];
+$file_name = $_POST['file_name'];
+$Username = $_SESSION['username'];
+if (isset($_POST['export_btn'])) {
 
-if (isset($_POST['continue'])){
-	include 'db.php';
-		
-		
-$Username=$_SESSION['username'];
+    //select data from database
+    $getData = "SELECT SUM(TIME_TO_SEC(TIMEDIFF(AttendanceTime.ClockOut,AttendanceTime.ClockIn))-(AttendanceTime.BreakLength*60)) AS SecWorked,AttendanceTime.Username,AttendanceTime.BreakLength,Employee.ID,Employee.Name,Employee.Surname FROM AttendanceTime INNER JOIN Employee ON (AttendanceTime.Username=Employee.Username) WHERE (Date >= '$From' AND Date <= '$To') AND Employee.UsernameManager LIKE '$Username' GROUP BY AttendanceTime.Username";
 
-$DateFrom=$_POST['From'];
-$DateTo=$_POST['To'];
+    $sql_con = mysqli_query($conn, $getData);
+    $employee_data = array();
+    if (!$sql_con) {
+        echo '<script type="text/javascript">
+	window.alert("ERROR CONNECTION WITH DATABASE");
+	window.location.replace("average_per_week.html");
+	</script>';
+        exit();
+    } else {
+        //if format which the manager select is XML
+        if (strcmp($_POST['format_export'], "XML") == 0) {
+            $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+            $root_element = "Leave_Employee";
+            $xml .= "<$root_element>";
+            if (mysqli_num_rows($sql_con) > 0) {
+                while ($row = mysqli_fetch_assoc($sql_con)) {
+                    $xml .= "<Leave_Employee>";
 
-$DateFrom=date("Y-m-d", strtotime($DateFrom));
-$DateTo=date("Y-m-d", strtotime($DateTo));
+                    //loop through each key,value pair in row
+                    foreach ($row as $key => $value) {
+                        //$key holds the table column name
+                        $xml .= "<$key>";
 
+                        //embed the SQL data in a CDATA element to avoid XML entity issues
+                        $xml .= "<![CDATA[$value]]>";
 
-if (strtotime($DateFrom) > strtotime('now')) {
-		echo '<script type="text/javascript">
-			window.alert("The date on which export report should be before today! Try again please!");
-			window.location.replace("average_per_week.html");
-			</script>';
-} else if (strtotime($DateTo) > strtotime('now')) {
-		echo '<script type="text/javascript">
-			window.alert("The date on which export report should be before today! Try again please!");
-			window.location.replace("average_per_week.html");
-			</script>';
-} else if (strtotime($DateTo) <= strtotime($DateFrom)) {
-		echo '<script type="text/javascript">
-			window.alert("The date on which the leave will end is after the date it starts! Try again please!");
-			window.location.replace("average_per_week.html");
-			</script>';
-} else {
-	
-	//header("Content-Type: application/json; charset=UTF-8");
-	//$obj = json_decode($_POST["x"], false);
-	
-	//$sql= "SELECT `Date`, `ClockIn`, `ClockOut`, `Break`, `ReturnBreak`, `Username`, `BreakLength` FROM `AttendanceTime` WHERE (`Date` BETWEEN '$DateFrom' AND '$DateTo')";
-	$sql= "SELECT SUM(AttendanceTime.ClockOut-AttendanceTime.ClockIn) AS HoursWorked,AttendanceTime.Username,AttendanceTime.BreakLength,Employee.ID,Employee.Name,Employee.Surname FROM AttendanceTime INNER JOIN Employee ON (AttendanceTime.Username=Employee.Username) WHERE (Date >= '$DateFrom' AND Date <= '$DateTo') AND Employee.UsernameManager LIKE '$Username' GROUP BY AttendanceTime.Username";
+                        //and close the element
+                        $xml .= "</$key>";
+                    }
 
-	$result=mysqli_query($conn,$sql);
-	
-	$json_array = array();
-	
-	while($row = mysqli_fetch_assoc($result)){	
-		$json_array[] = $row;
-	
-	}
-	echo json_encode($json_array);
-/*	$file = fopen('hoursReport.json','w');
-	fwrite($file,json_encode($json_array));*/
-	
-	
-	
-	
-	
-	/*$sql= "SELECT `Name`, `Surname`, `Date`, `ClockIn`, `ClockOut`, `Break`, `ReturnBreak`, `AttendanceTime`.`Username`, `BreakLength` FROM `Employee`, `AttendanceTime` WHERE `Employee`.`Username` = `AttendanceTime`.`Username` AND (`Date` BETWEEN $DateFrom AND $DateTo)";
+                    $xml .= "</Leave_Employee>";
+                }
 
-	$result=mysqli_query($conn,$sql);
-	
-	if(!$result){
-			echo '<script type="text/javascript">
-				window.alert("ERROR CONNECTION WITH DATABASE");
-				</script>';
-			exit();
-	}else{
-		$json_data=array();//create the array 
-		while($row = mysqli_fetch_array($result)){ 	
-			$json_data->Name = $row['Name'];
-			$json_data->Surname = $row['Surname'];
-			$json_data->Username = $row['Username'];
-			$json_data-> "Date" = $row['Date'];
-			$json_data->ClockIn = $row['ClockIn'];
-			$json_data->ClockOut = $row['ClockOut'];
-			$json_data->"Break" = $row['Break'];
-			$json_data->ReturnBreak = $row['ReturnBreak'];
-			$json_data->BreakLength = $row['BreakLength'];
-			//built in PHP function to encode the data in to JSON format 
-			echo json_encode($json_data); 
-		}
-	}*/
-	 
-	
-		//here pushing the values in to an array  
-	//	$json_data = $result->fetch_all(MYSQLI_ASSOC);
-		//echo $Username;
-		//array_push($json_data,$json_array);  
-  
-	//}
-	 
-	
-	
-/*	if(!mysqli_query($conn,$sql)){
-		echo '<script type="text/javascript">
-		window.alert("ERROR"); 
-		window.location.replace("average_per_week.html");
-		</script>';
-	}
-	else{echo '<script type="text/javascript">
-		window.alert("OK!"); 
-		window.location.replace("manager_dashboard.html");
-		</script>';
-		}*/
-	 
+                $xml .= "</$root_element>";
 
+                //send the xml header to the browser
+                header("Content-Type:text/xml");
+
+                //output the XML data
+                echo $xml;
+            }
+        } else {
+            //if the format which the manager select is JSON
+            while ($row = mysqli_fetch_array($sql_con)) {
+                $employee_data[] = array('Username' => $row['Username'], 'ID' => $row['ID'], 'Name' => $row['Name'], 'Surname' => $row['Surname'], 'SecWorked' => $row['SecWorked']);
+            }
+            echo json_encode($employee_data);
+        }
+        /*$myfile = fopen('newfile.txt', 'w') or die("can't open file");
+            fwrite($myfile,json_encode($employee_data));
+            fclose($myfile);
+
+            if(file_exists("newfile.txt")){
+            echo '<script type="text/javascript">
+            window.alert("Exported successfully");
+            window.location.replace("payroll_report.html");
+            </script>';}*/
+    }
 }
-} else {
-	echo '<script type="text/javascript">alert("NOT FOUND"); 
-		window.location.replace("average_per_week.html");
-		</script>';
-	exit();
-	}
-
 ?>
