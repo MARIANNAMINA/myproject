@@ -90,8 +90,8 @@ session_start();
 
 						$Username=$_SESSION['username'];//take the username of the employee who is loged in now
 
-						//take ClockIn, ClockOut, Break, ReturnBreak and Date for the employee who is loged in now
-						$sql = "SELECT ClockIn, ClockOut, Break, ReturnBreak, Date FROM AttendanceTime WHERE Username LIKE '$Username' ORDER BY Date DESC";
+						//take ClockIn, ClockOut, Break and Date for the employee who is loged in now
+						$sql = "SELECT ClockIn, ClockOut, BreakLength, Date FROM AttendanceTime WHERE Username LIKE '$Username' ORDER BY Date DESC";
 						$result = mysqli_query($conn, $sql);
 						
 						if(!$result){//if the connection with database has problem
@@ -100,52 +100,9 @@ session_start();
 								</script>';
 							exit();
 						}else{ //else if the connection with database is okay
+					
 							while($row = mysqli_fetch_array($result)){//while the table has data 
 										 
-								//calculate break length
-								$endTime = ($row['ReturnBreak']{0} . $row['ReturnBreak']{1})*60*60 + ($row['ReturnBreak']{3} . $row['ReturnBreak']{4})*60 + ($row['ReturnBreak']{6} . $row['ReturnBreak']{7})*1;//calculate in seconds the time in which employee press the button return from break
-								$startTime = ($row['Break']{0} . $row['Break']{1})*60*60 + ($row['Break']{3} . $row['Break']{4})*60 + ($row['Break']{6} . $row['Break']{7})*1;//calculate in seconds the time in which employee press the button break
-								$newTime = "-";//set default value
-										
-								if($endTime != 0){//has returned from break
-										
-									$newTime = $endTime-$startTime;//break length in seconds
-									$break = (int)($newTime/60);//break length in minutes
-											
-									$hours = (int)($newTime / 3600);//hours of break length
-									$min = (int)(($newTime - $hours*3600) / 60);//minutes of break length
-									$sec = (int)($newTime - $hours*3600 - $min*60);//seconds of break length
-									
-									if(strlen($hours) == 1 && strlen($min) == 1 && strlen($sec) == 1){//if hours and minutes and seconds are one digit
-										$newTime = '0'.$hours.':0'.$min.':0'.$sec;//break lenght
-									}else if(strlen($hours) == 1 && strlen($min) == 1 && strlen($sec) != 1){//if hours and minutes are one digit
-										$newTime = '0'.$hours.':0'.$min.':'.$sec;//break lenght
-									}else if(strlen($hours) == 1 && strlen($min) != 1 && strlen($sec) == 1){//if hours and seconds are one digit
-										$newTime = '0'.$hours.':'.$min.':0'.$sec;//break lenght
-									}else if(strlen($hours) != 1 && strlen($min) == 1 && strlen($sec) == 1){//if minutes and seconds are one digit
-										$newTime = $hours.':0'.$min.':0'.$sec;//break lenght
-									}else if(strlen($hours) != 1 && strlen($min) == 1 && strlen($sec) != 1){//if minutes is one digit
-										$newTime = $hours.':0'.$min.':'.$sec;//break lenght
-									}else if(strlen($hours) != 1 && strlen($min) != 1 && strlen($sec) == 1){//if seconds is one digit
-										$newTime = $hours.':'.$min.':0'.$sec;//break lenght
-									}else if(strlen($hours) == 1 && strlen($min) != 1 && strlen($sec) != 1){//if hours is one digit
-										$newTime = '0'.$hours.':'.$min.':'.$sec;//break lenght
-									}else if(strlen($hours) != 1 && strlen($min) != 1 && strlen($sec) != 1){//if hours and minutes and seconds are two digit
-										$newTime = $hours.':'.$min.':'.$sec;//break lenght
-									}
-																	
-									$date=$row['Date'];
-									$clockin=$row['ClockIn'];
-											
-									$query="UPDATE AttendanceTime SET BreakLength='$break' WHERE (Username='$Username' AND Date='$date' AND ClockIn='$clockin')";//set the break length to the database
-									if(!mysqli_query($conn,$query)){//if the connection with database has problem
-										echo '<script type="text/javascript">
-											window.alert("ERROR CONNECTING WITH DATABASE");
-											</script>';
-										exit();
-									}
-								}
-									
 								//calculate hours
 								$endTime2 = ($row['ClockOut']{0} . $row['ClockOut']{1})*60*60 + ($row['ClockOut']{3} . $row['ClockOut']{4})*60 + ($row['ClockOut']{6} . $row['ClockOut']{7})*1;//calculate in seconds the time in which employee press the button clock out
 								if($endTime2 == 0){//if is not clocked out
@@ -157,28 +114,28 @@ session_start();
 								$newTime2 = "-";//set default value
 									
 								if($endTime2 != 0){//has clocked out
-									$newTime2 = $endTime2-$startTime2-$break;//sum of hours in which employee has worked, in seconds
+									$newTime2 = $endTime2-$startTime2-$row['BreakLength'];//sum of hours in which employee has worked, in seconds
 
 									$hours2 = (int)($newTime2 / 3600);//hours of sum of hours in which employee has worked
 									$min2 = (int)(($newTime2 - $hours2*3600) / 60);//minutes of sum of hours in which employee has worked
 									$sec2 = (int)($newTime2 - $hours2*3600 - $min2*60);//seconds of sum of hours in which employee has worked
 									
 									if(strlen($hours2) == 1 && strlen($min2) == 1 && strlen($sec2) == 1){//if hours and minutes and seconds are one digit
-										$newTime2 = '0'.$hours2.':0'.$min2.':0'.$sec2;//break lenght
+										$newTime2 = '0'.$hours2.':0'.$min2.':0'.$sec2;//hours length
 									}else if(strlen($hours2) == 1 && strlen($min2) == 1 && strlen($sec2) != 1){//if hours and minutes are one digit
-										$newTime2 = '0'.$hours2.':0'.$min2.':'.$sec2;//break lenght
+										$newTime2 = '0'.$hours2.':0'.$min2.':'.$sec2;//hours length
 									}else if(strlen($hours2) == 1 && strlen($min2) != 1 && strlen($sec2) == 1){//if hours and seconds are one digit
-										$newTime2 = '0'.$hours2.':'.$min2.':0'.$sec2;//break lenght
+										$newTime2 = '0'.$hours2.':'.$min2.':0'.$sec2;//hours length
 									}else if(strlen($hours2) != 1 && strlen($min2) == 1 && strlen($sec2) == 1){//if minutes and seconds are one digit
-										$newTime2 = $hours2.':0'.$min2.':0'.$sec2;//break lenght
+										$newTime2 = $hours2.':0'.$min2.':0'.$sec2;//hours length
 									}else if(strlen($hours2) != 1 && strlen($min2) == 1 && strlen($sec2) != 1){//if minutes is one digit
-										$newTime2 = $hours2.':0'.$min2.':'.$sec2;//break lenght
+										$newTime2 = $hours2.':0'.$min2.':'.$sec2;//hours length
 									}else if(strlen($hours2) != 1 && strlen($min2) != 1 && strlen($sec2) == 1){//if seconds is one digit
-										$newTime2 = $hours2.':'.$min2.':0'.$sec2;//break lenght
+										$newTime2 = $hours2.':'.$min2.':0'.$sec2;//hours length
 									}else if(strlen($hours2) == 1 && strlen($min2) != 1 && strlen($sec2) != 1){//if hours is one digit
-										$newTime2 = '0'.$hours2.':'.$min2.':'.$sec2;//break lenght
+										$newTime2 = '0'.$hours2.':'.$min2.':'.$sec2;//hours length
 									}else if(strlen($hours2) != 1 && strlen($min2) != 1 && strlen($sec2) != 1){//if hours and minutes and seconds are two digit
-										$newTime2 = $hours2.':'.$min2.':'.$sec2;//break lenght
+										$newTime2 = $hours2.':'.$min2.':'.$sec2;//hours length
 									}
 								}
 								//print the data to the table
@@ -186,7 +143,7 @@ session_start();
 								echo "<td>" . $row['Date'] . "</td>";
 								echo "<td>" . $row['ClockIn'] . "</td>";
 								echo "<td>" . $clockout . "</td>";
-								echo "<td>" . $newTime . "</td>";
+								echo "<td>" . $row['BreakLength'] . "</td>";
 								echo "<td>" . $newTime2 . "</td>";
 								echo "</tr>";
 
