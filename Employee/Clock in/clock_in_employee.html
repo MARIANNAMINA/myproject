@@ -1,3 +1,8 @@
+<!-- This page gives the opportunity to an employee to make one of the following actions (depending
+on what state he/she is): clock in, clock out, break, return from break. According of what action he/she does
+the appropriate column is initialized with current time and date. Also despite these actions, an employee can log
+on his/her dashboard.
+-->
 <!doctype html>
 <html lang="eng">
 <link rel="shortcut icon"
@@ -30,7 +35,7 @@
         </a>
 
         <ul>
-            <label class="nav">
+            <div class="nav">
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Language</a>
                     <div class="dropdown-content">
@@ -43,17 +48,17 @@
                     </div>
                 </li>
                 <li><a href="contact_employee.php">Contact Us</a></li>
-            </label>
+            </div>
         </ul>
     </div>
 </div>
 
-<div class="paragraph">
+
 
     <div class="date">
         <p id="date"></p>
     </div>
-
+	<hr>
     <script>
         n = new Date();
         y = n.getFullYear();
@@ -66,6 +71,8 @@
 
     <p/>
     <p/>
+	
+	<div class="align_center">
     <form action="clockIn_employee.php" method="post" id="form_id">
         <button onclick="myFunction()" name="ClockInButton" id="ClockInButton" class="clockbutton">Clock in</button>
         <p/>
@@ -88,6 +95,7 @@
         <p/>
     </form>
 
+	
     <script>
 
         function myFunction() {
@@ -115,8 +123,8 @@
         <button id="DashBoard" name="DashBoard" class="clockbutton">Log on to Dashboard</button>
         <p/>
     </form>
-
+	</div>
 
 </body>
-</div>
+
 </html>
