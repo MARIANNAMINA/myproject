@@ -1,3 +1,11 @@
+/*
+Style of clock_in_manager.html page
+ */
+.align_center {
+	text-align:center;
+	font-size:1.4vw;
+}
+
 .header {
     background-color: #31333F;
     color: white;
@@ -11,34 +19,19 @@
     display:inline-block;
 }
 
-.form-horizontal {
-    text-align: center;
-}
-
-.col-md-1{
-    text-align: center;
-}
-
 .clockbutton{
-    text-align: center;
-    font-size: 24pt;
-    width: 300px;
     background-color: #31333F;
     font-family: sans-serif, Arial;
     color: white;
-    margin-left:525px;
+	width:25%;
+	padding:1%;
+	font-size:2vw;
 }
 
-.timer{
-    text-align: center;
+p{
     font-family: sans-serif, Arial;
-    font-size: 45pt;
-}
-
-.date{
-    text-align: center;
-    font-family: sans-serif, Arial;
-    font-size: 20pt;
+    text-align:center;
+	font-size:2.5vw;
 }
 
 .nav{
@@ -46,6 +39,7 @@
     top: 9%;
     left: 8%;
     font-weight: bold;
+	font-size: 1.4vw;
 }
 
 .buttondropdown{
@@ -99,16 +93,12 @@ li.dropdown {
     display: block;
 }
 
-.left_assig {
-    margin-left:4;
-}
-
 .logout {
     position: absolute;
     color: orange;
-    left: 94%;
-    bottom: 95%;
-    font-size: 16pt;
+    right: 0.3%;
+    bottom: 95.5%;
+    font-size:1.4vw;
     background-color: #31333F;
     border: #31333F;
 }
@@ -117,13 +107,11 @@ label a:hover {
     color: orange;
 }
 
-body{
-    height:100%;
-    width:100%;
-    background-image:url("statare3.jpg");
-    background-repeat:no-repeat;
-    background-size:cover;
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale');
-    -ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='statare3.jpg',sizingMethod='scale')";
+body {
+    background: url(statare3.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
 }
+
 

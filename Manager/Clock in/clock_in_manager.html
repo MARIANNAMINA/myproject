@@ -1,3 +1,8 @@
+<!-- This page gives the opportunity to a manager to make one of the following actions (depending
+on what state he/she is): clock in, clock out, break, return from break. According of what action he/she does
+the appropriate column is initialized with current time and date. Also despite these actions, a manager can log
+on his/her dashboard.
+-->
 <!doctype html>
 <html lang="eng">
 <link rel="shortcut icon"
@@ -8,7 +13,7 @@
     <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="clock_in_manager.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -29,7 +34,7 @@
         </a>
 
         <ul>
-            <label class="nav">
+            <div class="nav">
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Language</a>
                     <div class="dropdown-content">
@@ -44,16 +49,16 @@
 
                 <li><a href="contact_manager.php">Contact Us</a></li>
 
-            </label>
+            </div>
         </ul>
     </div>
 </div>
 
-<div class="paragraph">
-    <div class="date">
-        <p id="date"></p>
-    </div>
 
+<div class="date">
+    <p id="date"></p>
+</div>
+<hr>
     <script>
         n = new Date();
         y = n.getFullYear();
@@ -64,6 +69,7 @@
 
     <p/>
     <p/>
+	<div class="align_center">
     <form action="clockIn_manager.php" method="post" id="form_id">
         <button onclick="myFunction()" name="ClockInButton" id="ClockInButton" class="clockbutton">Clock in</button>
         <p/>
@@ -85,8 +91,9 @@
         </button>
         <p/>
     </form>
-
-    <script>
+	
+    
+	<script>
 
         function myFunction() {
             document.getElementById("form_id").submit();
@@ -108,7 +115,7 @@
             document.getElementById("form_id4").submit();
             window.location.replace("index.html");
         }
-
+		
     </script>
 
     <form action="manager_dashboard.html">
@@ -117,7 +124,8 @@
         </button>
         </p>
     </form>
+	</div>
 </body>
-</div>
+
 </html>
 
