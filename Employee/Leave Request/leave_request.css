@@ -4,6 +4,11 @@
     margin-bottom: 1.1%;
 }
 
+.title_class {
+    text-align: center;
+    font-size: 3vw;
+}
+
 .paragraph {
 
     padding: 0px 0px 0px 40px;
