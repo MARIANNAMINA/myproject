@@ -169,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $A = "";
         $Address = " ";
     } else {
-        $Address = $_POST['Address'];
+        $A=$Address = $_POST['Address'];
 
     }
 
@@ -224,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username_error) && empty($password_error) && empty($id_error) && empty($ssn_error) && empty($first_name_error) && empty($last_name_error) && empty($dept_error) && empty($role_error) && empty($country_error) && empty($salary_error) && empty($phone_error) && empty($emergency_phone_error) && empty($email_error) && empty($country_num_error) && empty($address_error) && empty($birthdate_error) && empty($leaves_error)) {
 
         // check if the given Department is in the given Country
-        $sqlDeptNum = "SELECT NumberDept FROM Department WHERE NumberDept={$DeptNum} AND CountryNum={$WorkC} AND UsernameManager LIKE '$UsernameManager'";
+        $sqlDeptNum = "SELECT NumberDept FROM Department WHERE NumberDept={$DeptNum} AND CountryNum={$WorkC}";
         $resultDeptNum = mysqli_query($conn, $sqlDeptNum);
         $flag = true;
         if (!($resultDeptNum)) {
@@ -237,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($rowsDeptNum == 0) {
                 $flag = false;
                 echo '<script>
-					alert("DEPARTMENT IN THE GIVEN COUNTRY DOES NOT EXIST IN DATABASE OR YOU ARE NOT THE MANAGER OF IT");
+					alert("DEPARTMENT IN THE GIVEN COUNTRY DOES NOT EXIST IN DATABASE");
 					</script>';
             } else {
                 // increase the number of employees of the given department  by one
@@ -253,6 +253,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // check if the above checks are completed successfully to insert the given employee in the DB
         if ($flag) {
+			// insert the given data of an employee in the DB 
             $sqlEmpl = "INSERT INTO Employee (CountryNumber,Email,NumDept,IsManager,Username,Password,ID,SSN,Name,Surname,Role,Salary,SalaryType,Phone,EmergencyPhone,Country,Address,Birthdate,Gender,UsernameManager,CharactersPassword,AnnualLeaves) VALUES ('$WorkCountry[0]','$Email','$DepartmentNum[0]','$Manager','$Username','$Hashed','$ID','$SSN','$FirstName','$LastName','$Role','$Salary','$SalaryType','$Phone','$EmergencyPhone','$Country','$Address','$DateofBirth','$Gender','$UsernameManager','$Password_len','$Leaves')";
             if (!mysqli_query($conn, $sqlEmpl)) {
                 echo '<script>
