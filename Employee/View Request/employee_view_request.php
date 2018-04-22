@@ -4,7 +4,7 @@
 -
 - This file is a html file for view request functionality. At the top of the page you will see
 - the menu with the other features you can do on this web page. On the page, a table appears with all leave request
-- which he does. The last column of table is state. The employee will can see if his manager, accept or not his request.
+- which he did. The last column of table is state. The employee will can see if his manager, accept or not his request.
 -
 -->
 <!doctype html>
@@ -36,8 +36,7 @@
 
     <div class="logo">
         <a href="EmployeeDashboard.html">
-            <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png"
-                 width="100" height="100">
+            <img src="statare.png" alt="Statare logo" width="50%" height="50%">
         </a>
         <ul>
             <label class="nav">
@@ -66,9 +65,10 @@
 
 <div class="paragraph">
 
-    <h1 align="center"><b>View Requests</b></h1>
+    <p class="title_class"><b>View Requests</b></p>
 
     <br>
+    <hr>
     <!-- Table with employee's data for his leave requests-->
     <div style="overflow-x:auto;">
 
