@@ -92,44 +92,44 @@ $_SESSION['flag_clicked'] = false;
 	<form method="post" class="margin_label" name="form_id" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 
         <label><b><label style="color:red">*</label>Username : </b></label>
-        <input style="margin-left:10%" name="Username" id="Username" type="text" value="<?php echo "$Username"; ?>"
+        <input class="input_username" name="Username" id="Username" type="text" value="<?php echo "$Username"; ?>"
                placeholder="">
-        <label style="margin-left:12%"><b><label style="color:red">*</label>Password : </b></label>
-        <input style="margin-left:10%" name="Password" id="Password" value="<?php echo "$Password"; ?>" type="text"
+        <label class="sec_column"><b><label style="color:red">*</label>Password : </b></label>
+        <input class="input_password" name="Password" id="Password" value="<?php echo "$Password"; ?>" type="text"
                placeholder="">
         <br>
-        <span style="margin-left:18%" class="error"><?php echo "$username_error"; ?></span>
-        <span style="margin-left:65%" class="error"><?php echo "$password_error"; ?></span>
-
+        <span class="span_fcolumn"><?php echo "$username_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$password_error"; ?></span>
+		
         <br>
         <br>
 
         <label><b><label style="color:red">*</label>ID : </b></label>
-        <input style="margin-left:15.5%" name="ID" id="ID" value="<?php echo "$ID"; ?>" type="text" placeholder="">
-        <label style="margin-left:12%"><b><label style="color:red">*</label>SSN : </b></label>
-        <input style="margin-left:14%" name="SSN" id="SSN" value="<?php echo "$SSN"; ?>" type="text" placeholder="">
+        <input class="input_id" name="ID" id="ID" value="<?php echo "$ID"; ?>" type="text" placeholder="">
+        <label class="sec_column"><b><label style="color:red">*</label>SSN : </b></label>
+        <input class="input_ssn" name="SSN" id="SSN" value="<?php echo "$SSN"; ?>" type="text" placeholder="">
         <br>
-        <span style="margin-left:18%" class="error"><?php echo "$id_error"; ?></span>
-        <span style="margin-left:65%" class="error"><?php echo "$ssn_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$id_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$ssn_error"; ?></span>
 
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>First Name : </b></label>
-        <input style="margin-left:9.7%" name="FirstName" id="FirstName" value="<?php echo "$FN"; ?>" type="text"
+        <input class="input_fn" name="FirstName" id="FirstName" value="<?php echo "$FN"; ?>" type="text"
                placeholder="">
-        <label style="margin-left:12%"><label style="color:red"><b>*</b></label><b>Last Name : </b></label>
-        <input style="margin-left:12%" name="LastName" id="LastName" value="<?php echo "$LN"; ?>" type="text"
+        <label class="sec_column"><label style="color:red"><b>*</b></label><b>Last Name : </b></label>
+        <input class="input_ln" name="LastName" id="LastName" value="<?php echo "$LN"; ?>" type="text"
                placeholder="">
         <br>
-        <span style="margin-left:15%" class="error"><?php echo "$name_error"; ?></span>
-        <span style="margin-left:715px" class="error"><?php echo "$last_name_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$name_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$last_name_error"; ?></span>
 
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>Department : </b></label>
-        <select class="sel_class" name='selDept' id='selDept'>
+        <select class="sel_dept" name='selDept' id='selDept'>
             <?php
             // find the departments that are in the DB
             $select_query_Dept = "SELECT NumberDept,NameDept,CountryNum FROM Department";
@@ -140,18 +140,17 @@ $_SESSION['flag_clicked'] = false;
             ?>
         </select>
 
-        <label style="style=margin-left:12%"><b><label style="color:red">*</label>Role : </b></label>
-        <input style="margin-left:155px" name="Role" id="Role" value="<?php echo "$Role"; ?>" type="text"
-               placeholder="">
+        <label class="l_role"><b><label style="color:red">*</label>Role : </b></label>
+        <input class="input_role" name="Role" id="Role" value="<?php echo "$Role"; ?>" type="text" placeholder="">
         <br>
-        <span style="style=margin-left:12%" class="error"><?php echo "$dept_error"; ?></span>
-        <span style="margin-left:715px" class="error"><?php echo "$role_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$dept_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$role_error"; ?></span>
 
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>Working Country : </b></label>
-        <select class="sel_class" name='selCountry' id='selCountry'>
+        <select class="sel_workCountry" name='selCountry' id='selCountry'>
             <?php
             // find in which countries departments are (get data from the DB)
             $select_query_Country = "SELECT CountryNum,Name FROM CorporateHeadquarter";
@@ -162,81 +161,77 @@ $_SESSION['flag_clicked'] = false;
 
             ?>
         </select>
-        <label style="margin-left:12%"><b><label style="color:red">*</label>Allowed Annual Leaves : </b></label>
-        <input style="margin-left:15px" name="Leaves" id="Leaves" value="<?php echo "$Leaves"; ?>" type="text"
-               placeholder="">
+        <label class="l_leaves"><b><label style="color:red">*</label>Annual Leaves : </b></label>
+        <input class="input_leaves" name="Leaves" id="Leaves" value="<?php echo "$Leaves"; ?>" type="text" placeholder="">
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$leaves_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$leaves_error"; ?></span>
         <br>
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>Salary : </b></label>
-        <input style="margin-left:142px" name="Salary" id="Salary" type="text" value="<?php echo "$S"; ?>"
+        <input class="input_salary" name="Salary" id="Salary" type="text" value="<?php echo "$S"; ?>"
                placeholder="">
-        <label style="margin-left:12%"><label style="color:red"><b>*</b></label><b>Salary Type : </b></label>
-        <select class="sel_class" name="SalaryType" id="SalaryType">
+        <label class="sec_column"><label style="color:red"><b>*</b></label><b>Salary Type : </b></label>
+        <select class="sel_stype" name="SalaryType" id="SalaryType">
             <option value="Fixed">Fixed</option>
             <option value="FixedWithOvertime">Fixed With Overtime</option>
             <option value="PartTime">Part Time</option>
         </select>
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$salary_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$salary_error"; ?></span>
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>Phone : </b></label>
-        <input style="margin-left:12%" name="Phone" id="Phone" value="<?php echo "$P"; ?>" type="text" placeholder="">
-        <label style="margin-left:12%"><label style="color:red"><b>*</b></label><label><b>Emergency Phone
+        <input class="input_phone" name="Phone" id="Phone" value="<?php echo "$P"; ?>" type="text" placeholder="">
+        <label class="sec_column"><label style="color:red"><b>*</b></label><label><b>Emergency Phone
                     : </b></label></label>
-        <input style="margin-left:12%" name="EmergencyPhone" id="EmergencyPhone" value="<?php echo "$EP"; ?>"
+        <input class="input_em_phone" name="EmergencyPhone" id="EmergencyPhone" value="<?php echo "$EP"; ?>"
                type="text" placeholder="">
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$phone_error"; ?></span>
-        <span style="margin-left:715px" class="error"><?php echo "$emergency_phone_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$phone_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$emergency_phone_error"; ?></span>
 
         <br>
         <br>
 
         <label style="color:red"><b>*</b></label><label><b>Email : </b></label>
-        <input style="margin-left:12%" name="Email" id="Email" value="<?php echo "$E"; ?>" type="text" placeholder="">
+        <input class="input_email" name="Email" id="Email" value="<?php echo "$E"; ?>" type="text" placeholder="">
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$email_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$email_error"; ?></span>
 
         <br>
         <br>
 
         <label><b>Country : </b></label>
-        <input style="margin-left:12%" name="Country" id="Country" value="<?php echo "$C"; ?>" type="text"
-               placeholder="">
-        <label style="margin-left:12%"><b>Address : </b></label>
-        <input style="margin-left:134px" name="Address" id="Address" value="<?php echo "$A"; ?>" type="text"
-               placeholder="">
+        <input class="input_country" name="Country" id="Country" value="<?php echo "$C"; ?>" type="text" placeholder="">
+        <label class="sec_column"><b>Address : </b></label>
+        <input class="input_address" name="Address" id="Address" value="<?php echo "$A"; ?>" type="text" placeholder="">
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$country_error"; ?></span>
-        <span style="margin-left:715px" class="error"><?php echo "$address_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$country_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$address_error"; ?></span>
 
         <br>
         <br>
 
         <label><b>Date of Birth : </b></label>
-        <input style="margin-left:12%" name="DateofBirth" id="DateofBirth" value="<?php echo "$DOB"; ?>"
-               placeholder="YYYY-MM-DD">
+        <input class="input_date" name="DateofBirth" id="DateofBirth" value="<?php echo "$DOB"; ?>" placeholder="YYYY-MM-DD">
         <br>
-        <span style="margin-left:12%" class="error"><?php echo "$birthdate_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$birthdate_error"; ?></span>
 
         <br>
         <br>
 		
         <label style="color:red"><b>*</b></label><label><b>Manager : </b></label>
-        <input style="margin-left:131px" type="checkbox" name="Manager" id="Manager">
+        <input class="checkbox_manager" type="checkbox" name="Manager" id="Manager">
 
 		<br>
         <br>
         <br>
 
         <label><b>Gender : </b></label>
-        <select class="sel_class" name="Gender" id="Gender">
+        <select class="sel_gender" name="Gender" id="Gender">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other...</option>

@@ -8,20 +8,17 @@ label{
 
 span{
 	font-size:1.3vw;
+	color: red;
+    position: absolute;
 }
 
-.sel_class{
-	font-size:1.4vw;
-	margin-left:10%;
-	padding: 1%;
-}
 .title_class{
 	text-align:center;
 	font-size:3vw;
 }
 
 .margin_label {
-	text-align:center;
+	margin-left:12%;
 }
 	
 .confirm_box {
@@ -121,11 +118,6 @@ span{
     color: #fff;
 }
 
-.error {
-    color: red;
-    position: absolute;
-}
-
 .paragraph {
     padding: 0px 0px 0px 0px;
 }
@@ -153,6 +145,7 @@ label a:hover {
     top: 9%;
     left: 8%;
     font-weight: bold;
+	font-size:1.4vw;
 }
 
 .header {
@@ -280,3 +273,118 @@ body {
 input[type=checkbox] {
     transform: scale(1.7);
 }
+
+.input_username{
+	margin-left:6.6%;
+}
+
+.sec_column{
+	margin-left:9%;
+}
+
+.l_role{
+	margin-left:16.2%;
+}
+
+.l_leaves{
+	margin-left:16.1%;
+}
+
+.input_leaves{
+	margin-left:3.5%;
+} 
+
+.input_password{
+	margin-left:7%;
+}
+
+.input_id{
+	margin-left:12.7%;
+}
+
+.l_ssn{
+	margin-left:15%;
+	
+}
+
+.input_ssn{
+	margin-left:11%;
+}
+
+.input_fn{
+	margin-left:6%;
+}
+
+.input_ln{
+	margin-left:6.5%;
+}
+
+.sel_dept{
+	margin-left:5.1%;
+	font-size:1.4vw;
+	padding: 1%;
+}
+
+.input_role{
+	margin-left:10.7%;
+} 
+
+.sel_workCountry{
+	margin-left:1%;
+	font-size:1.4vw;
+	padding: 1%;
+}
+
+.input_salary{
+	margin-left:9.5%;
+}
+
+.input_phone{
+	margin-left:9.4%;
+}
+
+.input_em_phone{
+	margin-left:0.9%;
+}
+
+.input_email{
+	margin-left:10%;
+}
+
+.input_country{
+	margin-left:8.5%;
+}
+
+.input_date{
+	margin-left:4.5%;
+}
+
+.checkbox_manager{
+	margin-left:8%;
+}
+
+.sel_gender{
+	margin-left:9%;
+	font-size:1.4vw;
+	padding: 1%;
+}
+
+.sel_stype{
+	font-size:1.4vw;
+	padding: 1%;
+	margin-left:5.9%;
+}
+
+.input_address{
+	margin-left:9.6%;
+}
+
+.span_fcolumn{
+	margin-left:14.2%;
+}
+
+.span_scolumn{
+	margin-left:53.9%;
+}
+
+
