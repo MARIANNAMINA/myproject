@@ -1,6 +1,10 @@
 <?php
+/*
+ * Contains main functionality of edit_profile_employee.php file
+ */
 session_start();
 include('password.php');
+include 'db.php';
 ?><!doctype html>  
   <html lang="en">
    <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
@@ -12,12 +16,16 @@ $P = $EP = $E = $C = $A = $DOB = $Password = $Phone = $EmergencyPhone = $Email =
 
 $flag=true;
 
-/*if(empty($_POST['Password'])){
-	$password_error="*Password is required";
-}else{ */
-	$Password = $_POST['Password'];
-	$Hashed = password_hash($Password, PASSWORD_DEFAULT);
-//}
+    // check if Password text box is empty
+	if (empty($_POST['word'])) {
+        $password_error = "*Password is required";
+    } else {
+        $Password = $_POST['word'];
+        // save the length of password to store it in the DB
+        $Password_len = strlen($Password);
+        // encrypt the given password
+        $Hashed = password_hash($Password, PASSWORD_DEFAULT);
+    }
 
 
 if(empty($_POST['FirstName'])){
@@ -81,29 +89,27 @@ if(empty($_POST['Address'])){
 	$Address=$_POST['Address'];
 	
 }
-/*
-$Gender=$_POST['Gender'];  
+
+$Gender=$_SESSION['OldGender'];  /* 
 $UsernameManager=$_SESSION['username'];
 $Manager=0;
 if(isset($_POST['Manager'])){
 $Manager=1;
-} 
-
-if(strcmp($Gender,"Female")==0){
-	$Gender="F";
-}else if (strcmp($Gender,"Male")==0){
-	$Gender="M";
+} */
+if(strcmp($Gender,"F")==0){
+	$Gender = $_POST['G1'];
+}else if (strcmp($Gender,"M")==0){
+	$Gender = $_POST['G2'];
 }else{
-	$Gender="O";
+	$Gender = $_POST['G3'];
 }
-*/
 //	if( empty($phone_error) && empty($emergency_phone_error) && empty($email_error) && empty($country_num_error) && empty($address_error) && empty($birthdate_error)){
 	if(empty($password_error) && empty($first_name_error) && empty($last_name_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error) && empty($address_error)){
 	
 		
 	//	if($flag){
 	//	
-		$sqlUpdate = "UPDATE Employee SET Password = '$Hashed',Name = '$FirstName', Surname = '$LastName',Phone = '$Phone', EmergencyPhone = '$EmergencyPhone', Country = '$Country', Address = '$Address' WHERE Username = '$_SESSION[username]'";
+		$sqlUpdate = "UPDATE Employee SET Password='$Hashed',Name = '$FirstName', Surname = '$LastName',Phone = '$Phone', EmergencyPhone = '$EmergencyPhone', Country = '$Country', Address = '$Address', Gender = '$Gender', CharactersPassword = '$Password_len' WHERE Username = '$_SESSION[username]'";
 		$result = mysqli_query($conn,$sqlUpdate);
 		if(!$result){
 			echo '<script>
