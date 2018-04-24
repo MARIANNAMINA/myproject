@@ -1,6 +1,6 @@
 <?php
 /*
- * Contains main functionality of edit_profile_manager.php file
+ * Contains main functionality of edit_profile_employee.php file
  */
 session_start();
 include('password.php');
@@ -46,7 +46,6 @@ if(empty($_POST['LastName'])){
 	}
 }
 
-
 if(empty($_POST['Phone'])){
 //	$P="";
 	$Phone=" ";
@@ -91,13 +90,12 @@ if(empty($_POST['Address'])){
 	
 }
 
-$Gender=$_SESSION['OldGender'];   /*
+$Gender=$_SESSION['OldGender'];  /* 
 $UsernameManager=$_SESSION['username'];
 $Manager=0;
 if(isset($_POST['Manager'])){
 $Manager=1;
-} 
-*/
+} */
 if(strcmp($Gender,"F")==0){
 	$Gender = $_POST['G1'];
 }else if (strcmp($Gender,"M")==0){
@@ -105,16 +103,13 @@ if(strcmp($Gender,"F")==0){
 }else{
 	$Gender = $_POST['G3'];
 }
-
-
-
 //	if( empty($phone_error) && empty($emergency_phone_error) && empty($email_error) && empty($country_num_error) && empty($address_error) && empty($birthdate_error)){
-	if( empty($first_name_error) && empty($last_name_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error) && empty($address_error)){
+	if(empty($password_error) && empty($first_name_error) && empty($last_name_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error) && empty($address_error)){
 	
-	
-	//	if($flag){         
+		
+	//	if($flag){
 	//	
-		$sqlUpdate = "UPDATE Employee SET Password='$Hashed',Name = '$FirstName', Surname = '$LastName', Phone = '$Phone', EmergencyPhone = '$EmergencyPhone', Country = '$Country', Address = '$Address', Gender = '$Gender', CharactersPassword = '$Password_len' WHERE Username = '$_SESSION[username]'";
+		$sqlUpdate = "UPDATE Employee SET Password='$Hashed',Name = '$FirstName', Surname = '$LastName',Phone = '$Phone', EmergencyPhone = '$EmergencyPhone', Country = '$Country', Address = '$Address', Gender = '$Gender', CharactersPassword = '$Password_len' WHERE Username = '$_SESSION[username]'";
 		$result = mysqli_query($conn,$sqlUpdate);
 		if(!$result){
 			echo '<script>
@@ -122,13 +117,13 @@ if(strcmp($Gender,"F")==0){
 			</script>';
 		//	$Username="";
 		}else{
-			echo '<script>
-			window.alert("Updated correctly!");
-			</script>'; 
+			echo '<script type="text/javascript">
+			window.alert("Updated Correctly");
+				
+			
+			</script>';
 		}
 	//	}
-	
-
 		
 	}	
 }

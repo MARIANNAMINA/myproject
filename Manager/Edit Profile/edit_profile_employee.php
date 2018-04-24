@@ -2,8 +2,8 @@
 session_start();
 // include php file that contains the connection with database
 include ('db.php');
-// include php file that contains the main functionality of edit profile manager
-include('update_profile_manager.php'); 
+// include php file that contains the main functionality of edit profile employee
+include('update_profile_employee.php'); 
 $_SESSION['flag_clicked']=false;
 ?>
 <!doctype html>
@@ -18,38 +18,28 @@ $_SESSION['flag_clicked']=false;
 
     <!-- Bootstrap CSS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="edit_profile_manager.css">
+	<link rel="stylesheet" type="text/css" href="edit_profile_employee.css">
 	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
     <body>
 	   
 	 <div class="header"> 
-		<form action="logout_manager.php" method="post" id=form_id4>	 	
+
+		<form action="logout_employee.php" method="post" id=form_id4>	 	
 			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
 	 	</form>  
     <div class="logo">
-        <a href="manager_dashboard.html">
+        <a href="EmployeeDashboard.html">
             <img src="statare.png" alt="Statare logo" width="50%" height="50%">
         </a>
 		<ul>
 		<label class="nav">
-		<li><a href="manager_dashboard.html">Home</a></li>		
-		<li><a href="edit_profile_manager.php"  style="color:orange;text-decoration: underline">Profile</a></li>
-		<li><a href="view_hours_manager.php">View Hours</a></li>
-		<li><a href="leave_request_manager.html" >Leave Request</a></li> 
-		<li><a href="average_per_week.html">Average Report</a></li>
-		<li><a href="payroll_report.html">Payroll Report</a></li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">My Employees</a>
-			<div class="dropdown-content">
-				<a href="add_employee.php">Add Employee</a>
-				<a href="choose_employee.php">Edit Employee</a>
-				<a href="delete_employee_.php">Delete Employee</a>
-				<a href="employee_status_manager.php">Employee Status</a>
-				<a href="manager_view_request.php">View Requests</a>
-			</div>
-		</li>			
+		<li><a href="EmployeeDashboard.html">Home</a></li>
+		<li><a href="edit_profile_employee.php"  style="color:orange;text-decoration: underline">Profile</a></li>
+		<li><a href="view_hours_employee.php">View Hours</a></li>	
+		<li><a href="employee_view_request.php" >View Requests</a></li> 
+		<li><a href="leave_request_employee.html">Leave Request</a></li>
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Language</a>
 			<div class="dropdown-content">
@@ -64,8 +54,8 @@ $_SESSION['flag_clicked']=false;
 		</label>
 	</ul>
 		
-	</div>
-	</div>
+	  </div>
+	  </div>
 	 
 	<div class="title">
 		<p><b>Edit Profile</b></p>
@@ -73,22 +63,20 @@ $_SESSION['flag_clicked']=false;
 	
       <Img class="parent" src = "https://www.buira.org/assets/images/shared/default-profile.png" alt = "this image shows employee's photo" height = "100" width = "100"  >  
 	  <br>
-	  <br>		
-
-
+	  <br>
 	<form method="post" class="username" name="form_id" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 	
 
-	  	<?php 
+	  		<?php 
 		include_once 'db.php'; 
  		$Username=$_SESSION['username'];
+		
 		
 		$sql = "SELECT  Username, ID, Name, Surname, Password, Birthdate, Gender, Address, Country, Phone, EmergencyPhone, Role, Salary, SalaryType, SSN, Email, AnnualLeaves, CharactersPassword FROM Employee WHERE Username LIKE '$Username' ";
 		$sqlD = "SELECT  Username, NumDept, CountryNumber, Department.NameDept, Department.CountryNum, Department.NumberDept, CorporateHeadquarter.CountryNum, CorporateHeadquarter.Name FROM Employee, Department, CorporateHeadquarter WHERE Department.NumberDept = Employee.NumDept && Department.CountryNum = CorporateHeadquarter.CountryNum && Department.CountryNum = Employee.CountryNumber && Username LIKE '$Username' ";
 
         $result = mysqli_query($conn, $sql);
 		$resultD = mysqli_query($conn, $sqlD);
-		
 		
 		if(!$result){
 			echo '<script type="text/javascript">
@@ -101,7 +89,7 @@ $_SESSION['flag_clicked']=false;
 				$Gender = $row['Gender'];
 				
 			}
-		}
+		}	
 		if(!$resultD){
 			echo '<script type="text/javascript">
 				window.alert("ERROR CONNECTION WITH DATABASE");
@@ -112,28 +100,28 @@ $_SESSION['flag_clicked']=false;
 				
 
 			}
-		}	
+		}		
 		
-		?>
-	
-	  <label class="right"><b><?php echo $field1; ?></b> </label><br>
+		?>	  
+	  
+	  <label class="right" ><b><?php echo $field1; ?></b> </label><br>
 	  <label class="right1"><b><?php echo $row['Role']; ?></b></label>
 	  <label class="right2"><b><?php echo  $row1['NameDept'];?></b></label>
 	  <div style="margin-left:59px">
-	  <div style="margin-left:59px">
 	 
  	  <label><b><label style="color:red">*</label>Username : </b></label> 
-	  <label class="labels_readonly" style="margin-left:180px" name="Username" id="Username" type="text"><?php echo $field1; ?></label>
-	  <label style="margin-left:150px"><b><label style="color:red">*</label>Password : </b></label> 
+	  <input style="margin-left:116px" name="Username" id="Username" value="<?php echo $field1; ?>" type="text" readonly>
+	  <label style="margin-left:56px"><b><label style="color:red">*</label>Password : </b></label> 
 	  <input style="margin-left:116px" name="word" id="Password" type="password" 
 		value="<?php 
 					for($x=0; $x < $row['CharactersPassword']; $x++){
 						echo "*"; 
 					}
 				?>">
+		
 	  <br>
 	  
-		<span style="margin-left:715px" class="error"><?php echo "$password_error"; ?></span>
+	  <span style="margin-left:715px" class="error"><?php echo "$password_error"; ?></span>
 	 
 	  <br>
 	  <br>	
@@ -153,7 +141,7 @@ $_SESSION['flag_clicked']=false;
 	  <input style="margin-left:112px" name="LastName" id="LastName" value="<?php echo $row['Surname']; ?>" type="text">
 	  <br>
 	  <span style="margin-left:214px" class="error"><?php echo "$first_name_error"; ?></span>
-	  <span style="margin-left:715px" class="error"><?php echo "$last_name_error"; ?></span> 
+	  <span style="margin-left:715px" class="error"><?php echo "$last_name_error"; ?></span>   
 	  <br>
 	  <br>
 	 
@@ -230,7 +218,7 @@ $_SESSION['flag_clicked']=false;
 		// create a dropdown list of salary types and make the selected option be the salary type of the selected employee where at this case is Fixed
 		if (strcmp($Gender, $Female) == 0){
 		    echo "<select name='G1' id='G1'>
-			   <option value='F' selected='selected'>Female</option>
+			<option value='F' selected='selected'>Female</option>
                <option value='M'>Male</option>
 	           <option value='O'>Other..</option>
 			   </select>";
@@ -248,25 +236,20 @@ $_SESSION['flag_clicked']=false;
             echo "<select  name='G3' id='G3'>
 				<option value='F'>Female</option>
                 <option value='M' >Male</option>
-	            <option value='O' selected='selected'>Other..</option>
+	            <option value='O' selected='selected'>Other</option>
 				</select>";
             $_SESSION['OldGender'] = "O";
         }
-        ?>	
+        ?>		
+		
 		
           <br>
           <br>
         <button class="cancel_style" name="cancel" id="cancel">Cancel</button>
         <button class="save_style" name="OK" id="OK">OK</button>
-	  
-
-		
+		 
      </div>
-    </div>	
-
-
 	</form>
-	
 <!--pop up window -->
 <div id="OKDiv" style="display:none" class="confirm_box">
     <div class="overlay"></div>
@@ -305,8 +288,6 @@ $_SESSION['flag_clicked']=false;
         </div>
     </div>
 </div>
-
-
 	
 	<script>
     /*
