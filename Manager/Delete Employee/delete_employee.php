@@ -1,19 +1,30 @@
 <?php
-session_start();
-if (isset($_POST['save'])){
+/*session_start();
+if (isset($_POST['delete'])){
 	include 'db.php';
 	
 $Username=$_POST['Username'];
 $UsernameManager=$_SESSION['username'];
+*/
+//$username = '';
+$loggedin = retrieve_logged_in_session_status();
+if($loggedin = null) {
+    show_error_message();
+} else
 
 
+
+	
+	
+	
+/*
 if($Username == null){
 	echo '<script type="text/javascript">window.alert("No Username Found. Please try again"); 
 	window.location.replace("delete_employee.html");
 	</script>';
 }
 else{
-
+*/
 
 $sql2= "SELECT Username, UsernameManager FROM Employee WHERE Username LIKE '$Username' AND UsernameManager LIKE '$UsernameManager'";
 $resultCheck=mysqli_num_rows(mysqli_query($conn,$sql2));
@@ -43,6 +54,24 @@ else{
 }
 }
 
+
+
+
+function retrieve_logged_in_session_status() {
+    session_start();
+    if(isset($_POST['delete'])) {
+		include 'db.php';
+        $Username = $_POST['Username'];
+		$UsernameManager=$_SESSION['username'];
+        return true;
+    }
+    return false;  
+}
+function show_welcome_page() {
+    echo '<script type="text/javascript">window.alert("No Username Found. Please try again"); 
+	window.location.replace("delete_employee.html");
+	</script>';
+}
 //alert("SUCH FILE DOES NOT EXIST");
 /*else {
 	if (txt == true){
