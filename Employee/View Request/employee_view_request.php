@@ -84,7 +84,11 @@
             </tr>
             <?php
             include_once 'db.php';
+           
             $Username = $_SESSION['username'];
+            echo '<script type="text/javascript">
+				window.alert("' . $Username . '");
+				</script>';
 
             // Select from database
             $sql = "SELECT  `FromDate`, `ToDate`,  `Reason`, `State` FROM `Leave` WHERE `Username` LIKE '$Username'";
