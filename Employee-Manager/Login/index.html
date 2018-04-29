@@ -4,106 +4,13 @@
   <link rel="shortcut icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <link rel="apple-touch-icon" href="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png">
   <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-	<!--
-		<style>
-			head{
-				text-align: center;
-			}
-			
-			body {
-			  margin: 0;
-			  text-align: center;
-			 
-			}
-			
-			.header {
-				background-color: #31333F;
-				padding: 5%;
-				text-align: left;
-				color: #ffffff;
-				font-family: sans-serif, Arial;
-			}
-			
-			.password, .username{
-				text-align: center;
-				font-size: 20pt;
-			}
-				
-			label companyname{
-				left: 90%;
-			}
-			
-			.login_style{
-					background-color: #31333F; 
-					border: 2px solid #31333F;
-					color: white;
-					box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-					padding: 1%;
-					border-radius: 8px;
-					text-align: center;
-					text-decoration: none;
-					display: inline-block;
-					font-size: 20px;
-					font-weight: bold;
-					position: absolute;
-					top: 600px;
-					left: 620px;
-					font-size: 18pt;
-					font-family: sans-serif, Arial;
-					cursor:pointer;
-			}
-			input{
-				background-color: #f1f1f1;
-				color: black;
-				padding: 10px 24px;
-				border-radius: 8px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-			  }				
-		
-			</style>
-	
-	-->
-	
-    <!-- Bootstrap CSS -->  <!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  </head>
-  <body>
-  
-	<div class="header">
-	  <img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="283" height="250">  
-	  <label for="companyname"  style="font-size: 50pt;"> <b>Statare Brands LTD </b></label>
-	</div>
-			<form action="function_login_manager.php" method="post">
-				<br>
-				<div class="username">
-					<label  for="textinput"  ><b>Username :</b></label> 
-					<input style="margin-left:20px" id="textinput" name="name" type="text" placeholder=""  required="">
-				
-				</div>  
-			
-				<br>
-			
-				<div class="password">
-					<label for="passwordinput" > <b>Password :  </b></label>
-					<input style="margin-left:27px" id="userPassword" name="word" type="password" placeholder=""  required="">
-				</div>
-				
-				<br>	
-
-					<button type="submit" name="login" class="login_style">Login</button>
-</form>		
- -->
 <style>	
-
 	
 	@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
@@ -129,7 +36,7 @@ body{
 	background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
 	background-size: cover;
 	-webkit-filter: blur(5px);
-	z-index: 0;
+	z-index: 0;	
 }
 
 .grad{
@@ -248,6 +155,144 @@ body{
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
 }
+
+
+#forgotten{
+  position: absolute;
+  font-size: 12px;
+  font-family: 'Hind', sans-serif;
+  color: rgba(255,255,255,.2);
+  right: 0px;
+  top: 8px;
+  cursor: pointer;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#forgotten:hover{
+  color: rgba(255,255,255,.6);
+}
+
+#forgotten-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 260px;
+  height: 180px;
+  border-radius: 10px;
+  background: rgba(3,3,3,0.25);
+  box-shadow: 1px 1px 50px #000;
+  display: none;
+}
+
+
+			.confirm_box {
+			  position:fixed;
+			  top:0;
+			  left:0;
+			  width:100%;
+			  height:100%;
+			}
+			
+			.confirm_box .overlay {
+			  background:rgba(0,0,0,0.5);
+			  position:absolute;
+			  z-index:9;
+			  top:0;
+			  left:0;
+			  height:100%;
+			  width:100%;
+			}
+			
+			.confirm_box .confirm_model {
+			  position:absolute;
+			  width:100%;
+			  height:100%;
+			  left:0;
+			  top:0;
+			  z-index:10;
+			  overflow:hidden;
+			}
+			
+			.confirm_box .confirm_model .model {
+			  background:#fff;
+			  width: 400px;
+			  border-radius:4px;
+			  margin:40px auto;
+			  overflow:hidden;
+			}
+			
+			.confirm_box .confirm_model .model .header{
+			  float:left;
+			  width:100%;
+			  background:#f8f8f8;
+			  border-bottom:solid 2px #ccc;
+			  padding:10px;
+			  box-sizing:border-box;
+			}
+			
+			.confirm_box .confirm_model .model .header h1{
+			  font-size:14px !important;
+			  font-family:helvetica;
+			  color:#555;
+			  font-weight:300;
+			}
+			
+			.confirm_box .confirm_model .model .content {
+			  padding:10px 20px;
+			  float:left;
+			  width:100%;
+			  box-sizing:border-box;
+			}
+			
+			.confirm_box .confirm_model .model .content p{
+			  font-size:12px !important;
+			  font-family:helvetica;
+			  color:#555;
+			  font-weight:300;
+			}
+			
+			.confirm_box .confirm_model .model .content .buttons_container {
+			  float:left;
+			  width:100%;
+			  padding:10px;
+			  text-align:right;
+			}
+			
+			.confirm_box .confirm_model .model .content .buttons_container .button{
+			  float:right;
+			  padding:5px 20px;
+			  border:none;
+			  margin:0 10px;
+			  border-radius:3px;
+			  border-bottom:solid 2px transparent;
+			  cursor:pointer;
+			}
+			
+			.confirm_box .confirm_model .model .content .buttons_container .button:hover {
+			  border-bottom:solid 2px rgba(0,0,0,0.4);
+			}
+			
+			.confirm_box .confirm_model .model .content .buttons_container .button.confirm {
+			  background: #31333F; 
+			  color:#fff;
+			}
+			
+			.confirm_box .confirm_model .model .content .buttons_container .button.deny {
+			  background:#a30;
+			  color:#fff;
+			}
+			
+			.title_class{
+				text-align:center;
+				font-size:3px;
+			}
+
 	</style>
 	
 	 </head>
@@ -270,12 +315,38 @@ body{
 			
 				<input type="password" name="word" id="word" placeholder="Password" ><br>
 				<input type="checkbox" onclick="myFunction()">Show Password
-			
+				<span style="margin-left: 15%" id="forgot" name="forgot">Forgot <a target="_blank" href="forgot_password.php">password?</a></span>
+				
 			<!--	<input type="button"  value="Login"> --> 
 				<button >Login</button>
 		</div>
 	
 	</form>
+	  
+	 <!-- 	<div  id="welcomeDiv" style="display:none" class="confirm_box">
+			<div class="overlay"></div>
+			<div class="confirm_model">
+				<div class="model">
+					<div class="header">
+						<h1 class="title">
+						   Please enter your username:
+						</h1>
+						<input type="text">
+						<h1 class="title">
+						   Please enter your email:
+						</h1>
+						<input type="text">
+					</div>
+					<div class="content">
+						<div class="buttons_container">
+						   <button class="confirm button" id="yes" name="yes">Yes</button>
+						   <button class="deny button" id="no" name="no">No</button>
+						</div>
+					</div>
+				 </div>
+			</div>
+		</div> -->
+	
 	
 	<script>
 		function myFunction() {
@@ -286,7 +357,15 @@ body{
 				x.type = "password";
 			}
 		}
-	
+		
+		/*function forgotPass(){
+		    var person = prompt("Please enter your username");
+			if (person != null) {
+				alert("Hello " + person + "! How are you today?");
+
+			}
+		}*/
+		
 	</script>
  </body>
 </html> 
