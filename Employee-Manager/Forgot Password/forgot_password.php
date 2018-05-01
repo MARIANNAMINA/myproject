@@ -28,26 +28,26 @@ include('forgot_pass.php');
 	
 		<form method="post" class="username" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 					
-			<label id="label"><b><label class="label_star">*</label>Username :</b></label> 
-			<div class = "input1">
-				<input name="User" id="User" type="text" value="<?php echo "$USER"; ?>" placeholder=""  required="">
-			</div> 
-			<span class="error"><?php echo "$user_error"; ?></span>
+			<label id="label" style="margin-right:3%"><b><label class="label_star">*</label>Username :</b></label> 
+			<input name="User" id="User" type="text" value="<?php echo "$USER"; ?>" placeholder=""  required="">
+			<br>
+			<span style="margin-left:10%;color:red;"><?php echo "$user_error"; ?></span>
 					
 			<br>
-			<label id="label"><b><label class="label_star">*</label>Email :</b></label> 
-			<div class = "input1">
-				<input name="Email" id="Email" type="text" value="<?php echo "$EMAIL"; ?>" placeholder=""  required="">
-			</div>  
-			<span class="error"><?php echo "$email_error"; ?></span>
+			<br>
+			
+			<label id="label" style="margin-right:5%"><b><label class="label_star">*</label>Email :</b></label> 
+			<input name="Email" id="Email" type="text" value="<?php echo "$EMAIL"; ?>" placeholder=""  required="">
+			<br>
+			<span style="margin-left:7%;color:red;"><?php echo "$email_error"; ?></span>
 
-			<div>
-				<br>
-				<div class="paragraph2">	
-					<button class="buttonstyle1" id="cancel" name="cancel">Cancel</button>	
-					<button class="buttonstyle" id="send" name="send">Okay</button>
-				</div>			
-			</div>
+			<br>
+			<br>
+			<br>
+					
+			<button class="buttonstyle1" id="cancel" name="cancel">Cancel</button>	
+			<button class="buttonstyle" id="send" name="send">Okay</button>
+				
 		</form>
 		  
 		<div  id="welcomeDiv" style="display:none" class="confirm_box">
