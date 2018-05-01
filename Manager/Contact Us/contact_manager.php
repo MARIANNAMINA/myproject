@@ -69,7 +69,7 @@ include('contact.php');
 		<form method="post" class="username" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 					
 			<b><label style="color:red;">*</label></b>		
-			<label id="label" style="margin-right:5%"><b>TO :</b></label> 
+			<label id="label" style="margin-right:7%"><b>TO :</b></label> 
 			<input class="input_to" name="To" id="To" type="text" value="<?php echo "$TO"; ?>" placeholder=""  required="">
 			<br>
 			<span style="margin-left:5%;color:red;"><?php echo "$to_error"; ?></span>
@@ -78,7 +78,7 @@ include('contact.php');
 			<br>
 			
 			<b><label style="color:red">*</label></b>
-			<label id="label" style="margin-right:2%"><b>SUBJECT :</b></label> 
+			<label id="label" style="margin-right:3%"><b>SUBJECT :</b></label> 
 			<input name="Subject" id="Subject" type="text" value="<?php echo "$SUBJECT"; ?>" placeholder=""  required="">
 			<br>
 			<span style="margin-left:7%;color:red;"><?php echo "$subject_error"; ?></span>
@@ -92,7 +92,6 @@ include('contact.php');
 			<br>
 			<span style="margin-left:9%;color:red;"><?php echo "$descripiton_error"; ?></span>
 
-			<br>
 			<br>
 			<br>
 				
