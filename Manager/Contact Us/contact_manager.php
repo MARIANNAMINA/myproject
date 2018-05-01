@@ -38,9 +38,9 @@ include('contact.php');
 				<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
 			</form>  
 
-			<div class="logo">
+			<div class="logo">				
 				<a href="clock_in_manager.html">
-					<img src="https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAgWAAAAJDhlYjE0YzE2LWVjOTItNGU1OS04N2M2LWI3YTZkNzIzNTljMw.png" width="100" height="100"> 
+					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
 				</a>
 				
 				<ul>
@@ -62,40 +62,45 @@ include('contact.php');
 				</ul>
 			</div> 
 		</div>
+		
+		<p class="title_class"><b>Contact Us</b></p>
 		<br>
-		<div>
 
-			<form method="post" class="username" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
+		<form method="post" class="username" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 					
-				<label  id="label" for="textinput3" ><b><label style="color:red">*</label>TO :</b></label> 
-				<div class = "input1">
-					<input name="To" id="To" type="text" value="<?php echo "$TO"; ?>" placeholder=""  required="">
-				</div> 
-				<span style="margin-left:360px" class="error"><?php echo "$to_error"; ?></span>
+			<b><label style="color:red;">*</label></b>		
+			<label id="label" style="margin-right:5%"><b>TO :</b></label> 
+			<input class="input_to" name="To" id="To" type="text" value="<?php echo "$TO"; ?>" placeholder=""  required="">
+			<br>
+			<span style="margin-left:5%;color:red;"><?php echo "$to_error"; ?></span>
 					
-				<br>
-				<label  id="label" for="textinput3" ><b><label style="color:red">*</label>SUBJECT :</b></label> 
-				<div class = "input1">
-					<input name="Subject" id="Subject" type="text" value="<?php echo "$SUBJECT"; ?>" placeholder=""  required="">
-				</div>  
-				<span style="margin-left:360px" class="error"><?php echo "$subject_error"; ?></span>
+			<br>
+			<br>
+			
+			<b><label style="color:red">*</label></b>
+			<label id="label" style="margin-right:2%"><b>SUBJECT :</b></label> 
+			<input name="Subject" id="Subject" type="text" value="<?php echo "$SUBJECT"; ?>" placeholder=""  required="">
+			<br>
+			<span style="margin-left:7%;color:red;"><?php echo "$subject_error"; ?></span>
 					
-				<br>
-				<label id="label" for="textinput3"><b><label style="color:red">*</label>Description :</b></label>  
-				<div class = "input1">
-					<input name="Description" id="Description" type="text" value="<?php echo "$DESCRIPTION"; ?>" placeholder=""  required="">
-				</div>
-				<span style="margin-left:360px" class="error"><?php echo "$descripiton_error"; ?></span>
+			<br>
+			<br>
+			
+			<b><label style="color:red">*</label></b>
+			<label id="label" style="margin-right:1%"><b>Description :</b></label>  
+			<input name="Description" id="Description" type="text" value="<?php echo "$DESCRIPTION"; ?>" placeholder=""  required="">
+			<br>
+			<span style="margin-left:9%;color:red;"><?php echo "$descripiton_error"; ?></span>
 
-				<div>
-					<br>
-					<div class="paragraph2">	
-						<button class="buttonstyle1" id="cancel" name="cancel">Cancel</button>	
-						<button class="buttonstyle" id="send" name="send">Send</button>
-					</div>			
-				</div>
-			</form>
-		</div>
+			<br>
+			<br>
+			<br>
+				
+			<button class="buttonstyle1" id="cancel" name="cancel">Cancel</button>	
+			<button class="buttonstyle" id="send" name="send">Send</button>
+					
+		</form>
+	
 			  
 		<div  id="welcomeDiv" style="display:none" class="confirm_box">
 			<div class="overlay"></div>
