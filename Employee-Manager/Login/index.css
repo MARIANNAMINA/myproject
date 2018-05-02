@@ -1,0 +1,276 @@
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.body{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    z-index: 0;
+}
+
+.grad{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -40px;
+    bottom: -40px;
+    width: auto;
+    height: auto;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.header{
+    position: absolute;
+    top: calc(50% - 35px);
+    left: calc(50% - 355px);
+    z-index: 2;
+}
+
+.header div{
+    float: left;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 35px;
+    font-weight: 200;
+}
+
+.header div span{
+    color: #5379fa !important;
+}
+
+.login{
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 50px);
+    height: 150px;
+    width: 350px;
+    padding: 10px;
+    z-index: 2;
+}
+
+.login input[type=text]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+}
+
+.login input[type=password]{
+    width: 250px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 2px;
+    color: #fff;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 4px;
+    margin-top: 10px;
+}
+
+.login button{
+    width: 260px;
+    height: 35px;
+    background: #fff;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #a18d6c;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 10px;
+}
+
+.login button:hover{
+    opacity: 0.8;
+}
+
+.login button:active{
+    opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+    outline: none;
+    border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login button:focus{
+    outline: none;
+}
+
+
+::-webkit-input-placeholder{
+    color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+    color: rgba(255,255,255,0.6);
+}
+
+#forgotten{
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Hind', sans-serif;
+    color: rgba(255,255,255,.2);
+    right: 0px;
+    top: 8px;
+    cursor: pointer;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#forgotten:hover{
+    color: rgba(255,255,255,.6);
+}
+
+#forgotten-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 260px;
+    height: 180px;
+    border-radius: 10px;
+    background: rgba(3,3,3,0.25);
+    box-shadow: 1px 1px 50px #000;
+    display: none;
+}
+
+.confirm_box {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+.confirm_box .overlay {
+    background:rgba(0,0,0,0.5);
+    position:absolute;
+    z-index:9;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+}
+
+.confirm_box .confirm_model {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    z-index:10;
+    overflow:hidden;
+}
+
+.confirm_box .confirm_model .model {
+    background:#fff;
+    width: 400px;
+    border-radius:4px;
+    margin:40px auto;
+    overflow:hidden;
+}
+
+.confirm_box .confirm_model .model .header{
+    float:left;
+    width:100%;
+    background:#f8f8f8;
+    border-bottom:solid 2px #ccc;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+.confirm_box .confirm_model .model .header h1{
+    font-size:14px !important;
+    font-family:helvetica;
+    color:#555;
+    font-weight:300;
+}
+
+.confirm_box .confirm_model .model .content {
+    padding:10px 20px;
+    float:left;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.confirm_box .confirm_model .model .content p{
+    font-size:12px !important;
+    font-family:helvetica;
+    color:#555;
+    font-weight:300;
+}
+
+.confirm_box .confirm_model .model .content .buttons_container {
+    float:left;
+    width:100%;
+    padding:10px;
+    text-align:right;
+}
+
+.confirm_box .confirm_model .model .content .buttons_container .button{
+    float:right;
+    padding:5px 20px;
+    border:none;
+    margin:0 10px;
+    border-radius:3px;
+    border-bottom:solid 2px transparent;
+    cursor:pointer;
+}
+
+.confirm_box .confirm_model .model .content .buttons_container .button:hover {
+    border-bottom:solid 2px rgba(0,0,0,0.4);
+}
+
+.confirm_box .confirm_model .model .content .buttons_container .button.confirm {
+    background: #31333F;
+    color:#fff;
+}
+
+.confirm_box .confirm_model .model .content .buttons_container .button.deny {
+    background:#a30;
+    color:#fff;
+}
+
+.title_class{
+    text-align:center;
+    font-size:3px;
+}
+
