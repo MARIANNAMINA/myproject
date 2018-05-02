@@ -4,6 +4,7 @@ Style of EmployeeDashboard.html page
 .title {
 	text-align:center;
 	font-size:3vw;
+	font-weight:bold;
 }
 
 label{
