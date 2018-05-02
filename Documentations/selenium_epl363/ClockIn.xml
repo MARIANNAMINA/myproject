@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+<selenese>
+	<command>open</command>
+	<target><![CDATA[http://cproject.in.cs.ucy.ac.cy/stat/index.html]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//form/div]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[mmina001]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[123456]]></value>
+</selenese>
+<selenese>
+	<command>sendKeys</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[${KEY_ENTER}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=ClockInButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=ClockOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=ClockInButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Break]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=ClockOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=returnFromBreak]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=ClockOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=LogOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+</TestCase>

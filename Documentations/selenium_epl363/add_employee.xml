@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+<selenese>
+	<command>open</command>
+	<target><![CDATA[http://cproject.in.cs.ucy.ac.cy/stat/index.html]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[mmina001]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[123456]]></value>
+</selenese>
+<selenese>
+	<command>sendKeys</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[${KEY_ENTER}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=DashBoard]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//button[@onclick='add_employee()']]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Username]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Username]]></target>
+	<value><![CDATA[kset01]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Password]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Password]]></target>
+	<value><![CDATA[111111]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=ID]]></target>
+	<value><![CDATA[986532]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=SSN]]></target>
+	<value><![CDATA[124578]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=FirstName]]></target>
+	<value><![CDATA[Kostas]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=LastName]]></target>
+	<value><![CDATA[Seti]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Role]]></target>
+	<value><![CDATA[IT]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selDept]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selDept]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Leaves]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Leaves]]></target>
+	<value><![CDATA[25]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[label=2 - Cyprus]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Salary]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Salary]]></target>
+	<value><![CDATA[3600]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=SalaryType]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=SalaryType]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Phone]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Phone]]></target>
+	<value><![CDATA[24856910]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=EmergencyPhone]]></target>
+	<value><![CDATA[996563800]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=EmergencyPhone]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=EmergencyPhone]]></target>
+	<value><![CDATA[99656380]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Email]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Email]]></target>
+	<value><![CDATA[kset01@statare.com]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Country]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Country]]></target>
+	<value><![CDATA[Cyprus]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=Address]]></target>
+	<value><![CDATA[larnakos 5]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=DateofBirth]]></target>
+	<value><![CDATA[1988-03-15]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Gender]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=Gender]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=save]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=yes]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selDept]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selDept]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[label=2 - Cyprus]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>select</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[label=1 - Sweden]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=selCountry]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=save]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=yes]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=LogOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+</TestCase>

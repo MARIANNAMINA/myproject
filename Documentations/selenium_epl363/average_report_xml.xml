@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCase>
+<selenese>
+	<command>open</command>
+	<target><![CDATA[http://cproject.in.cs.ucy.ac.cy/stat/index.html]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[name=name]]></target>
+	<value><![CDATA[mmina001]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[123456]]></value>
+</selenese>
+<selenese>
+	<command>sendKeys</command>
+	<target><![CDATA[id=word]]></target>
+	<value><![CDATA[${KEY_ENTER}]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=DashBoard]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[//button[@onclick='average_per_week()']]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=textinput1]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=textinput1]]></target>
+	<value><![CDATA[2018-03-11]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=textinput2]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>type</command>
+	<target><![CDATA[id=textinput2]]></target>
+	<value><![CDATA[2018-04-11]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=format_export]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=format_export]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=export_btn]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=yes]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectWindow</command>
+	<target><![CDATA[win_ser_1]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>selectWindow</command>
+	<target><![CDATA[win_ser_local]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+<selenese>
+	<command>click</command>
+	<target><![CDATA[id=LogOutButton]]></target>
+	<value><![CDATA[]]></value>
+</selenese>
+</TestCase>
