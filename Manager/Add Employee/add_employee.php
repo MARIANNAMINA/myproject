@@ -43,19 +43,18 @@ $_SESSION['flag_clicked'] = false;
 		<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
 	</form>
 
-
+	 
     <div class="logo">
         <a href="manager_dashboard.html">
-            <img src="statare.png" alt="Statare logo" width="50%" height="50%">
+            <img src="statare.png" alt="Statare logo" width="10%" height="10%">
         </a>
-        <ul>
-            <div class="nav">
+				<ul class="nav">
                 <li><a href="manager_dashboard.html">Home</a></li>
                 <li><a href="edit_profile_manager.php">Profile</a></li>
                 <li><a href="view_hours_manager.php">View Hours</a></li>
-                <li><a href="leave_request_manager.html">Leave Request</a></li>
-                <li><a href="average_per_week.html">Average Report</a></li>
-                <li><a href="payroll_report.html">Payroll Report</a></li>
+                <li><a href="leave_request_manager.php">Leave Request</a></li>
+                <li><a href="average_per_week.php">Average Report</a></li>
+                <li><a href="payroll_report.php">Payroll Report</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My
                         Employees</a>
@@ -64,7 +63,7 @@ $_SESSION['flag_clicked'] = false;
                         <a href="choose_employee.php">Edit Employee</a>
                         <a href="delete_employee_.php">Delete Employee</a>
                         <a href="employee_status_manager.php">Employee Status</a>
-                        <a href="manager_view_request.php">View Requests</a>
+                        <a href="leaveRequest.html">View Requests</a>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -78,7 +77,7 @@ $_SESSION['flag_clicked'] = false;
                         <a href="#">Svenska</a>
                     </div>
                 </li>
-            </div>
+			
         </ul>
 
     </div>
@@ -86,12 +85,11 @@ $_SESSION['flag_clicked'] = false;
 
 
     <p class="title_class"><b>Add Employee</b></p>
-    
-    <hr>
+	<br>
 	
 	<form method="post" class="margin_label" name="form_id" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
 
-        <label><b><label style="color:red">*</label>Username : </b></label>
+        <label class="example"><b><label style="color:red">*</label>Username : </b></label>
         <input class="input_username" name="Username" id="Username" type="text" value="<?php echo "$Username"; ?>"
                placeholder="">
         <label class="sec_column"><b><label style="color:red">*</label>Password : </b></label>
@@ -127,8 +125,11 @@ $_SESSION['flag_clicked'] = false;
 
         <br>
         <br>
-
-        <label style="color:red"><b>*</b></label><label><b>Department : </b></label>
+		
+		<label><b><label style="color:red">*</label>Role : </b></label>
+        <input class="input_role" name="Role" id="Role" value="<?php echo "$Role"; ?>" type="text" placeholder="">
+		
+        <label class="sec_column"><label style="color:red"><b>*</b></label><label><b>Department : </b></label></label>
         <select class="sel_dept" name='selDept' id='selDept'>
             <?php
             // find the departments that are in the DB
@@ -139,17 +140,18 @@ $_SESSION['flag_clicked'] = false;
             }
             ?>
         </select>
-
-        <label class="l_role"><b><label style="color:red">*</label>Role : </b></label>
-        <input class="input_role" name="Role" id="Role" value="<?php echo "$Role"; ?>" type="text" placeholder="">
         <br>
-        <span class="span_fcolumn"><?php echo "$dept_error"; ?></span>
-        <span class="span_scolumn"><?php echo "$role_error"; ?></span>
+		<span class="span_fcolumn"><?php echo "$role_error"; ?></span>
+        <span class="span_scolumn"><?php echo "$dept_error"; ?></span>
+       
 
         <br>
         <br>
-
-        <label style="color:red"><b>*</b></label><label><b>Working Country : </b></label>
+		
+		<label><b><label style="color:red">*</label>Annual Leaves : </b></label>
+        <input class="input_leaves" name="Leaves" id="Leaves" value="<?php echo "$Leaves"; ?>" type="text" placeholder="">
+		
+        <label class="sec_column"><label style="color:red"><b>*</b></label><label><b>Working Country : </b></label></label>
         <select class="sel_workCountry" name='selCountry' id='selCountry'>
             <?php
             // find in which countries departments are (get data from the DB)
@@ -161,10 +163,8 @@ $_SESSION['flag_clicked'] = false;
 
             ?>
         </select>
-        <label class="l_leaves"><b><label style="color:red">*</label>Annual Leaves : </b></label>
-        <input class="input_leaves" name="Leaves" id="Leaves" value="<?php echo "$Leaves"; ?>" type="text" placeholder="">
         <br>
-        <span class="span_scolumn"><?php echo "$leaves_error"; ?></span>
+        <span class="span_fcolumn"><?php echo "$leaves_error"; ?></span>
         <br>
         <br>
         <br>
