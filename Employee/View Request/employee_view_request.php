@@ -45,16 +45,12 @@
                 <li><a href="view_hours_employee.php">View Hours</a></li>
                 <li><a href="employee_view_request.php" style="color:orange; text-decoration: underline">View
                         Requests</a></li>
-                <li><a href="leave_request_employee.html">Leave Request</a></li>
+                <li><a href="leave_request_employee.php">Leave Request</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Language</a>
                     <div class="dropdown-content">
                         <a href="#">Ελληνικά</a>
                         <a href="#">English</a>
-                        <a href="#">Norsk</a>
-                        <a href="#">Polski</a>
-                        <a href="#">Deutsch</a>
-                        <a href="#">Svenska</a>
                     </div>
                 </li>
             </label>
@@ -84,11 +80,8 @@
             </tr>
             <?php
             include_once 'db.php';
-           
+
             $Username = $_SESSION['username'];
-            echo '<script type="text/javascript">
-				window.alert("' . $Username . '");
-				</script>';
 
             // Select from database
             $sql = "SELECT  `FromDate`, `ToDate`,  `Reason`, `State` FROM `Leave` WHERE `Username` LIKE '$Username'";
