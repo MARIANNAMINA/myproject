@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+</head>
+<body>
+<table class="display" style="width:100%" name="table" id="table">
+    <thead>
+    <tr style="text-align:center">
+        <th>Leave ID</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>State</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+    <tr style="text-align:center">
+        <th>Leave ID</th>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>State</th>
+    </tr>
+    </tfoot>
+</table>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var table = $('#table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "api.php?datatable=true",
+                "type": "GET"
+            },
+            "columns": [
+                {"data": "LeaveID"},
+                {"data": "Username"},
+                {"data": "Name"},
+                {"data": "Surname"},
+                {"data": "FromDate"},
+                {"data": "ToDate"},
+                {"data": "Reason"},
+                {"data": "State"}
+            ]
+        });
+    });
+
+    function changeReject(id) {
+        var formData = new FormData();
+        formData.append("id", id);
+
+        $.ajax({
+            url: "api.php?reject=true",
+            type: "POST",
+            data: formData,
+            success: function (data) {
+                reload_table();
+            },
+            error: function () {
+                alert("ERROR");
+            }
+        });
+    }
+
+    function changeAccept(id) {
+
+    }
+
+    function changePending(id) {
+
+    }
+
+    function reload_table() {
+        $('#table').DataTable().ajax.reload(null, true);
+    }
+
+
+</script>
+</html>
