@@ -40,16 +40,13 @@ session_start();
 							<li><a href="edit_profile_employee.php" >Profile</a></li>
 							<li><a href="view_hours_employee.php" style="color:orange;text-decoration: underline">View Hours</a></li>
 							<li><a href="employee_view_request.php" >View Requests</a></li> 
-							<li><a href="leave_request_employee.html">Leave Request</a></li>
+							<li><a href="leave_request_employee.php">Leave Request</a></li>
 							<li class="dropdown">
 								<a href="javascript:void(0)" class="dropbtn">Language</a>
 								<div class="dropdown-content">
 									<a href="#">Ελληνικά</a>
 									<a href="#">English</a>
-									<a href="#">Norsk</a>
-									<a href="#">Polski</a>
-									<a href="#">Deutsch</a>
-									<a href="#">Svenska</a>
+									
 								</div>
 							</li>
 						</label>
@@ -116,6 +113,19 @@ session_start();
 							}
 						}
 						
+						/**
+						 * Creates the time using hours, minutes and seconds.
+						 *
+						 * @param int $hours2 The number of the hours.
+						 * 
+						 * @param int $min2 The number of the minutes.
+						 * 
+						 * @param int $sec2 The number of the seconds.
+						 * 
+						 * @param time $newTime2 The time which will returned.
+						 *
+						 * @return time The calculated time
+						 */
 						function calculate_hours_length($hours2, $min2, $sec2, $newTime2){
 							if(strlen($hours2) == 1 && strlen($min2) == 1 && strlen($sec2) == 1){//if hours and minutes and seconds are one digit
 								$newTime2 = '0'.$hours2.':0'.$min2.':0'.$sec2;//hours length
@@ -137,7 +147,17 @@ session_start();
 							return $newTime2;
 						}
 						
-						//print the data to the table
+						/**
+						 * Prints the data to a table.
+						 *
+						 * @param table $row The table of data that will be printed.
+						 *
+						 * @param time $clockout The time in which the employee did clocked out.
+						 * 
+						 * @param time $newTime2 The calculated time.
+						 *
+						 * @return void
+						 */
 						function print_table($row, $clockout, $newTime2){
 							echo "<tr>";
 							echo "<td>" . $row['Date'] . "</td>";
