@@ -23,7 +23,8 @@
 			$to_error = "* Invalid email format"; //show to the employee an error
 		}else{//else if employee has set right the 'To' field
 			$to_error="";
-			$to=$_POST['To'];
+			$to=mysqli_real_escape_string($conn, $_POST['To']);
+			$to=strip_tags($to);
 			$TO=$to;
 		}
 		
@@ -31,7 +32,8 @@
 			$subject_error="* ' Subject ' field is required";//show to the employee an error
 		}else{//else if employee has set the 'Subject' field
 			$subject_error="";
-			$subject=$_POST['Subject'];
+			$subject=mysqli_real_escape_string($conn, $_POST['Subject']);
+			$subject=strip_tags($subject);
 			$SUBJECT=$subject;
 		}
 		
@@ -39,7 +41,8 @@
 			$descripiton_error="* ' Description ' field is required";//show to the employee an error
 		}else{//else if employee has set the 'Description' field
 			$descripiton_error="";
-			$description=$_POST['Description'];
+			$description=mysqli_real_escape_string($conn, $_POST['Description']);
+			$description=strip_tags($description);
 			$DESCRIPTION=$description;
 		}
 		
