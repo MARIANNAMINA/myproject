@@ -1,7 +1,16 @@
 <?php
+/*
+ *	Delete employee screen gives the opportunity to managers to delete an employee. 
+ *	Manager can select the employee that he/she wants to delete from the database from a list.
+ *	The list contains all the manager's employees. When manager deletes an employee, the employee's record 
+ *	in Employee table in database is deleted and the record is saved into DeletedEmployee table.
+ */
+
 session_start();
 // include php file that contains the connection with database
 include 'db.php';
+// include php file that contains the main functionality of delete employee
+include('delete_employee.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,75 +29,80 @@ include 'db.php';
 	
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     </head>
+	
     <body>
-	   
-	 <div class="header"> 
-
-
-		<form action="logout_manager.php" method="post" id=form_id4>	 	
-			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-	 	</form>  
-
-
-    <div class="logo">
-        <a href="manager_dashboard.html">
-            <img src="statare.png" alt="Statare logo" width="50%" height="50%">
-        </a>
-		<ul>
-		<label class="nav">
-		<li><a href="manager_dashboard.html">Home</a></li>
-		<li><a href="edit_profile_manager.php" >Profile</a></li>
-		<li><a href="view_hours_manager.php">View Hours</a></li>
-		<li><a href="leave_request_manager.html" >Leave Request</a></li> 
-		<li><a href="average_per_week.html">Average Report</a></li>
-		<li><a href="payroll_report.html">Payroll Report</a></li>
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
-			<div class="dropdown-content">
-				<a href="add_employee.php">Add Employee</a>
-				<a href="choose_employee.php">Edit Employee</a>
-				<a href="delete_employee_.php" style="color:orange;text-decoration: underline">Delete Employee</a>
-				<a href="employee_status_manager.php">Employee Status</a>
-				<a href="manager_view_request.php">View Requests</a>
+		<!-- Header -->
+		<div class="header"> 
+			<!-- Logout button-->
+			<form action="logout_manager.php" method="post" id="logout_button">	 	
+				<button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+			</form>  
+			
+			<!-- Statare image -->		
+			<div class="logo">
+				<a href="manager_dashboard.html">
+					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
+				</a>
+				
+				<!-- Menu -->
+				<ul>
+					<label class="nav">
+						<li><a href="manager_dashboard.html">Home</a></li>
+						<li><a href="edit_profile_manager.php" >Profile</a></li>
+						<li><a href="view_hours_manager.php">View Hours</a></li>
+						<li><a href="leave_request_manager.html" >Leave Request</a></li> 
+						<li><a href="average_per_week.html">Average Report</a></li>
+						<li><a href="payroll_report.php">Payroll Report</a></li>
+						<li class="dropdown">
+							<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
+							<div class="dropdown-content">
+								<a href="add_employee.php">Add Employee</a>
+								<a href="choose_employee.php">Edit Employee</a>
+								<a href="delete_employee_.php" style="color:orange;text-decoration: underline">Delete Employee</a>
+								<a href="employee_status_manager.php">Employee Status</a>
+								<a href="manager_view_request.php">View Requests</a>
+							</div>
+						</li>		
+						<li class="dropdown">
+							<a href="javascript:void(0)" class="dropbtn">Language</a>
+							<div class="dropdown-content">
+								<a href="#">Ελληνικά</a>
+								<a href="#">English</a>
+								<a href="#">Norsk</a>
+								<a href="#">Polski</a>
+								<a href="#">Deutsch</a>
+								<a href="#">Svenska</a>
+							</div>
+						</li>
+					</label>
+				</ul>
 			</div>
-		</li>		
-		<li class="dropdown">
-			<a href="javascript:void(0)" class="dropbtn">Language</a>
-			<div class="dropdown-content">
-				<a href="#">Ελληνικά</a>
-				<a href="#">English</a>
-				<a href="#">Norsk</a>
-				<a href="#">Polski</a>
-				<a href="#">Deutsch</a>
-				<a href="#">Svenska</a>
-			</div>
-		</li>
-		</label>
-	</ul>
-		
-	  </div>
-	  </div>
+		</div>
 
+	<!-- Title -->	
 	<p class="title"><b>Delete Employee</b></p>
 	<br>
 	<br>
 	<br>
 	<br>
 	  
-	 <form action="delete_employee.php" method="post" class="select_class" id="form_id" >
-	  <div style="text-align:center">
-		  <label><b>Username:</b> </label> 
-		  <select style='margin-left:2%' name='Username' id='Username'>
-			  <?php
-			  $UsernameManager=$_SESSION['username'];
-				$select_query_Country= "SELECT Username,Name,Surname FROM Employee WHERE UsernameManager LIKE '$UsernameManager'";
-				$select_query_run = mysqli_query($conn,$select_query_Country);
-				while ($select_query_array= mysqli_fetch_array($select_query_run) )
-				{
-				echo "<option value='".$select_query_array['Username']."'>".$select_query_array["Username"]." - ".$select_query_array["Name"]." ".$select_query_array["Surname"]."</option>";
-				}
-			 
-			  ?>
+	<form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" class="select_class" id="form_id">
+	
+		<div style="text-align:center">
+			<label><b>Username:</b> </label> 
+			<select style='margin-left:2%' name='Username' id='Username'>
+		  
+			<!-- PHP code -->	
+			<?php
+				$UsernameManager=$_SESSION['username'];
+				/* select employees' data of the manager who is logged in */
+				$select_query_employee= "SELECT Username,Name,Surname FROM Employee WHERE UsernameManager LIKE '$UsernameManager'";
+				$select_query_run = mysqli_query($conn,$select_query_employee);
+				/* insert the data of employees in a dropdown list */
+				while ($select_query_array= mysqli_fetch_array($select_query_run) ){
+					echo "<option value='".$select_query_array['Username']."'>".$select_query_array["Username"]." - ".$select_query_array["Name"]." ".$select_query_array["Surname"]."</option>";
+				} 
+			?>
 		  </select>
 		  <br>
 		  <br>
@@ -96,6 +110,8 @@ include 'db.php';
 		  <br>	
 		  <br>	  	  
 
+		  
+		  <!-- Cancel & Delete buttons --> 
 		  <button class="cancel_style" name="cancel" id="cancel">Cancel</button>
 		  <button class="delete_style" name="delete" id="delete">Delete</button>
 	          
@@ -142,10 +158,10 @@ include 'db.php';
 </div>
    
 	<script>
-   /*
-If save button is clicked, wait for user to click yes or no button of the pop up window. If user click yes
-submit form otherwise go to manager_dashboard.html page
- */
+	/*
+	If delete button is clicked, wait for user to click yes or no button of the pop up window. If user click yes
+	submit form otherwise go to manager_dashboard.html page
+	*/
     $("#delete").click(function (event) {
         event.preventDefault();
         document.getElementById('deleteDiv').style.display = "block";
@@ -174,9 +190,12 @@ submit form otherwise go to manager_dashboard.html page
         });
     });
 
-    function myFunction4() {
-        document.getElementById("form_id4").submit();
+	/*
+	Logout function - Exit
+	*/
+    function logout_function() {
+        document.getElementById("logout_button").submit();
     }
 	</script>
-  </body>
+	</body>
 </html>
