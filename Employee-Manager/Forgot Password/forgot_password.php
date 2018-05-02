@@ -1,4 +1,11 @@
-<?php session_start();
+<?php 
+/** This screen gives the chance to an employee to receive an email with a new password if he/she forgot it. ‘Username’ and ‘Email’ fields are required to complete from the employee.
+ * If an employee don’t complete at least one of this fields, the email will not be send. When the two fields are complete, pressing the button ‘Okay’, an alert box will appears and pressing
+ * the button ‘OK’ the email will be send to the email which is written in the field ‘Email’. At the alert box pressing the button ‘Cancel’, the email will not be send and you will stay on the same screen. 
+ * If you press the button ‘Cancel’ which is on the screen, an alert box will appears and pressing the button ‘OK’,  the email will not be send and the screen now will be your Dashboard. At the alert box pressing the button ‘Cancel’,
+ * you will stay on the same screen (Login screen).
+ */
+session_start();
 
 include('forgot_pass.php'); 
 ?>

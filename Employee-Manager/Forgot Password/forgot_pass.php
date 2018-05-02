@@ -13,13 +13,15 @@
 		$USER="";
 		$EMAIL="";
 		
-		$userName = $_POST['User'];
+		$userName = mysqli_real_escape_string($conn, $_POST['User']);
+		$userName = strip_tags($userName);
 		
 		if(empty($_POST['User'])){//if employee didn't set the 'User' field
 			$user_error="* ' Username ' field is required";//show to the employee an error
 		}else{//else if employee has set the 'User' field
 			$user_error="";
-			$user=$_POST['User'];
+			$user=mysqli_real_escape_string($conn, $_POST['User']);
+			$user=strip_tags($user);
 			$USER=$user;
 		}
 		
@@ -29,11 +31,13 @@
 			$email_error = "* Invalid email format"; //show to the employee an error
 		}else{//else if employee has set right the 'Email' field
 			$email_error="";
-			$email=$_POST['Email'];
+			$email=mysqli_real_escape_string($conn, $_POST['Email']);
+			$email=strip_tags($email);
 			$EMAIL=$email;
 		}
 		
-		$from = $_POST['User']; //set the 'from' field of the email
+		$from = mysqli_real_escape_string($conn, $_POST['User']); //set the 'from' field of the email
+		$from = strip_tags($from);
 		
 		$headers .= "Content-type: text/html;\r\n";
 		$headers .= "From: $from";
@@ -61,12 +65,19 @@
 		}
 	}
 	
+    /**
+     * Creates a string which consists by ten random characters.
+     *
+     * @param int $length The length of the string.
+     *
+     * @return string The new random string
+     */
 	function generateRandomString($length = 10) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; //the characters that a random string can contains
 		$charactersLength = strlen($characters);
 		$randomString = '';
 		for ($i = 0; $i < $length; $i++) {
-			$randomString .= $characters[rand(0, $charactersLength - 1)];
+			$randomString .= $characters[rand(0, $charactersLength - 1)];//select a random character
 		}
 		return $randomString;
 	}
