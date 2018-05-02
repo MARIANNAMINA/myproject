@@ -11,11 +11,9 @@
 session_start();
 
 
-
-
 /**
-* Print the error message in alert box if employee give wrong date for leave request
-*/
+ * Print the error message in alert box if employee give wrong date for leave request
+ */
 function printError()
 {
     echo '<script type="text/javascript">
@@ -27,65 +25,77 @@ function printError()
 
 }
 
-/**
- * If click the sumbit button, then check if the dates is correct, if they are correct then insert in database
- */
-function leaveRequest()
-{
-    if (isset($_POST['continue'])) {
-        include 'db.php';
 
-        $username = $_SESSION['username'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include 'db.php';
+
+    $error_desc = "";
+    $Desc = "";
+
+    // check if description text box is empty
+    if (empty($_POST['desc'])) {
+        $error_desc = "*Description is required";
+    } else {
+        $Desc = mysqli_real_escape_string($conn, $_POST['desc']);
+        // check if only characters are inserted
+        if (!preg_match("/^[a-zA-Z ]*$/", $Desc)) {
+            $d = "";
+            $error_desc = "*Invalid description";
+        } else {
+
+            $username = $_SESSION['username'];
 // get the values of text box
-        $DateFrom = $_POST['From'];
-        $DateTo = $_POST['To'];
+            $DateFrom = mysqli_real_escape_string($conn, $_POST['From']);
+            $DateTo = mysqli_real_escape_string($conn, $_POST['To']);
 
-        $Desc = $_POST['desc'];
+            $DateFrom = date("Y-m-d", strtotime($DateFrom));
+            $DateTo = date("Y-m-d", strtotime($DateTo));
 
-        $DateFrom = date("Y-m-d", strtotime($DateFrom));
-        $DateTo = date("Y-m-d", strtotime($DateTo));
-
-        if (strtotime($DateFrom) < strtotime('now')) {
-            printError();
-        } else if (strtotime($DateTo) < strtotime('now')) {
-            printError();
-        } else if (strtotime($DateTo) < strtotime($DateFrom)) {
-            //the date which the leave starts should be before the date which the leave finishes
-            echo '<script type="text/javascript">
+            if (empty($error_desc)) {
+                /*
+                 *  Check if the fields of dates are correct. For example if the date when he/she want to start
+                 *  the leave is after the date when he/she return from leaves,and if the date when he/she want
+                 *  to start the leave and  the date when he/she return from leaves is before thecurrent date,
+                 * then he/she can not do a leave request before the current date.
+                 * 
+                 */
+                if (strtotime($DateFrom) < strtotime('now')) {
+                    printError();
+                } else if (strtotime($DateTo) < strtotime('now')) {
+                    printError();
+                } else if (strtotime($DateTo) < strtotime($DateFrom)) {
+                    //the date which the leave starts should be before the date which the leave finishes
+                    echo '<script type="text/javascript">
 			window.alert("The date on which the leave will end is after the date it starts! Try again please!");
 			window.location.replace("leave_request_manager.html");
 			</script>';
-        } else {
+                } else {
 
-            $sql2 = "SELECT Username FROM Employee WHERE Username='$username'";
-            $resultCheck = mysqli_num_rows(mysqli_query($conn, $sql2));
+                    $sql2 = "SELECT Username FROM Employee WHERE Username='$username'";
+                    $resultCheck = mysqli_num_rows(mysqli_query($conn, $sql2));
 
-            // insert to the database
-            $sql = "INSERT INTO `Leave`(`Reason`, `ToDate`, `FromDate`, `Username`) VALUES ('$Desc','$DateTo','$DateFrom','$username')";
-
-            if (!mysqli_query($conn, $sql)) {
-                echo '<script type="text/javascript">
-		window.alert("NOT INSERTED"); 
-		window.location.replace("leave_request_manager.html");
-		</script>';
-            } else {
-                echo '<script type="text/javascript">
-		window.alert("INSERTED CORRECTLY"); 
-		window.location.replace("manager_dashboard.html");
-		</script>';
+                    // insert to the database
+                    $sql = "INSERT INTO `Leave`(`Reason`, `ToDate`, `FromDate`, `Username`) 
+                    VALUES (?,?,?,?)";
+                    $stmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt, $sql)) {
+                        echo '<script type="text/javascript">
+                window.alert("NOT INSERTED"); 
+                window.location.replace("leave_request_manager.html");
+                </script>';
+                    } else {
+                        mysqli_stmt_bind_param($stmt, "ssss", $DateTo, $DateFrom, $username);
+                        mysqli_stmt_execute($stmt);
+                        echo '<script type="text/javascript">
+                window.alert("INSERTED CORRECTLY"); 
+                window.location.replace("manager_dashboard.html");
+                </script>';
+                    }
+                }
             }
         }
-    } else {
-        echo '<script type="text/javascript">alert("SUCH FILE DOES NOT EXIST"); 
-	window.location.replace("delete_employee.html");
-	</script>';
-
-
-        exit();
     }
 }
 
-//call function
-leaveRequest();
 
 ?>
