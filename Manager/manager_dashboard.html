@@ -1,6 +1,11 @@
 <!--
 *
-*	Comments
+*	Manager's Dashboard screen has 10 buttons/functionalities related to his/her employees and his personal data.
+* 	So, a manager can edit his/her personal information (Edit Profile button), do a leave request (Leave Request button), see his/her
+*	employees' leave requests (View Requests button), see his/her hours of work (View Hours button), see the status of his/her employees
+*	(Employee Status button), choose an employee and edit his/her personal data (Edit Employee button), add and delete an employee
+*	(Add Employee button, Delete Employee button) and export a report in XML or JSON format about the hours of work of his/her employees
+*	(Average Report button, Payroll Report button).
 *
 -->
 <!doctype html>
@@ -21,112 +26,151 @@
 		  integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
-<body>
-<div class="header">
+	<body>
+		<!-- Header -->
+		<div class="header">
+			<!-- Logout button-->
+			<form action="logout_manager.php" method="post" id=logout_button>	 	
+				<button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+			</form>  
 			
-		<form action="logout_manager.php" method="post" id="form_id4">	 	
-			<button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-		</form>  
-
-   <div class="logo">
-        <a href="clock_in_manager.html">
-            <img src="statare.png" alt="Statare logo" width="50%" height="50%">
-        </a>
-	
-		<ul>
-			<label class="nav" >
-			<li><a href="clock_in_manager.html" style="color:orange;text-decoration: underline" >Home</a></li>
-			<li class="dropdown">
-				<a href="javascript:void(0)" class="dropbtn">Language</a>
-				<div class="dropdown-content">
-					<a href="#">Ελληνικά</a>
-					<a href="#">English</a>
-					<a href="#">Norsk</a>
-					<a href="#">Polski</a>
-					<a href="#">Deutsch</a>
-					<a href="#">Svenska</a>
-				</div>
-			</li>
-			</label>
-		</ul>
-	</div> 	
-</div>		
+			<!-- Statare image -->		
+			<div class="logo">
+				<a href="clock_in_manager.php">
+					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
+				</a>
+				
+				<!-- Menu -->
+				<ul>
+					<label class="nav" >
+						<li><a href="clock_in_manager.php" style="color:orange;text-decoration: underline" >Home</a></li>
+						<li class="dropdown">
+							<a href="javascript:void(0)" class="dropbtn">Language</a>
+							<div class="dropdown-content">
+								<a href="#">Ελληνικά</a>
+								<a href="#">English</a>
+								<a href="#">Norsk</a>
+								<a href="#">Polski</a>
+								<a href="#">Deutsch</a>
+								<a href="#">Svenska</a>
+							</div>
+						</li>
+					</label>
+				</ul>
+			</div> 	
+		</div>		
   
-    <div class="title">
-        <p><b>Manager Dashboard</b></p>
-    </div>
-	<br>
+  
+		<!-- Title --> 
+		<div class="title">
+			<p><b>Manager Dashboard</b></p>
+		</div>
 	
-<div class="align_center">
-	<button onclick="view_hours()" class="buttonstyle1">View Hours</button>
-	<button onclick="employee_status_manager()" class="buttonstyle2">Employee Status</button>
-	<br>
-	<br>
-	<button onclick="choose_employee()" class="buttonstyle1">Edit Employee</button>
-	<button onclick="edit_profile()" class="buttonstyle2">Profile</button>
-	<br>
-	<br>
-	<button onclick="leave_request()" class="buttonstyle1">Leave Request</button>
-	<button onclick="testing()" class="buttonstyle2">View Requests </button>
-	<br>
-	<br>
-	<button onclick="add_employee()" class="buttonstyle1">Add Employee</button>
-	<button onclick="delete_employee()" class="buttonstyle2">Delete Employee</button>
-	<br>
-	<br>
-	<button onclick="average_per_week()" class="buttonstyle1">Average Report</button>
-	<button onclick="payroll_report()" class="buttonstyle2">Payroll Report</button>
-	<br>
-	<br>	
-</div>
+	
+		<!-- Buttons -->
+		<div class="align_center">
+			<button onclick="view_hours()" class="buttonstyle1">View Hours</button>
+			<button onclick="employee_status_manager()" class="buttonstyle2">Employee Status</button>
+			<br>
+			<br>
+			<button onclick="choose_employee()" class="buttonstyle1">Edit Employee</button>
+			<button onclick="edit_profile()" class="buttonstyle2">Profile</button>
+			<br>
+			<br>
+			<button onclick="leave_request()" class="buttonstyle1">Leave Request</button>
+			<button onclick="add_employee()" class="buttonstyle2">Add Employee</button>
+			<br>
+			<br>
+			<button onclick="average_per_week()" class="buttonstyle1">Average Report</button>
+			<button onclick="view_req()" class="buttonstyle2">View Requests </button>
+			<br>
+			<br>
+			<button onclick="delete_employee()" class="buttonstyle1">Delete Employee</button>
+			<button onclick="payroll_report()" class="buttonstyle2">Payroll Report</button>
+			<br>
+			<br>	
+		</div>
 			
-<script>	
-	function myFunction4() {
-        document.getElementById("form_id4").submit();
-    }
-	
-	function view_hours(){
-		window.location.replace("view_hours_manager.php");
-	}
-	
-	function employee_status_manager(){
-		window.location.replace("employee_status_manager.php");
-	}
-	
-	function choose_employee(){
-		window.location.replace("choose_employee.php");
-	}
-	
-	
-	function edit_profile(){
-		window.location.replace("edit_profile_manager.php");
-	}
-	
-	function leave_request(){
-		window.location.replace("leave_request_manager.html");
-	}
-	
-	function add_employee(){
-		window.location.replace("add_employee.php");
-	}
-	
-	function average_per_week(){
-		window.location.replace("average_per_week.html");
-	}
-	
-	function testing(){
-		window.location.replace("testing.php");
-	}
-	
-	function delete_employee(){
-		window.location.replace("delete_employee_.php");
-	}
-	
-	function payroll_report(){
-		window.location.replace("payroll_report.php");
-	}
-	
-</script>
+	<script>	
+
+		/*
+			Logout function - Exit
+		*/
+		function logout_function() {
+			document.getElementById("logout_button").submit();
+		}
 		
-</body>	
+		/*
+			Go to view hours page 
+		*/
+		function view_hours(){
+			window.location.replace("view_hours_manager.php");
+		}
+		
+		/*
+			Go to employee status page 
+		*/		
+		function employee_status_manager(){
+			window.location.replace("employee_status_manager.php");
+		}
+
+		/*
+			Go to edit employee page 
+		*/		
+		function choose_employee(){
+			window.location.replace("choose_employee.php");
+		}
+		
+		/*
+			Go to edit profile page 
+		*/		
+		function edit_profile(){
+			window.location.replace("edit_profile_manager.php");
+		}
+		
+		/*
+			Go to leave request page 
+		*/			
+		function leave_request(){
+			window.location.replace("leave_request_manager.php");
+		}
+		
+		/*
+			Go to add employee page 
+		*/			
+		function add_employee(){
+			window.location.replace("add_employee.php");
+		}
+		
+		/*
+			Go to average report page 
+		*/			
+		function average_per_week(){
+			window.location.replace("average_per_week.php");
+		}
+		
+		/*
+			Go to view requests page 
+		*/			
+		function view_req(){
+			window.location.replace("leaveRequest.html");
+		}
+		
+		/*
+			Go to delete employee page 
+		*/			
+		function delete_employee(){
+			window.location.replace("delete_employee_.php");
+		}
+		
+		/*
+			Go to payroll report page 
+		*/			
+		function payroll_report(){
+			window.location.replace("payroll_report.php");
+		}
+	
+	</script>
+		
+	</body>	
 </html>

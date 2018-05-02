@@ -4,20 +4,10 @@
  
 	.title {
 		text-align:center;
-		font-size:3vw;
 	}
 	
-	label{
-		font-size:1.4vw;
-	}
 	.align_center {
 		text-align:center;
-		font-size:1.4vw;
-		
-	}
-
-	.align_right {
-		margin-right: 25%;
 		font-size:1.4vw;
 		
 	}
@@ -28,12 +18,11 @@
 		margin-bottom: 1.1%;
 	}
 
-	.logo {
+	.logo{
 		margin-top: 1.6%;
 		margin-bottom: 0.1%;
 		margin-left: 1.3%;
-		display: inline-block;
-		font-size: 100%;
+		display:inline-block;
 	}
 
 	.buttonstyle1{
