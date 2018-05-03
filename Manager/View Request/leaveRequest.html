@@ -1,12 +1,79 @@
+<!--
+- Author: Maria Kouppi
+-
+- This is a fuctionality for manager. A manager can view his/her request and the reguest of their employees.
+- So he/she reject or accept a request. If he/she change the state of request, then change the state of request
+- in database. The state of request should be update in database because employee want to see if his/her request
+- became accepted or not.
+-
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <title>Statare LTD</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="view_request_manager.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="header">
+    <form action="logout_manager.php" method="post" id=logout_button>
+        <button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+    </form>
+
+
+    <div class="logo">
+        <a href="manager_dashboard.html">
+            <img src="statare.png"
+                 width="50%" height="50%">
+        </a>
+        <ul>
+            <label class="nav">
+                <li><a href="manager_dashboard.html">Home</a></li>
+                <li><a href="edit_profile_manager.php">Profile</a></li>
+                <li><a href="view_hours_manager.php">View Hours</a></li>
+                <li><a href="leave_request_manager.php">Leave Request</a></li>
+                <li><a href="average_per_week.php">Average per week</a></li>
+                <li><a href="payroll_report.php">Payroll Report</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My
+                        Employees</a>
+                    <div class="dropdown-content">
+                        <a href="add_employee.php">Add Employee</a>
+                        <a href="employee_status_manager.php">Employee Status</a>
+                        <a href="choose_employee.php">Edit Employee</a>
+                        <a href="leaveRequest.html" style="color:orange;text-decoration: underline">View
+                            Requests</a>
+                        <a href="delete_employee_.php">Delete Employee</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Language</a>
+                    <div class="dropdown-content">
+                        <a href="#">Ελληνικά</a>
+                        <a href="#">English</a>
+                    </div>
+                </li>
+            </label>
+        </ul>
+    </div>
+</div>
+
+<p class="title_class"><b>View Requests</b></p>
+
+<br>
+
 <table class="display" style="width:100%" name="table" id="table">
     <thead>
     <tr style="text-align:center">
@@ -62,12 +129,15 @@
     function changeReject(id) {
         var formData = new FormData();
         formData.append("id", id);
-
         $.ajax({
             url: "api.php?reject=true",
             type: "POST",
             data: formData,
+            dataType: 'json',   //data type expect from server
+            processData: false,
+            contentType: false,
             success: function (data) {
+                alert(data.message);
                 reload_table();
             },
             error: function () {
@@ -77,15 +147,51 @@
     }
 
     function changeAccept(id) {
-
+        var formData = new FormData();
+        formData.append("id", id);
+        $.ajax({
+            url: "api.php?accept=true",
+            type: "POST",
+            data: formData,
+            dataType: 'json',   //data type expect from server
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data.message);
+                reload_table();
+            },
+            error: function () {
+                alert("ERROR");
+            }
+        });
     }
 
     function changePending(id) {
-
+        var formData = new FormData();
+        formData.append("id", id);
+        $.ajax({
+            url: "api.php?pending=true",
+            type: "POST",
+            data: formData,
+            dataType: 'json',   //data type expect from server
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data.message);
+                reload_table();
+            },
+            error: function () {
+                alert("ERROR");
+            }
+        });
     }
 
     function reload_table() {
         $('#table').DataTable().ajax.reload(null, true);
+    }
+
+    function logout_function() {
+        document.getElementById("logout_button").submit();
     }
 
 
