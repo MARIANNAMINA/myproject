@@ -373,30 +373,6 @@ input[type=checkbox] {
 	margin-left:53.9%;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/*@media only screen and (min-width: 600px) {
-    .example {background-color: green;}
-	.margin_label {
-		margin-left:2%;
-		text-align:left;
-	}
-	
-	.sec_column{
-		margin-left:1%;
-    }
-	
-	input {
-		background-color: #f1f1f1;
-		color: black;
-		padding: 0.6% 1% 1% 1%;
-		border-radius: 8px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		font-size: 100%;
-	}
-}*/
-
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 850px) {
 	

@@ -2,13 +2,13 @@
 /*
  * Add employee screen gives the opportunity to managers to add an employee. 
  * A manager must give the username, password, ID, SSN, First Name, Last Name, 
- * Department, Role, Working Country(in which country the current Department 
+ * Department, Role, Annual Leaves, Working Country(in which country the current Department
  * that manager gave is at), Salary, Salary Type(Fixed, Part Time,etc), phone, 
- * emergency phone, email and if employee is a manager or not (field Manager). 
+ * emergency phone, email and if employee is a manager of a department or not (field Manager).
  * Despite the required data that a manager must give, he/she can also give the 
- * country, address and date of birth of employee. After inserting correctly 
+ * country, address and date of birth of an employee. After inserting correctly
  * the above data, manager can save the changes he/she made by clicking the 
- * button Save (and at the pop confirmation window, by clicking ok) or he/she cancel 
+ * button Save (and at the pop confirmation window, by clicking ok) or he/she can cancel
  * his/her action either by clicking the button Save(and at the pop confirmation
  * window, by clicking cancel) or by clicking the button Cancel(and at the 
  * pop confirmation window, by clicking ok or cancel).
