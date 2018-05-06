@@ -1,6 +1,6 @@
 <?php
 /*
- * Edit Employee page gives the opportunity to a manager to choose an employee from a dropdown list
+ * Choose employee page gives the opportunity to a manager to choose an employee from a dropdown list
  * that contains the Username, Name and Surname of manager’s employees to edit employee’s data.
  * By selecting the button 'OK' the page is replaced with the page edit_employee.php that contains the
  * data of the chosen employee.

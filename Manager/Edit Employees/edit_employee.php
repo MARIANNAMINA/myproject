@@ -7,6 +7,8 @@
 session_start();
 include('db.php');
 include('update_edit_employees.php');
+
+// used to check if an employee's username is selected
 $_SESSION['flag_clicked'] = false;
 
 ?>
@@ -76,7 +78,7 @@ $_SESSION['flag_clicked'] = false;
 <div class="title">
 	<p><b>Edit Employee</b></p>
 </div>
-	
+
 
 
 <form method="post" class="margin_label" name="form_id" id="form_id" action="<?php $_SERVER['PHP_SELF']; ?>">
@@ -84,10 +86,11 @@ $_SESSION['flag_clicked'] = false;
 
     <?php
     include_once 'db.php';
+    // the username of the selected employee
     $Username = $_SESSION['edit_Empl_Username'];
     // get the data of the selected employee
     $sql = "SELECT  Username, ID, Name, Surname, Password, Birthdate, Gender, Address, Country, Phone, EmergencyPhone, Role, Salary, SalaryType, SSN, Email, AnnualLeaves FROM Employee WHERE Username LIKE '$Username'";
-	// get the department of the selected employee 
+	// get the department of the selected employee
     $sqlD = "SELECT Department.NameDept,Department.NumberDept,Department.CountryNum FROM Department INNER JOIN Employee ON (Department.NumberDept=Employee.NumDept) WHERE Username LIKE '$Username'";
 	// get the country where the selected employee works
     $sqlC = "SELECT CorporateHeadquarter.CountryNum,CorporateHeadquarter.Name FROM `CorporateHeadquarter` INNER JOIN Employee ON (CorporateHeadquarter.CountryNum=Employee.CountryNumber) WHERE Employee.Username LIKE '$Username'";
@@ -128,7 +131,7 @@ $_SESSION['flag_clicked'] = false;
 
 
     ?>
-	<!-- Start of container -->	
+	<!-- Start of container -->
 	<div class="container">
 		<!-- Start of profile section -->
 		<div class="profile">
@@ -138,7 +141,7 @@ $_SESSION['flag_clicked'] = false;
 			</div>
 			<!-- Username of Employee -->
 			<div class="profile_user_name">
-				<label class="profile-user-name"><b><?php echo $Username; ?></b> </label>	
+				<label class="profile-user-name"><b><?php echo $Username; ?></b> </label>
 			</div>
 			<!-- Role of Employee -->
 			<div class="profile_role">
@@ -152,11 +155,11 @@ $_SESSION['flag_clicked'] = false;
 		<!-- End of profile section -->
 	</div>
 	<!-- End of container -->
-	
+
 	    <br>
         <br>
-	
-	
+
+
         <label><b><label style="color:red">*</label>Username : </b></label>
         <!--<input style="margin-left:116px" name="Username" id="Username" value="<?php echo $field1; ?>" type="text"
                readonly>-->
@@ -164,24 +167,24 @@ $_SESSION['flag_clicked'] = false;
         <br>
         <br>
 
-		<label><b><label style="color:red">*</label>ID : </b></label> 
+		<label><b><label style="color:red">*</label>ID : </b></label>
 		<input class="input_id" name="ID" id="ID" type="text" value="<?php echo $row['ID']; ?>" readonly>
-		<label class="sec_column"><b><label style="color:red">*</label>SSN : </b></label> 
+		<label class="sec_column"><b><label style="color:red">*</label>SSN : </b></label>
 		<input class="input_ssn" name="SSN" id="SSN" type="text" value="<?php echo $row['SSN']; ?>" readonly>
         <br>
         <br>
         <br>
 
-		<label><b><label style="color:red">*</label>First Name : </b></label> 
+		<label><b><label style="color:red">*</label>First Name : </b></label>
 		<input class="input_first_name" name="FirstName" id="FirstName" type="text" value="<?php echo $row['Name']; ?>"readonly>
-		<label class="sec_column"><b><label style="color:red">*</label>Last Name : </b></label> 
+		<label class="sec_column"><b><label style="color:red">*</label>Last Name : </b></label>
 		<input class="input_last_name" name="LastName" id="LastName" type="text" value="<?php echo $row['Surname']; ?>" readonly>
         <br>
         <br>
         <br>
 
 		<label><b><label style="color:red">*</label>Role : </b></label>
-        <input class="input_role" name="Role" id="Role" type="text" value="<?php echo $row['Role']; ?>">
+        <input class="input_role" name="Role" id="Role" type="text" value="<?php echo $Role; ?>">
         <label class="sec_column"><b><label style="color:red">*</label>Department : </b></label>
         <select class="sel_dept" name='selDept' id='selDept'>
             <?php
@@ -202,13 +205,13 @@ $_SESSION['flag_clicked'] = false;
         <span class="span_fcolumn"><?php echo "$role_error"; ?></span>
         <br>
         <br>
-		
+
 		<label><b><label style="color:red">*</label>Annual Leaves : </b></label>
         <input class="input_leaves" name="Leaves" id="Leaves" value="<?php echo $row['AnnualLeaves']; ?>" type="text" placeholder="">
-		
+
         <label class="sec_column"><b><label style="color:red">*</label>Working Country : </b></label>
         <select class="sel_workCountry" name='selCountry' id='selCountry'>
-            <?php 
+            <?php
 			// select the countries that an employee can work from DB
 			$select_query_Country = "SELECT * FROM `CorporateHeadquarter`";
             $select_query_run2 = mysqli_query($conn, $select_query_Country);
@@ -278,15 +281,15 @@ $_SESSION['flag_clicked'] = false;
         <br>
         <br>
 
-		<label><b><label style="color:red">*</label>Phone : </b></label> 
+		<label><b><label style="color:red">*</label>Phone : </b></label>
 		<input class="input_phone" name="Phone" id="Phone" value="<?php echo $row['Phone']; ?>" type="text" readonly>
-		<label class="sec_column"><b><label style="color:red">*</label>Emergency Phone : </b></label> 
+		<label class="sec_column"><b><label style="color:red">*</label>Emergency Phone : </b></label>
 		<input class="input_em_phone" name="EmergencyPhone" id="EmergencyPhone" value="<?php echo $row['EmergencyPhone']; ?>" type="text" readonly>
 
         <br>
         <br>
 
-		<label><b><label style="color:red">*</label>Email : </b></label> 
+		<label><b><label style="color:red">*</label>Email : </b></label>
 		<input class="input_email" name="Email" id="Email" type="text" value="<?php echo $row['Email']; ?>" readonly>
         <br>
 
