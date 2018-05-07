@@ -129,6 +129,7 @@
     function changeReject(id) {
         var formData = new FormData();
         formData.append("id", id);
+
         $.ajax({
             url: "api.php?reject=true",
             type: "POST",
@@ -149,6 +150,7 @@
     function changeAccept(id) {
         var formData = new FormData();
         formData.append("id", id);
+
         $.ajax({
             url: "api.php?accept=true",
             type: "POST",
