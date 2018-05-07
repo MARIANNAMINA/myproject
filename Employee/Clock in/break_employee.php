@@ -36,12 +36,12 @@ if (isset($_POST['Break'])) {
             $flag = false;
 			// check if the result of the above query, specifically ClockOut column has not its default value, employee attempts to click Break button without pressing first the button Clock in
             if (strcmp($row['ClockOut'], "00:00:00") != 0) {
-                print_error_clockIn_break();
+                print_error_break_in();
 			// check if the result of the above query, specifically if value of Break column is greater than the value of ReturnBreak column, employee attempts to click Break button as he/she is on break  
             } elseif ($row['Break'] > $row['ReturnBreak']) {
                 print_error_break_ret();
             } else {
-				
+
 				if(!$flag2){
 					// update the time that employee clicked the button Break with the current one
 					$query = "UPDATE  AttendanceTime SET Break = NOW() WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
@@ -72,8 +72,11 @@ if (isset($_POST['Break'])) {
             print_error_break_in();
         }
     }
-} 
+}
 
+/**
+ * Prints an error message related to the constraint that a employee can not press Break without being clocked in
+ */
 function print_error_break_in(){
 	echo '<script type="text/javascript">alert("You can not press Break without pressing first Clock in!");
 		  window.location.replace("clock_in_employee.php");
@@ -81,17 +84,14 @@ function print_error_break_in(){
 	exit();
 }
 
+/**
+ * Prints an error message related to the constraint that a employee can not press Break up to one time if he/she has not pressed Return from Break first
+ */
 function print_error_break_ret(){
 	echo '<script type="text/javascript">alert("You have already clicked the button Break!");
 		  window.location.replace("clock_in_employee.php");
 		  </script>';
 	exit();
-}
-
-function print_error_clockIn_break(){
-	echo '<script type="text/javascript">alert("You can not press Break without pressing first Clock in!");
-		  window.location.replace("clock_in_employee.php");
-		  </script>';
 }
 ?>
 

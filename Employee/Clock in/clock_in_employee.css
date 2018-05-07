@@ -1,6 +1,16 @@
 /*
-Style of clock_in_employee.html page
+Style of clock_in_employee.php page
  */
+.date{
+	text-align:center;
+	font-size:2vw;
+}
+
+.msg{
+	text-align:center;
+	font-size:2vw;
+}
+
 .align_center {
 	text-align:center;
 	font-size:1.4vw;
@@ -47,7 +57,6 @@ p{
     float: right;
     padding: 0px;
 }
-
 li {
     float: left;
 }
