@@ -1,8 +1,9 @@
 <?php
-/* This page gives the opportunity to a manager to make one of the following actions (depending
+/*
+ * This page gives the opportunity to a manager to make one of the following actions (depending
  * on what state he/she is): clock in, clock out, break, return from break. According of what action he/she does
- * the appropriate column is initialized in the database with current time and date. Also despite these actions, a manager  * can also log
- * on his/her dashboard.
+ * the appropriate column is initialized in the database with the current time and date. Also despite these actions,
+ * a manager  * can also log on his/her dashboard.
  */
 
 /**
@@ -12,12 +13,16 @@
  * @return string The current state of manager
  */
 function findState($conState){
+    // used for the current state of the manager
     $state="";
     while($row = mysqli_fetch_array($conState)){
+        // check if manager is on break
         if($row['State']=="B" || $row['State']=="b"){
             $state="BREAK";
+        // check if manager is clocked in
         }else if($row['State']=="I" || $row['State']=="i"){
             $state="CLOCKED IN";
+        // manager is clocked out
         }else {
             $state = "CLOCKED OUT";
         }
@@ -43,7 +48,7 @@ include('clockOut_manager.php');
 include('break_manager.php');
 include('returnFromBreak_manager.php');
 
-// the state of manager (clocked in,clocked out, break)
+// the state of the manager (clocked in,clocked out, break)
 $state="";
 
 // the username of the manager
@@ -55,7 +60,7 @@ $conState=mysqli_query($conn, $sqlState);
 	if (!$conState) {
         printError();
 	}else{
-        $state=findState($conState);
+        $_SESSION['prev_state']=$state=findState($conState);
 	}
 ?>
 
@@ -132,11 +137,11 @@ $conState=mysqli_query($conn, $sqlState);
     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post" id="form_id">
         <button onclick="myFunction()" name="ClockInButton" id="ClockInButton" class="clockbutton">Clock in</button>
 		</p>
-        <button onclick="myFunction1()" name="ClockOutButton" id="ClockOutButton" class="clockbutton">Clock out</button>
+        <button onclick="myFunction()" name="ClockOutButton" id="ClockOutButton" class="clockbutton">Clock out</button>
         </p>
-        <button onclick="myFunction2()" name="Break" id="Break" class="clockbutton">Break</button>
+        <button onclick="myFunction()" name="Break" id="Break" class="clockbutton">Break</button>
         </p>
-        <button onclick="myFunction3()" name="returnFromBreak" id="returnFromBreak" class="clockbutton">Return from
+        <button onclick="myFunction()" name="returnFromBreak" id="returnFromBreak" class="clockbutton">Return from
             Break
         </button>
         </p>
