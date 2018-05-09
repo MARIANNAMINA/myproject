@@ -20,7 +20,7 @@ include('delete_employee.php');
     <title>Statare LTD</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -41,29 +41,30 @@ include('delete_employee.php');
 			<!-- Statare image -->		
 			<div class="logo">
 				<a href="manager_dashboard.html">
-					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
+					<img class="image_statare" src="statare.png" alt="Statare logo" width="10%" height="10%"/>
 				</a>
 				
 				<!-- Menu -->
-				<ul>
-					<label class="nav">
-						<li><a href="manager_dashboard.html">Home</a></li>
-						<li><a href="edit_profile_manager.php" >Profile</a></li>
-						<li><a href="view_hours_manager.php">View Hours</a></li>
-						<li><a href="leave_request_manager.html" >Leave Request</a></li> 
-						<li><a href="average_per_week.html">Average Report</a></li>
-						<li><a href="payroll_report.php">Payroll Report</a></li>
-						<li class="dropdown">
-							<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
-							<div class="dropdown-content">
-								<a href="add_employee.php">Add Employee</a>
-								<a href="choose_employee.php">Edit Employee</a>
-								<a href="delete_employee_.php" style="color:orange;text-decoration: underline">Delete Employee</a>
-								<a href="employee_status_manager.php">Employee Status</a>
-								<a href="manager_view_request.php">View Requests</a>
-							</div>
-						</li>		
-						<li class="dropdown">
+				<ul class="nav" style="margin-top:4%; float:left;">
+					<li><a href="manager_dashboard.html">Home</a></li>
+					<li><a href="edit_profile_manager.php" >Profile</a></li>
+					<li><a href="view_hours_manager.php">View Hours</a></li>
+					<li><a href="leave_request_manager.html" >Leave Request</a></li> 
+					<li><a href="average_per_week.html">Average Report</a></li>
+					<li><a href="payroll_report.php">Payroll Report</a></li>
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My Employees</a>
+						<div class="dropdown-content">
+							<a href="add_employee.php">Add Employee</a>
+							<a href="choose_employee.php">Edit Employee</a>
+							<a href="delete_employee_.php" style="color:orange;text-decoration: underline">Delete Employee</a>
+							<a href="employee_status_manager.php">Employee Status</a>
+							<a href="manager_view_request.php">View Requests</a>
+						</div>
+					</li>		
+						
+				<!-- Language -->		
+				<!--	<li class="dropdown">
 							<a href="javascript:void(0)" class="dropbtn">Language</a>
 							<div class="dropdown-content">
 								<a href="#">Ελληνικά</a>
@@ -73,8 +74,8 @@ include('delete_employee.php');
 								<a href="#">Deutsch</a>
 								<a href="#">Svenska</a>
 							</div>
-						</li>
-					</label>
+						</li>		-->
+						
 				</ul>
 			</div>
 		</div>
