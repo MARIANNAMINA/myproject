@@ -39,26 +39,27 @@ include('update_profile_employee.php');
 			<!-- Statare image -->	
 			<div class="logo">
 				<a href="EmployeeDashboard.html">
-					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
+					<img class="image_statare" src="statare.png" alt="Statare logo" width="10%" height="10%"/>
 				</a>
 			
 				<!-- Menu -->
-				<ul>
-					<label class="nav">
+				<ul class="nav" style="margin-top:4%;float:left;" >
 					<li><a href="EmployeeDashboard.html">Home</a></li>
 					<li><a href="edit_profile_employee.php"  style="color:orange;text-decoration: underline">Profile</a></li>
 					<li><a href="view_hours_employee.php">View Hours</a></li>	
 					<li><a href="employee_view_request.php" >View Requests</a></li> 
 					<li><a href="leave_request_employee.php">Leave Request</a></li>
-					<li class="dropdown">
+					
+			<!-- Language -->	
+			<!--	<li class="dropdown">
 						<a href="javascript:void(0)" class="dropbtn">Language</a>
 						<div class="dropdown-content">
 							<a href="#">Ελληνικά</a>
 							<a href="#">English</a>
 							
 						</div>
-					</li>
-					</label>
+					</li>		-->
+					
 				</ul>
 			</div>
 		</div>
@@ -73,19 +74,34 @@ include('update_profile_employee.php');
 		<!-- PHP code -->
 	  	<?php 
 			include_once 'db.php'; 
+			/* Employee's Username */
 			$Username=$_SESSION['username'];
+			/* Employee's Password */
 			$Password=$_SESSION['password'];
-			
-			
+	
+	
+			/**
+			 * Prints error message related to connection with database
+			 */	
+			function print_error(){
+			echo '<script type="text/javascript">
+				  window.alert("ERROR CONNECTING WITH DATABASE");
+				  </script>';
+			}		
+
 			function get_employee_data($conn){
+				/* Employee's Username */
 				$Username=$_SESSION['username'];
+				/* Employee's Password */
 				$Password=$_SESSION['password'];
 				
 				/* get data of the selected employee to show them in the screen */
 				$sql_select = "SELECT  Username, ID, Name, Surname, Password, Birthdate, Gender, Address, Country, Phone, EmergencyPhone, Role, Salary, SalaryType, SSN, Email, AnnualLeaves, CharactersPassword FROM Employee WHERE Username LIKE '$Username' ";
 				$result_select = mysqli_query($conn, $sql_select);
 				
+				/* check if query is successful */
 				if(!$result_select){
+					/* Call function */
 					print_error();
 				}else{
 					if($row = mysqli_fetch_array($result_select)){	
@@ -112,14 +128,18 @@ include('update_profile_employee.php');
 			
 			
 			function get_employee_data_depart($conn){
+				/* Employee's Username */
 				$Username=$_SESSION['username'];
+				/* Employee's Password */
 				$Password=$_SESSION['password'];
 				
 				/* get data of the selected employee related to Department table to show them in the screen*/
 				$sql_depart = "SELECT  Username, NumDept, CountryNumber, Department.NameDept, Department.CountryNum, Department.NumberDept, CorporateHeadquarter.CountryNum, CorporateHeadquarter.Name FROM Employee, Department, CorporateHeadquarter WHERE Department.NumberDept = Employee.NumDept && Department.CountryNum = CorporateHeadquarter.CountryNum && Department.CountryNum = Employee.CountryNumber && Username LIKE '$Username' ";
 				$result_depart = mysqli_query($conn, $sql_depart);
 				
+				/* check if query is successful */
 				if(!$result_depart){
+					/* Call function */
 					print_error();
 				}else{
 					if($row1 = mysqli_fetch_array($result_depart)){	
@@ -132,16 +152,12 @@ include('update_profile_employee.php');
 			}
 			
 			
+			/* Call function */
 			$result1 = get_employee_data($conn);
 		
+			/* Call function */
 			$result2 = get_employee_data_depart($conn);
 
-
-			function print_error(){
-			echo '<script type="text/javascript">
-				  window.alert("ERROR CONNECTING WITH DATABASE");
-				  </script>';
-			}
 
 		?>	  
 	  

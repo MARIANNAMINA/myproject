@@ -125,14 +125,28 @@ include 'db.php';
 			$Gender = mysqli_real_escape_string($conn, $_POST['G3']);
 		}
 		
-	
-		/* checks if there are errors in given Password, Phone and Emergency phone number, Country and Address */
-		if(empty($password_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error)){
-			/* Manager's Username */
-			$Username=$_SESSION['username'];
-			/* update data of the selected manager */	
+		/**
+		 * Prints successful message related to data updated correctly in the database
+		 */
+		function print_success(){
+		 echo '<script type="text/javascript">
+			   window.alert("Updated correctly"); 
+			   window.location.replace("EmployeeDashboard.html");
+			   </script>';
+		}
+
+		/**
+		 * Prints error message related to connection with database
+		 */	
+		function print_error(){
+		echo '<script type="text/javascript">
+			  window.alert("ERROR CONNECTING WITH DATABASE");
+			  </script>';
+		}
+		
+		function update_Employee($conn, $Username, $Hashed, $Phone, $EmergencyPhone, $Country, $Address, $Gender, $Password_len){
+			/* update data of the selected employee */	
 			$sqlUpdate = "UPDATE Employee SET Password= ?,Phone = ?,EmergencyPhone = ?,Country = ?,Address = ?,Gender = ?,CharactersPassword = ? WHERE Username LIKE '$Username'";
-			
 			
 			/* Create a prepared statement */
 			$stmt = mysqli_stmt_init($conn);
@@ -149,28 +163,18 @@ include 'db.php';
 				/* Call function */
 				print_success();
 			}
+		}
+	
+		/* checks if there are errors in given Password, Phone and Emergency phone number, Country and Address */
+		if(empty($password_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error)){
+			/* Employee's Username */
+			$Username=$_SESSION['username'];
 			
+			/* Call function */
+			update_Employee($conn, $Username, $Hashed, $Phone, $EmergencyPhone, $Country, $Address, $Gender, $Password_len);
 		}	
 	}
 	
-	/**
-	 * Prints successful message related to data updated correctly in the database
-	 */
-	function print_success(){
-	 echo '<script type="text/javascript">
-		   window.alert("Updated correctly"); 
-		   window.location.replace("EmployeeDashboard.html");
-		   </script>';
-	}
-
-	/**
-	 * Prints error message related to connection with database
-	 */	
-	function print_error(){
-	echo '<script type="text/javascript">
-		  window.alert("ERROR CONNECTING WITH DATABASE");
-		  </script>';
-	}
 	?>
 
 
