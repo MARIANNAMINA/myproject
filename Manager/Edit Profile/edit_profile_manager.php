@@ -40,29 +40,30 @@ include('update_profile_manager.php');
 			<!-- Statare image -->		
 			<div class="logo">
 				<a href="manager_dashboard.html">
-					<img src="statare.png" alt="Statare logo" width="50%" height="50%">
+					<img class="image_statare" src="statare.png" alt="Statare logo" width="10%" height="10%"/>
 				</a>
 				
 				<!-- Menu -->
-				<ul>
-					<label class="nav">
-						<li><a href="manager_dashboard.html">Home</a></li>
-						<li><a href="edit_profile_manager.php" style="color:orange;text-decoration: underline">Profile</a></li>
-						<li><a href="view_hours_manager.php" >View Hours</a></li>
-						<li><a href="leave_request_manager.php" >Leave Request</a></li>
-						<li><a href="average_per_week.php">Average Report</a></li>
-						<li><a href="payroll_report.php">Payroll Report</a></li>
-						<li class="dropdown">
-							<a href="javascript:void(0)" class="dropbtn">My Employees</a>
-							<div class="dropdown-content">
-								<a href="add_employee.php">Add Employee</a>
-								<a href="choose_employee.php">Edit Employee</a>
-								<a href="delete_employee_.php">Delete Employee</a>
-								<a href="employee_status_manager.php">Employee Status</a>
-								<a href="leaveRequest.html">View Requests</a>
-							</div>
-						</li>		
-						<li class="dropdown">
+				<ul class="nav" style="margin-top:4%;float:left;" >
+					<li><a href="manager_dashboard.html">Home</a></li>
+					<li><a href="edit_profile_manager.php" style="color:orange;text-decoration: underline">Profile</a></li>
+					<li><a href="view_hours_manager.php" >View Hours</a></li>
+					<li><a href="leave_request_manager.php" >Leave Request</a></li>
+					<li><a href="average_per_week.php">Average Report</a></li>
+					<li><a href="payroll_report.php">Payroll Report</a></li>
+					<li class="dropdown">
+						<a href="javascript:void(0)" class="dropbtn">My Employees</a>
+						<div class="dropdown-content">
+							<a href="add_employee.php">Add Employee</a>
+							<a href="choose_employee.php">Edit Employee</a>
+							<a href="delete_employee_.php">Delete Employee</a>
+							<a href="employee_status_manager.php">Employee Status</a>
+							<a href="leaveRequest.html">View Requests</a>
+						</div>
+					</li>		
+				
+				<!-- Language -->
+				<!--	<li class="dropdown">
 							<a href="javascript:void(0)" class="dropbtn">Language</a>
 							<div class="dropdown-content">
 								<a href="#">Ελληνικά</a>
@@ -72,8 +73,8 @@ include('update_profile_manager.php');
 								<a href="#">Deutsch</a>
 								<a href="#">Svenska</a>
 							</div>
-						</li>
-					</label>
+						</li>		-->
+
 				</ul>
 			</div>
 		</div>
@@ -88,19 +89,42 @@ include('update_profile_manager.php');
 		<!-- PHP code -->
 	  	<?php 	
 			include_once 'db.php'; 
+			/* Manager's Username */
 			$Username=$_SESSION['username'];
+			/* Manager's Password */
 			$Password=$_SESSION['password'];
 			
 			
-			function get_employee_data($conn){
+			/**
+			 * Prints error message related to connection with database
+			 */	
+			function print_error(){
+			echo '<script type="text/javascript">
+				  window.alert("ERROR CONNECTING WITH DATABASE");
+				  </script>';
+			}	
+			
+			/**
+			 * Returns an array with manager's data (Username, ID, Name, Surname, Password, 
+			 * Birthdate, Gender, Address, Country, Phone, EmergencyPhone, Role, Salary,
+			 * SalaryType, SSN, Email, AnnualLeaves) to show them in screen.
+			 *
+			 * @Param $conn Connection with database
+			 */	
+			function get_manager_data($conn){
+				/* Manager's Username */
 				$Username=$_SESSION['username'];
+				/* Manager's Password */
 				$Password=$_SESSION['password'];
 				
-				/* get data of the selected employee to show them in the screen */
+				/* get data of the selected manager to show them in the screen */
 				$sql_select = "SELECT  Username, ID, Name, Surname, Password, Birthdate, Gender, Address, Country, Phone, EmergencyPhone, Role, Salary, SalaryType, SSN, Email, AnnualLeaves, CharactersPassword FROM Employee WHERE Username LIKE '$Username' ";
+				/* perform a query on the database */
 				$result_select = mysqli_query($conn, $sql_select);
 				
+				/* check if query is successful */
 				if(!$result_select){
+					/* Call function */
 					print_error();
 				}else{
 					if($row = mysqli_fetch_array($result_select)){	
@@ -124,17 +148,27 @@ include('update_profile_manager.php');
 					}
 				}
 			}
-			
-			
-			function get_employee_data_depart($conn){
+		
+		
+			/**
+			 * Returns an array with manager's data related to Department table 
+			 * (Department Name and Working Country) to show them in screen.
+			 *
+			 * @Param $conn Connection with database
+			 */			
+			function get_manager_data_depart($conn){
+				/* Manager's Username */
 				$Username=$_SESSION['username'];
+				/* Manager's Password */
 				$Password=$_SESSION['password'];
 				
-				/* get data of the selected employee related to Department table to show them in the screen*/
+				/* get data of the selected manager related to Department table to show them in the screen*/
 				$sql_depart = "SELECT  Username, NumDept, CountryNumber, Department.NameDept, Department.CountryNum, Department.NumberDept, CorporateHeadquarter.CountryNum, CorporateHeadquarter.Name FROM Employee, Department, CorporateHeadquarter WHERE Department.NumberDept = Employee.NumDept && Department.CountryNum = CorporateHeadquarter.CountryNum && Department.CountryNum = Employee.CountryNumber && Username LIKE '$Username' ";
 				$result_depart = mysqli_query($conn, $sql_depart);
 				
+				/* check if query is successful */
 				if(!$result_depart){
+					/* Call function */
 					print_error();
 				}else{
 					if($row1 = mysqli_fetch_array($result_depart)){	
@@ -147,18 +181,13 @@ include('update_profile_manager.php');
 			}
 			
 			
-			$result1 = get_employee_data($conn);
+			/* Call function */
+			$result1 = get_manager_data($conn);
 		
-			$result2 = get_employee_data_depart($conn);
+			/* Call function */
+			$result2 = get_manager_data_depart($conn);
 
-
-			function print_error(){
-			echo '<script type="text/javascript">
-				  window.alert("ERROR CONNECTING WITH DATABASE");
-				  </script>';
-			}	
-		
-		
+			
 		?>
 		
 	<!-- Start of container -->	

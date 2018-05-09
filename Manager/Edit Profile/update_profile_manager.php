@@ -125,6 +125,25 @@ include 'db.php';
 			$Gender = mysqli_real_escape_string($conn, $_POST['G3']);
 		}
 		
+		/**
+		 * Prints successful message related to data updated correctly in the database
+		 */
+		function print_success(){
+		 echo '<script type="text/javascript">
+			   window.alert("Updated correctly"); 
+			   window.location.replace("manager_dashboard.html");
+			   </script>';
+		}
+
+		/**
+		 * Prints error message related to connection with database
+		 */	
+		function print_error(){
+		echo '<script type="text/javascript">
+			  window.alert("ERROR CONNECTING WITH DATABASE");
+			  </script>';
+		}
+	
 	
 		/* checks if there are errors in given Password, Phone and Emergency phone number and Country*/
 		if(empty($password_error) && empty($phone_error) && empty($emergency_phone_error) && empty($country_error)){
@@ -140,7 +159,6 @@ include 'db.php';
 			if(!mysqli_stmt_prepare($stmt, $sqlUpdate)){
 				/* Call function */
 				print_error();
-				
 			}else{
 				/* Bind parameters */
 				mysqli_stmt_bind_param($stmt, "siisssi", $Hashed, $Phone, $EmergencyPhone, $Country, $Address, $Gender, $Password_len);
@@ -151,25 +169,6 @@ include 'db.php';
 			}
 			
 		}	
-	}
-	
-	/**
-	 * Prints successful message related to data updated correctly in the database
-	 */
-	function print_success(){
-	 echo '<script type="text/javascript">
-		   window.alert("Updated correctly"); 
-		   window.location.replace("manager_dashboard.html");
-		   </script>';
-	}
-
-	/**
-	 * Prints error message related to connection with database
-	 */	
-	function print_error(){
-	echo '<script type="text/javascript">
-		  window.alert("ERROR CONNECTING WITH DATABASE");
-		  </script>';
 	}
 
 	?>
