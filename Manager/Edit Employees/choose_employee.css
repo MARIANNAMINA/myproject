@@ -1,6 +1,34 @@
 /*
 Style of choose_employee.php page
  */
+ .image_statare {
+	display:inline-block;
+	margin-top:1%;
+	margin-left:1%;
+	float:left;
+}
+
+.header {
+    background-color: #31333F;
+    color: white;
+}
+
+.nav {
+    font-weight: bold;
+	font-size:1.4vw;
+	background-color: #31333F;
+    color: white;
+	display:inline-block;
+}
+
+.logo {
+	font-weight: bold;
+	font-size:1.4vw;
+	background-color: #31333F;
+	display: inline-block;
+    color: white;
+}
+
  .title_class{
 	text-align:center;
 	font-size:3vw;
@@ -139,27 +167,6 @@ select{
     display: inline-block;
     font-size: 1.4vw;
     font-weight: bold;
-}
-
-.nav {
-    position: absolute;
-    top: 9%;
-    left: 8%;
-    font-weight: bold;
-	font-size:1.4vw;
-}
-
-.header {
-    background-color: #31333F;
-    color: white;
-    margin-bottom: 1.1%;
-}
-
-.logo {
-    margin-top: 1.6%;
-    margin-bottom: 0.1%;
-    margin-left: 1.3%;
-    display: inline-block;
 }
 
 li {

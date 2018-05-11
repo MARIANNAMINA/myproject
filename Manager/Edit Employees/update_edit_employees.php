@@ -121,35 +121,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
 				$OldDeptNum=$_SESSION['old_DeptNum'];
 				$OldCountryNum=$_SESSION['old_CountryNum'];
-				// check if the department that employee belongs to changed
-				if ($DeptNum != $OldDeptNum || $OldCountryNum != $WorkC){
-				// decrease number of employees of the department that employee was because manager changed employee's department
-				$decreaseEmployees = "UPDATE Department SET NumEmployees=(NumEmployees-1) WHERE NumberDept={$OldDeptNum} AND CountryNum={$OldCountryNum}";
-				// increase number of employees of the department that employee will belong to, because manager changed employee's department
-				$increaseEmployees = "UPDATE Department SET NumEmployees=(NumEmployees+1) WHERE NumberDept={$DeptNum} AND CountryNum={$WorkC}";
-					if (!mysqli_query($conn, $increaseEmployees) || !mysqli_query($conn, $decreaseEmployees)) {
-                        print_error();
-					}
-				}
+				updateNumEmployees($conn,$OldDeptNum,$OldCountryNum,$DeptNum,$WorkC);
             }
         }
 		
 		// check if the above checks were successfully, if so update data of the given employee
         if ($flag) {
-            // the username of the selected employee
-            $emplUsername = $_SESSION['edit_Empl_Username'];
-			// update data of the given employee
-            $sqlUpdate = "UPDATE Employee SET AnnualLeaves=?,CountryNumber=?,NumDept=?,Role=?,Salary=?,SalaryType=? WHERE Username LIKE '$emplUsername'";
-            $stmt = mysqli_stmt_init($conn);
-			if(!mysqli_stmt_prepare($stmt, $sqlUpdate)){
-                print_error();
-			}else{
-			    // used to prevent SQL injection (prepared statement)
-				mysqli_stmt_bind_param($stmt, "isssis", $Leaves, $WorkC, $DeptNum, $Role, $Salary, $SalaryType);
-				mysqli_stmt_execute($stmt);
-				print_success();
-			}
-
+			// the username of the selected employee
+			$emplUsername = $_SESSION['edit_Empl_Username'];
+			updateEmployee($conn,$emplUsername,$Leaves, $WorkC, $DeptNum, $Role, $Salary, $SalaryType);
         }
 
     }
@@ -181,6 +161,54 @@ function print_success(){
 		  alert("DATA UPDATED SUCCESSFULLY");
 		  window.location.replace("manager_dashboard.html");
 		  </script>';
+}
+
+
+/**
+ * Updates the number of employees in the given department and country
+ * @param $conn The connection with the database
+ * @param $OldDeptNum The number of department in which employee belonged to
+ * @param $OldCountryNum The number of the country in which employee was working to
+ * @param $DeptNum The new number of department in which employee belongs to
+ * @param $WorkC The new number of the country in which employee works to
+ */
+function updateNumEmployees($conn,$OldDeptNum,$OldCountryNum,$DeptNum,$WorkC){
+	// check if the department that employee belongs to changed
+	if ($DeptNum != $OldDeptNum || $OldCountryNum != $WorkC){
+		// decrease number of employees of the department that employee was because manager changed employee's department
+		$decreaseEmployees = "UPDATE Department SET NumEmployees=(NumEmployees-1) WHERE NumberDept={$OldDeptNum} AND CountryNum={$OldCountryNum}";
+		// increase number of employees of the department that employee will belong to, because manager changed employee's department
+		$increaseEmployees = "UPDATE Department SET NumEmployees=(NumEmployees+1) WHERE NumberDept={$DeptNum} AND CountryNum={$WorkC}";
+		if (!mysqli_query($conn, $increaseEmployees) || !mysqli_query($conn, $decreaseEmployees)) {
+			print_error();
+		}
+	}
+}
+
+/**
+ * Gets the data of an employee that manager can change and update the given data in the database
+ * @param $conn The connection with the database
+ * @param $emplUsername The username of employee
+ * @param $Leaves The number of annual leaves that employee can do
+ * @param $WorkC The number of the country in which employee works to
+ * @param $DeptNum The number of department in which employee belongs to
+ * @param $Role The role of employee in the company (e.g. IT,Programmer,etc)
+ * @param $Salary The salary of employee
+ * @param $SalaryType Type of employee's salary according how many and how often employee works (e.g. Fixed, Fixed with Overtime, Part Time)
+ */
+function updateEmployee($conn,$emplUsername,$Leaves, $WorkC, $DeptNum, $Role, $Salary, $SalaryType){
+	// update data of the given employee
+    $sqlUpdate = "UPDATE Employee SET AnnualLeaves=?,CountryNumber=?,NumDept=?,Role=?,Salary=?,SalaryType=? WHERE Username LIKE '$emplUsername'";
+    $stmt = mysqli_stmt_init($conn);
+	if(!mysqli_stmt_prepare($stmt, $sqlUpdate)){
+        print_error();
+	}else{
+		// used to prevent SQL injection (prepared statement)
+		mysqli_stmt_bind_param($stmt, "isssis", $Leaves, $WorkC, $DeptNum, $Role, $Salary, $SalaryType);
+		mysqli_stmt_execute($stmt);
+		print_success();
+	}
+	
 }
 ?>
 

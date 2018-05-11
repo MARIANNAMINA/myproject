@@ -29,48 +29,47 @@ include('choose_employee_function.php');
 
 <div class="header">
 
+    <form action="logout_manager.php" method="post" id="logout_button">	 	
+		<button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	</form>
 
-    <form action="logout_manager.php" method="post" id="form_id4">
-        <button onclick="myFunction4()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-    </form>
-
-
+	 
     <div class="logo">
         <a href="manager_dashboard.html">
-             <img src="statare.png" alt="Statare logo" width="50%" height="50%">
+            <img class="image_statare" src="statare.png" alt="Statare logo" width="10%" height="10%"/>
         </a>
-        <ul>
-            <div class="nav">
+			<ul class="nav" style="margin-top:4%;float:left;">
                 <li><a href="manager_dashboard.html">Home</a></li>
                 <li><a href="edit_profile_manager.php">Profile</a></li>
                 <li><a href="view_hours_manager.php">View Hours</a></li>
                 <li><a href="leave_request_manager.php">Leave Request</a></li>
                 <li><a href="average_per_week.php">Average Report</a></li>
                 <li><a href="payroll_report.php">Payroll Report</a></li>
-                <li class="dropdown">
+				<li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My
                         Employees</a>
                     <div class="dropdown-content">
-                        <a href="add_employee.php">Add Employee</a>
-                        <a href="choose_employee.php" style="color:orange;text-decoration: underline">Edit Employee</a>
+                        <a href="add_employee.php" style="color:orange;text-decoration: underline">Add Employee</a>
+                        <a href="choose_employee.php">Edit Employee</a>
                         <a href="delete_employee_.php">Delete Employee</a>
                         <a href="employee_status_manager.php">Employee Status</a>
                         <a href="leaveRequest.html">View Requests</a>
-
                     </div>
                 </li>
-                <li class="dropdown">
+			</ul>
+	</div>
+</div>
+                <!--<li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Language</a>
                     <div class="dropdown-content">
                         <a href="#">Ελληνικά</a>
                         <a href="#">English</a>
+                        <a href="#">Norsk</a>
+                        <a href="#">Polski</a>
+                        <a href="#">Deutsch</a>
+                        <a href="#">Svenska</a>
                     </div>
-                </li>
-            </div>
-        </ul>
-
-    </div>
-</div>
+                </li>-->
 
 <p class="title_class"><b>Edit Employee</b></p>
 <br>
@@ -176,8 +175,8 @@ submit form otherwise go to manager_dashboard.html page
         });
     });
 
-    function myFunction4() {
-        document.getElementById("form_id4").submit();
+    function logout_function() {
+        document.getElementById("logout_button").submit();
     }
 </script>
 </body>
