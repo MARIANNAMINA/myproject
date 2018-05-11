@@ -94,7 +94,7 @@ $conState=mysqli_query($conn, $sqlState);
             <img class="image_statare" src="statare.png" alt="Statare logo" width="34.65%" height="34.65%"/>
         </a>
 			<ul class="nav" style="margin-top:15%;float:left;">
-                <li><a href="contact_manager.php">Contact Us</a></li>
+                <li><a href="contact_employee.php">Contact Us</a></li>
 			</ul>
 	</div>
 </div>
