@@ -1,15 +1,14 @@
 <?php
 /*
- * Employee Status screen gives the opportunity to managers to see the state of their employees.
- * State of an employee can be either on leave, clocked in, clocked out or on break.
- * Manager can also see how much time each of his/her employees were on break from the last time that were clocked in
- * and the time that they pressed the button Clock in.
+ * Employee Status screen gives the opportunity to managers to see the status of their employees.
+ * Status of an employee can be either on leave, clocked in, clocked out or on break.
+ * Manager can also see how much time each of his/her employees were on break from the last time that were clocked in.
  */
 session_start();
 
 /**
  * Print employees who are on leave
- * @param $leave DB's row for the current employee
+ * @param $leaveSql DB's row for the current employee
  */
 function onLeave($leave) {
 	foreach ($leave as $key => $rowLeave) {
@@ -69,46 +68,32 @@ function onBreak($row){
     echo "</tr>";
 }
 
-/**
- * Print employees who are clocked out, at the case that they did not pressed Clock in button for the current date
- * @param $conClockedOut Manager's employees
- * @param $in DB's row for employees that have pressed any of the buttons Clock in, Clock out, Break, Return from Break for the current date or they have already been clocked in or on break from a previous date
- * @param $leave DB's row for employees that are on leave
- */
 function findClockOut($conClockedOut,$in,$leave){
 	while ($rowEmpl = mysqli_fetch_array($conClockedOut)) {
-		// used to check if an employee is on leave
-	    $flag1=false;
-	    // used to check if an employee has already pressed a button for the current date or has already been clocked in or on break from a previous date
+		$flag1=false;
 		$flag2=false;
-
-		// check if an employee is on leave
 		foreach ($leave as $key => $rowLeave) {
 			if(strcmp($rowLeave['Username'],$rowEmpl['Username'])==0){
 				$flag1=true;
 				break;
 			}
 		}
-
-		// check if an employee is on leave continue with the next one
+		
 		if($flag1){
 			continue;
 		}
-
-		// check if an employee has already been on any state for the current date
+		
 		foreach ($in as $key => $rowState) {
 			if(strcmp($rowState['Username'],$rowEmpl['Username'])==0){
 				$flag2=true;
 				break;
 			}
 		}
-
-		// check if an employee has already been on any state for the current date continue with the next one
+		
 		if($flag2){
 			continue;
 		}
-
-		// used in case an employee has not been on any state (has not clicked any of the buttons) on the current date and he/she has not already been in any state(clocked in or on break)
+		
 		clockedOut($rowEmpl);
 		
 	}
@@ -128,24 +113,23 @@ function printError(){
 /**
  * Print employees' username,surname,name of the current manager
  * (who is logged in) that are either clocked in,clocked out or on break
- * @param $in DB's row for the current employee
+ * @param $conClockedIn DB's row for the current employee
  */
 function findState($in){
-
-    // find the state of an employee
+	
     foreach ($in as $key => $row) {
 		
 		if(is_null($row['BreakLength'])){
 			$row['BreakLength']="-";
 	    }
 		
-		// check if employee is clocked in
+		// check if ClockOut,Break,ReturnBreak columns have their default value, if yes employee is clocked in 
 		if ($row['State']=="I" || $row['State']=="i" ) {
 			clockedIn($row);
-		// check if employee is clocked out
+		// check if Break and ReturnBreak columns have their default value and ClockOut column don't has its default value, employee is clocked out 
 		}else if ($row['State']=="o" || $row['State']=="O" ) {
 			clockedOut($row);
-		// check if employee is on break
+		// check if ClockOut and ReturnBreak columns have their default value and Break column don't has its default value, employee is on break
 		}else if ($row['State']=="B" || $row['State']=="b" ) {
 			onBreak($row);
 		} else {
@@ -188,9 +172,9 @@ function findState($in){
                 <li><a href="manager_dashboard.html">Home</a></li>
                 <li><a href="edit_profile_manager.php">Profile</a></li>
                 <li><a href="view_hours_manager.php">View Hours</a></li>
-                <li><a href="leave_request_manager.php">Leave Request</a></li>
-                <li><a href="average_per_week.php">Average Report</a></li>
-                <li><a href="payroll_report.php">Payroll Report</a></li>
+                <li><a href="Leave_Request_Manager.html">Leave Request</a></li>
+                <li><a href="Average_per_Week.html">Average Report</a></li>
+                <li><a href="payroll_report.html">Payroll Report</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" style="color:orange;text-decoration: underline">My
                         Employees</a>
@@ -200,7 +184,7 @@ function findState($in){
                         <a href="delete_employee_.php">Delete Employee</a>
                         <a href="employee_status_manager.php" style="color:orange;text-decoration: underline">Employee
                             Status</a>
-                        <a href="leaveRequest.html">View Requests</a>
+                        <a href="manager_view_request.php">View Requests</a>
                     </div>
                 </li>
                 <li class="dropdown">
@@ -208,6 +192,10 @@ function findState($in){
                     <div class="dropdown-content">
                         <a href="#">Ελληνικά</a>
                         <a href="#">English</a>
+                        <a href="#">Norsk</a>
+                        <a href="#">Polski</a>
+                        <a href="#">Deutsch</a>
+                        <a href="#">Svenska</a>
                     </div>
                 </li>
             </label>
@@ -239,8 +227,7 @@ function findState($in){
 				$clockOut="00:00:00";
                 // select employees of the current manager(who is logged in) that are either clocked in,clocked out or on break by selecting the last time they clicked to the corresponding button
                 $sqlClockedIn = "SELECT AttendanceTime.*,Employee.Username,Employee.State,Employee.Name,Employee.Surname,Employee.ID FROM (SELECT MAX(AttendanceTime.ClockIn) AS ClockIn,AttendanceTime.Date,AttendanceTime.Username FROM AttendanceTime WHERE AttendanceTime.Date = curdate() GROUP BY AttendanceTime.Date,AttendanceTime.Username) AS A INNER JOIN AttendanceTime ON (A.Date=AttendanceTime.Date AND A.ClockIn=AttendanceTime.ClockIn AND A.Username=AttendanceTime.Username) LEFT JOIN Employee ON Employee.Username=A.Username WHERE Employee.UsernameManager LIKE '$Username' UNION SELECT AttendanceTime.*,Employee.Username,Employee.State,Employee.Name,Employee.Surname,Employee.ID FROM (SELECT AttendanceTime.ClockOut,AttendanceTime.ClockIn,AttendanceTime.Date,AttendanceTime.Username FROM AttendanceTime WHERE AttendanceTime.ClockOut = '$clockOut' AND AttendanceTime.Date != curdate()) AS A1 INNER JOIN AttendanceTime ON (A1.Date=AttendanceTime.Date AND A1.ClockOut=AttendanceTime.ClockOut AND A1.Username=AttendanceTime.Username) LEFT JOIN Employee ON Employee.Username=A1.Username WHERE Employee.UsernameManager LIKE '$Username'";
-
-                // select employee's of the manager
+				
 				$sql_empl="SELECT Employee.Username,Employee.State,Employee.Name,Employee.Surname FROM Employee WHERE Employee.UsernameManager LIKE '$Username'";
 				
                 $conClockedIn = mysqli_query($conn, $sqlClockedIn);
@@ -259,11 +246,8 @@ function findState($in){
                     <th>Break Length</th>
                 </tr>
                 <?php
-                // used to save employees who are on leave in a table
 				$leave = array();
-				// used to save employees who pressed a button (Clocked in, Clocked out, Break, Return from Break) on the current date or they were already clocked in or on break from a previous date
 				$in = array();
-
 				while ($rowLeave = mysqli_fetch_array($leaveSql)) {
 					$leave[]=$rowLeave;
 				}
