@@ -30,39 +30,12 @@ if (isset($_POST['ClockInButton'])) {
     } else {	
         while ($row = mysqli_fetch_array($sql)) {
             $flag = false;
-			// insert into DB the current time and date that manager clicked the button Clock in
-            $query = "INSERT INTO AttendanceTime (Username,Date,ClockIn) VALUES ('$Username',NOW(),NOW())";
-            // check if query has a problem
-			if (!mysqli_query($conn, $query)) {
-                print_error();
-            } else {
-                $c_state="I";
-				// change the state of employee
-				$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'"; 
-				// check if query has a problem
-				if (!mysqli_query($conn, $update_state)) {
-					print_error();
-				}
-            }
-            
+			insert_clockin($conn,$Username,$c_state);
         }
 
         // if $flag is true that means that manager attempts to click the button Clock in for the first time at the current date
         if ($flag) {
-            // insert into DB the current time and date that manager clicked the button Clock in
-            $query = "INSERT INTO AttendanceTime (Username,Date,ClockIn) VALUES ('$Username',NOW(),NOW())";
-            // check if query has a problem
-			if (!mysqli_query($conn, $query)) {
-               print_error();
-            }else{
-				$c_state="I";
-				// change the state of employee
-				$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'"; 
-				// check if query has a problem
-				if (!mysqli_query($conn, $update_state)) {
-					print_error();
-				}
-			}			
+           insert_clockin($conn,$Username,$c_state);
         }
     }
 }
@@ -98,6 +71,29 @@ function print_error_clockIn_retBreak(){
 		  window.location.replace("clock_in_manager.php");
 		  </script>';
     exit();
+}
+
+/**
+ * Update the state of the manager to clock in
+ * @param $conn The connection with the database
+ * @param $Username The username of the manager
+ * @param $c_state The new state of the manager, which is clocked in
+ */
+function insert_clockin($conn,$Username,$c_state){
+	// insert into DB the current time and date that manager clicked the button Clock in
+    $query = "INSERT INTO AttendanceTime (Username,Date,ClockIn) VALUES ('$Username',NOW(),NOW())";
+    // check if query has a problem
+	if (!mysqli_query($conn, $query)) {
+        print_error();
+    }else{
+		$c_state="I";
+		// change the state of employee
+		$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'"; 
+		// check if query has a problem
+		if (!mysqli_query($conn, $update_state)) {
+			print_error();
+		}
+	}			
 }
 ?>
 

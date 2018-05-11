@@ -65,37 +65,9 @@ if (isset($_POST['returnFromBreak'])) {
                 } else {
 				   $conBreakLen=mysqli_query($conn, $query);
 				   $row_break_len = mysqli_fetch_array($conBreakLen);
-				   
-				   //calculate in seconds the time in which employee press the button return from break
-				   $endTime = ($row_break_len['ReturnBreak']{0} . $row_break_len['ReturnBreak']{1})*60*60 + ($row_break_len['ReturnBreak']{3} . $row_break_len['ReturnBreak']{4})*60 + ($row_break_len['ReturnBreak']{6} . $row_break_len['ReturnBreak']{7})*1;
-				   //calculate in seconds the time in which employee press the button break
-				   $startTime = ($row_break_len['Break']{0} . $row_break_len['Break']{1})*60*60 + ($row_break_len['Break']{3} . $row_break_len['Break']{4})*60 + ($row_break_len['Break']{6} . $row_break_len['Break']{7})*1;
-				   //break length in seconds
-				   $newTime = $endTime-$startTime;
-				   //break length in minutes
-				   $break = (int)($newTime/60);
-				   
-                   if(!$flag2){
-						// update the time that manager clicked the button Return from break with the current one
-						$queryBreak = "UPDATE  AttendanceTime SET BreakLength = '$break' WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
-					}else{
-						// update the time that manager clicked the button Clock out with the current one
-						$queryBreak = "UPDATE  AttendanceTime SET BreakLength = '$break' WHERE ClockOut='$clockOut'";
-					}
-					// check if query has a problem
-					if (!mysqli_query($conn, $queryBreak)) {
-						 print_error();
-					}
-				   
-				   $c_state="I";
-				   
-				   // change the state of employee
-				   $update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
-				   
-				   // check if query has a problem
-				   if (!mysqli_query($conn, $update_state)) {
-						 print_error();
-					}
+				   $break=calculate_break_length($row_break_len);
+				   insert_breakLength($conn,$break,$flag2,$Username,$clockOut);
+				   update_retFromBreak($conn,$flag2,$break,$Username,$clockOut);
                 }
             }
         }
@@ -135,6 +107,65 @@ function print_error_ret_break(){
 		  window.location.replace("clock_in_manager.php");	
 		  </script>';
 	exit();
+}
+
+/**
+ * Calculates the last break length of the manager
+ * @param $row_break_len Contains the time that manager clicks the button Return from Break and the time that manager pressed the button Break
+ * @return int Returns how much time manager was in break
+ */
+function calculate_break_length($row_break_len){
+	//calculate in seconds the time in which employee press the button return from break
+	$endTime = ($row_break_len['ReturnBreak']{0} . $row_break_len['ReturnBreak']{1})*60*60 + ($row_break_len['ReturnBreak']{3} . $row_break_len['ReturnBreak']{4})*60 + ($row_break_len['ReturnBreak']{6} . $row_break_len['ReturnBreak']{7})*1;
+	//calculate in seconds the time in which employee press the button break
+	$startTime = ($row_break_len['Break']{0} . $row_break_len['Break']{1})*60*60 + ($row_break_len['Break']{3} . $row_break_len['Break']{4})*60 + ($row_break_len['Break']{6} . $row_break_len['Break']{7})*1;
+	//break length in seconds
+	$newTime = $endTime-$startTime;
+	//break length in minutes
+	$break = (int)($newTime/60);
+	return $break;
+}
+
+/**
+ * Insert in the database how much time manager was on break for the last time that he/she did a break
+ * @param $conn The connection with the database
+ * @param $break The length of the break
+ * @param $flag2 Used to check if manager is clocked in from a previous date or not
+ * @param $Username The username of the manager
+ * @param $clockOut The default value of column ClockOut in the database
+ */
+function insert_breakLength($conn,$break,$flag2,$Username,$clockOut){
+	if(!$flag2){
+		// update the time that manager clicked the button Return from break with the current one
+		$queryBreak = "UPDATE  AttendanceTime SET BreakLength = '$break' WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
+	}else{
+		// update the time that manager clicked the button Clock out with the current one
+		$queryBreak = "UPDATE  AttendanceTime SET BreakLength = '$break' WHERE ClockOut='$clockOut'";
+	}
+	
+	// check if query has a problem
+	if (!mysqli_query($conn, $queryBreak)) {
+		print_error();
+	}
+}
+
+/**
+ * @param $conn The connection of the database
+ * @param $flag2 Used to check if manager is clocked in from a previous date or not
+ * @param $break The length of the break
+ * @param $Username The username of the manager
+ * @param $clockOut The default value of column ClockOut in the database
+ */
+function update_retFromBreak($conn,$flag2,$break,$Username,$clockOut){				   
+	$c_state="I";
+				   
+	// change the state of employee
+	$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
+				   
+	// check if query has a problem
+	if (!mysqli_query($conn, $update_state)) {
+		print_error();
+	}	
 }
 ?>
 

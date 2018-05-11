@@ -45,26 +45,7 @@ if (isset($_POST['ClockOutButton'])) {
             }elseif($row['Break']>$row['ReturnBreak']){
 				print_error_clockOut_retBreak();
             } else {
-				if(!$flag2){
-					// update the time that manager clicked the button Clock out with the current one
-					$query = "UPDATE  AttendanceTime SET ClockOut = NOW() WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
-				}else{
-					// update the time that manager clicked the button Clock out with the current one
-					$query = "UPDATE  AttendanceTime SET ClockOut = NOW() WHERE ClockOut='$clockOut'";
-				}
-				
-				// check if query has a problem
-                if (!mysqli_query($conn, $query)) {
-                    print_error();
-                } else {
-                   $c_state="O";
-				   // change the state of employee
-				   $update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
-				   // check if query has a problem
-				   if (!mysqli_query($conn, $update_state)) {
-						print_error();
-					}
-                }
+				update_clockOut($conn,$flag2,$Username,$clockOut);
             }
         }
 		// check if $flag is true, manager attempts to click the button Clock out without pressing first the button Clock in for the current date
@@ -92,6 +73,45 @@ function print_error_clockOut_clockIn(){
 		   window.location.replace("clock_in_manager.php");
 		   </script>';
 	 exit();
+}
+
+/**
+ * Update the state of the manager to clock out
+ * @param $conn The connection with the database
+ * @param $c_state The new state of the manager, which is clock out
+ * @param $Username The username of the manager
+ */
+function update_clockOutState($conn,$c_state,$Username){
+	// change the state of employee
+	$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
+	// check if query has a problem
+	if (!mysqli_query($conn, $update_state)) {
+		print_error();
+	}
+}
+
+/**
+ * Update the time manager presses the button Clock Out
+ * @param $conn The connection with the database
+ * @param $flag2 Used to check if manager is clocked in from a previous date
+ * @param $Username The username of the manager
+ * @param $clockOut The default value of column ClockOut in the database
+ */
+function update_clockOut($conn,$flag2,$Username,$clockOut){
+	if(!$flag2){
+		// update the time that manager clicked the button Clock out with the current one
+		$query = "UPDATE  AttendanceTime SET ClockOut = NOW() WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
+	}else{
+		// update the time that manager clicked the button Clock out with the current one
+		$query = "UPDATE  AttendanceTime SET ClockOut = NOW() WHERE ClockOut='$clockOut'";
+	}
+	// check if query has a problem
+    if (!mysqli_query($conn, $query)) {
+        print_error();
+    } else {
+        $c_state="O";
+		update_clockOutState($conn,$c_state,$Username);
+    }
 }
 ?>
 
