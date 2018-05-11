@@ -90,7 +90,7 @@ $conState=mysqli_query($conn, $sqlState);
 
 	 
     <div class="logo">
-        <a href="manager_dashboard.html">
+        <a href="clock_in_employee.php">
             <img class="image_statare" src="statare.png" alt="Statare logo" width="34.65%" height="34.65%"/>
         </a>
 			<ul class="nav" style="margin-top:15%;float:left;">
@@ -151,10 +151,10 @@ $conState=mysqli_query($conn, $sqlState);
         }
 
         /**
-         * Goes to clock_in_employee.php file
+         * Goes to EmployeeDashboard.html file
          */
         function dashboard(){
-		    window.location.replace("clock_in_employee.php");
+		    window.location.replace("EmployeeDashboard.html");
 	    }
 		
     </script>
