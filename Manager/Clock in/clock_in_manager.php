@@ -6,6 +6,8 @@
  * a manager  * can also log on his/her dashboard.
  */
 
+session_start();
+
 /**
  * Find the current state of manager. Manager can be either clocked in,
  * clocked out or on break
@@ -41,7 +43,7 @@ function printError(){
     exit();
 }
 
-session_start();
+
 include('db.php');
 include('clockIn_manager.php');
 include('clockOut_manager.php');
@@ -81,40 +83,24 @@ $conState=mysqli_query($conn, $sqlState);
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body onload="show();">
-
 <div class="header">
 
-    <form action="logout_manager.php" method="post" id="logout_button">
-        <button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-    </form>
+    <form action="logout_manager.php" method="post" id="logout_button">	 	
+		<button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	</form>
 
+	 
     <div class="logo">
-        <a href="clock_in_manager.php">
-             <img src="statare.png" alt="Statare logo" width="50%" height="50%">
+        <a href="manager_dashboard.html">
+            <img class="image_statare" src="statare.png" alt="Statare logo" width="34.65%" height="34.65%"/>
         </a>
-
-        <ul>
-            <div class="nav">
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Language</a>
-                    <div class="dropdown-content">
-                        <a href="#">Ελληνικά</a>
-                        <a href="#">English</a>
-                        <a href="#">Norsk</a>
-                        <a href="#">Polski</a>
-                        <a href="#">Deutsch</a>
-                        <a href="#">Svenska</a>
-                    </div>
-                </li>
-
+			<ul class="nav" style="margin-top:15%;float:left;">
                 <li><a href="contact_manager.php">Contact Us</a></li>
-
-            </div>
-        </ul>
-    </div>
+			</ul>
+	</div>
 </div>
 
-
+<br>				
 <div class="date">
     <b><p id="date"></p></b>
 </div>
@@ -166,10 +152,10 @@ $conState=mysqli_query($conn, $sqlState);
         }
 
         /**
-         * Goes to manager_dashboard.html file
+         * Goes to clock_in_manager.php file
          */
         function dashboard(){
-		    window.location.replace("manager_dashboard.html");
+		    window.location.replace("clock_in_manager.php");
 	    }
 		
     </script>
