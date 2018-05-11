@@ -6,9 +6,10 @@ session_start();
 
 // the username of the employee that is logged in
 $Username = $_SESSION['username'];
+// check if the button Break is pressed
 if (isset($_POST['Break'])) {
     include 'db.php';
-    // select the row that contains the last time a employee clicked Clock in button at the current date
+    // select the row that contains the last time an employee clicked Clock in button at the current date
     $sqlClockedIn = "SELECT AttendanceTime.* FROM (SELECT MAX(AttendanceTime.ClockIn) AS ClockInMax,AttendanceTime.Date,AttendanceTime.Username FROM AttendanceTime WHERE AttendanceTime.Date = curdate() GROUP BY AttendanceTime.Date,AttendanceTime.Username) AS A INNER JOIN AttendanceTime ON (A.Date=AttendanceTime.Date AND A.ClockInMax=AttendanceTime.ClockIn AND A.Username=AttendanceTime.Username) WHERE AttendanceTime.Username LIKE '$Username'";
 	
 	$clockOut="00:00:00";
@@ -41,29 +42,7 @@ if (isset($_POST['Break'])) {
             } elseif ($row['Break'] > $row['ReturnBreak']) {
                 print_error_break_ret();
             } else {
-
-				if(!$flag2){
-					// update the time that employee clicked the button Break with the current one
-					$query = "UPDATE  AttendanceTime SET Break = NOW() WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
-				}else{
-					// update the time that employee clicked the button Clock out with the current one
-					$query = "UPDATE  AttendanceTime SET Break = NOW() WHERE ClockOut='$clockOut'";
-				}
-				
-				// check if query has a problem
-                if (!mysqli_query($conn, $query)) {
-                    print_error();
-                } else {
-                   $c_state="B";
-				   
-				    // change the state of employee
-				   $update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
-
-					// check if query has a problem				   
-				   if (!mysqli_query($conn, $update_state)) {
-						print_error();
-					}
-                }
+				update_break($conn,$Username,$clockOut,$flag2);
             }
         }
 		
@@ -75,7 +54,7 @@ if (isset($_POST['Break'])) {
 }
 
 /**
- * Prints an error message related to the constraint that a employee can not press Break without being clocked in
+ * Prints an error message related to the constraint that an employee can not press Break without being clocked in
  */
 function print_error_break_in(){
 	echo '<script type="text/javascript">alert("You can not press Break without pressing first Clock in!");
@@ -85,13 +64,52 @@ function print_error_break_in(){
 }
 
 /**
- * Prints an error message related to the constraint that a employee can not press Break up to one time if he/she has not pressed Return from Break first
+ * Prints an error message related to the constraint that an employee can not press Break up to one time if he/she has not pressed Return from Break first
  */
 function print_error_break_ret(){
 	echo '<script type="text/javascript">alert("You have already clicked the button Break!");
 		  window.location.replace("clock_in_employee.php");
 		  </script>';
 	exit();
+}
+
+/**
+ * Update the state of the employee to break
+ * @param $conn The connection with the database
+ * @param $c_state The new state of the employee, which is on break
+ * @param $Username The username of the employee
+ */
+function update_breakState($conn,$c_state,$Username){
+	// change the state of employee
+	$update_state = "UPDATE Employee SET State='$c_state' WHERE Username LIKE '$Username'";
+	// check if query has a problem				   
+	if (!mysqli_query($conn, $update_state)) {
+		print_error();
+	}
+}
+
+/**
+ * Update the time of break
+ * @param $conn The connection with the database
+ * @param $Username The username of the employee
+ * @param $clockOut The default value of column ClockOut in the database
+ * @param $flag2 Used to check if employee is clocked in from a previous date or not
+ */
+function update_break($conn,$Username,$clockOut,$flag2){
+	if(!$flag2){
+		// update the time that employee clicked the button Break with the current one
+		$query = "UPDATE  AttendanceTime SET Break = NOW() WHERE ClockIn=(SELECT maxClockIn FROM (SELECT MAX(ClockIn) AS maxClockIn,Date,Username FROM AttendanceTime WHERE Date = curdate() AND Username LIKE '$Username' GROUP BY Date,Username) AS Tmp)";
+	}else{
+		// update the time that employee clicked the button Clock out with the current one
+		$query = "UPDATE  AttendanceTime SET Break = NOW() WHERE ClockOut='$clockOut'";
+	}
+	// check if query has a problem
+    if (!mysqli_query($conn, $query)) {
+        print_error();
+    } else {
+        $c_state="B";
+		update_breakState($conn,$c_state,$Username);
+    }
 }
 ?>
 

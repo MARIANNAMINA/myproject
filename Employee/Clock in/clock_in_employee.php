@@ -1,9 +1,9 @@
 <?php
 /*
- * This page gives the opportunity to a employee to make one of the following actions (depending
+ * This page gives the opportunity to an employee to make one of the following actions (depending
  * on what state he/she is): clock in, clock out, break, return from break. According of what action he/she does
  * the appropriate column is initialized in the database with the current time and date. Also despite these actions,
- * a employee  * can also log on his/her dashboard.
+ * an employee  * can also log on his/her dashboard.
  */
 
 /**
@@ -84,34 +84,19 @@ $conState=mysqli_query($conn, $sqlState);
 
 <div class="header">
 
-    <form action="logout_employee.php" method="post" id="logout_button">
-        <button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
-    </form>
+    <form action="logout_manager.php" method="post" id="logout_button">	 	
+		<button onclick="logout_function()" name="LogOutButton" id="LogOutButton" class="logout">LogOut</button>
+	</form>
 
+	 
     <div class="logo">
-        <a href="clock_in_employee.php">
-             <img src="statare.png" alt="Statare logo" width="50%" height="50%">
+        <a href="manager_dashboard.html">
+            <img class="image_statare" src="statare.png" alt="Statare logo" width="34.65%" height="34.65%"/>
         </a>
-
-        <ul>
-            <div class="nav">
-                <li class="dropdown">
-                    <a href="javascript:void(0)" class="dropbtn">Language</a>
-                    <div class="dropdown-content">
-                        <a href="#">Ελληνικά</a>
-                        <a href="#">English</a>
-                        <a href="#">Norsk</a>
-                        <a href="#">Polski</a>
-                        <a href="#">Deutsch</a>
-                        <a href="#">Svenska</a>
-                    </div>
-                </li>
-
-                <li><a href="contact_employee.php">Contact Us</a></li>
-
-            </div>
-        </ul>
-    </div>
+			<ul class="nav" style="margin-top:15%;float:left;">
+                <li><a href="contact_manager.php">Contact Us</a></li>
+			</ul>
+	</div>
 </div>
 
 
@@ -166,10 +151,10 @@ $conState=mysqli_query($conn, $sqlState);
         }
 
         /**
-         * Goes to employee_dashboard.html file
+         * Goes to clock_in_employee.php file
          */
         function dashboard(){
-		    window.location.replace("EmployeeDashboard.html");
+		    window.location.replace("clock_in_employee.php");
 	    }
 		
     </script>
